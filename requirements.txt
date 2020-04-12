@@ -1,0 +1,5 @@
+social-auth-app-django
+django-ckeditor
+pillow
+pytils
+python-dateutil
