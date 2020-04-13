@@ -9,4 +9,5 @@ urlpatterns = [
     path('oauth/', include('social_django.urls', namespace='social')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('user/', include('customuser.urls')),
+    path('video/', include('video.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

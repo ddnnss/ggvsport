@@ -28,7 +28,7 @@
 			<div class="categories-row">
                 {% for subcat in category.subcat.all %}
 				<div class="categories-col">
-					<a href="#" class="categories-bg" style="background-image: url({{ subcat.image.url }});">
+					<a href="{% url 'subcategory' category.name_slug subcat.name_slug %} " class="categories-bg" style="background-image: url({{ subcat.image.url }});">
 						<span class="categories-name">{{ subcat.name }}</span>
 					</a>
 				</div>

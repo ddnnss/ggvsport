@@ -1,0 +1,188 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}
+    {{ block.super }}
+{% endblock %}
+{% block description %}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+<!-- start article -->
+	<section class="article">
+		<div class="wrapper">
+			<div class="article-row">
+				<div class="article-content">
+					<div class="input-block">
+						<input type="text" name="text" placeholder="">
+						<button class="input-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.32812 9.70312C4.20312 10.5781 5.26562 11.0156 6.51562 11.0156C7.76562 11.0156 8.82812 10.5781 9.70312 9.70312C10.5781 8.82812 11.0156 7.76562 11.0156 6.51562C11.0156 5.26562 10.5781 4.20313 9.70312 3.32812C8.82812 2.45312 7.76562 2.01562 6.51562 2.01562C5.26562 2.01562 4.20312 2.45312 3.32812 3.32812C2.45312 4.20313 2.01562 5.26562 2.01562 6.51562C2.01562 7.76562 2.45312 8.82812 3.32812 9.70312ZM12.5156 11.0156L17.4844 15.9844L15.9844 17.4844L11.0156 12.5156V11.7188L10.7344 11.4375C9.54688 12.4688 8.14062 12.9844 6.51562 12.9844C4.70312 12.9844 3.15625 12.3594 1.875 11.1094C0.625 9.85938 0 8.32812 0 6.51562C0 4.70312 0.625 3.17188 1.875 1.92188C3.15625 0.640625 4.70312 0 6.51562 0C8.32812 0 9.85938 0.640625 11.1094 1.92188C12.3594 3.17188 12.9844 4.70312 12.9844 6.51562C12.9844 8.14062 12.4688 9.54688 11.4375 10.7344L11.7188 11.0156H12.5156Z" fill="#333333"/></svg></button>
+					</div>
+					<div class="article-video">
+						<div class="article-video__wrap">
+							<img src="img/video.jpg" alt="">
+							<div class="video-btn">
+								<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect opacity="0.5" width="80" height="80" rx="40" fill="black"/><path d="M29.375 21.375L58.625 40L29.375 58.625V21.375Z" fill="white"/></svg>
+							</div>
+						</div>
+					</div>
+					<div class="article-info">
+						<h1 class="article-title">{{ video.name }}</h1>
+						<span class="article-category">Категория: <a href="{% url 'category' video.category.name_slug %}">{{ video.category.name }}</a></span>
+						<div class="article-data">
+							<ul class="article-list">
+								<li>
+									<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 5.67969V4H4V5.67969H14ZM14 8.17969V6.5H4V8.17969H14ZM14 10.6797V9H4V10.6797H14ZM17.3203 2.32031V17.3203L14 14H2.32031C1.8776 14 1.48698 13.8307 1.14844 13.4922C0.835938 13.1536 0.679688 12.763 0.679688 12.3203V2.32031C0.679688 1.8776 0.835938 1.5 1.14844 1.1875C1.48698 0.848958 1.8776 0.679688 2.32031 0.679688H15.6797C16.1224 0.679688 16.5 0.848958 16.8125 1.1875C17.151 1.5 17.3203 1.8776 17.3203 2.32031Z" fill="#808080"></path></svg>
+									<span>{{ video.comments }}</span>
+								</li>
+								<li>
+									<svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.24219 5.24219C8.73698 4.7474 9.32292 4.5 10 4.5C10.6771 4.5 11.263 4.7474 11.7578 5.24219C12.2526 5.73698 12.5 6.32292 12.5 7C12.5 7.67708 12.2526 8.26302 11.7578 8.75781C11.263 9.2526 10.6771 9.5 10 9.5C9.32292 9.5 8.73698 9.2526 8.24219 8.75781C7.7474 8.26302 7.5 7.67708 7.5 7C7.5 6.32292 7.7474 5.73698 8.24219 5.24219ZM7.03125 9.96875C7.86458 10.776 8.85417 11.1797 10 11.1797C11.1458 11.1797 12.1224 10.776 12.9297 9.96875C13.763 9.13542 14.1797 8.14583 14.1797 7C14.1797 5.85417 13.763 4.8776 12.9297 4.07031C12.1224 3.23698 11.1458 2.82031 10 2.82031C8.85417 2.82031 7.86458 3.23698 7.03125 4.07031C6.22396 4.8776 5.82031 5.85417 5.82031 7C5.82031 8.14583 6.22396 9.13542 7.03125 9.96875ZM4.41406 2.46875C6.08073 1.32292 7.94271 0.75 10 0.75C12.0573 0.75 13.9193 1.32292 15.5859 2.46875C17.2526 3.61458 18.4505 5.125 19.1797 7C18.4505 8.875 17.2526 10.3854 15.5859 11.5312C13.9193 12.6771 12.0573 13.25 10 13.25C7.94271 13.25 6.08073 12.6771 4.41406 11.5312C2.7474 10.3854 1.54948 8.875 0.820312 7C1.54948 5.125 2.7474 3.61458 4.41406 2.46875Z" fill="#808080"></path></svg>
+									<span>{{ video.views }}</span>
+								</li>
+								<li>
+									<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.42969 4.82031V9.19531L13.1797 11.4219L12.5547 12.4766L8.17969 9.82031V4.82031H9.42969ZM4.27344 13.7266C5.60156 15.0286 7.17708 15.6797 9 15.6797C10.8229 15.6797 12.3854 15.0286 13.6875 13.7266C15.0156 12.3984 15.6797 10.8229 15.6797 9C15.6797 7.17708 15.0156 5.61458 13.6875 4.3125C12.3854 2.98438 10.8229 2.32031 9 2.32031C7.17708 2.32031 5.60156 2.98438 4.27344 4.3125C2.97135 5.61458 2.32031 7.17708 2.32031 9C2.32031 10.8229 2.97135 12.3984 4.27344 13.7266ZM3.10156 3.14062C4.74219 1.5 6.70833 0.679688 9 0.679688C11.2917 0.679688 13.2448 1.5 14.8594 3.14062C16.5 4.75521 17.3203 6.70833 17.3203 9C17.3203 11.2917 16.5 13.2578 14.8594 14.8984C13.2448 16.513 11.2917 17.3203 9 17.3203C6.70833 17.3203 4.74219 16.513 3.10156 14.8984C1.48698 13.2578 0.679688 11.2917 0.679688 9C0.679688 6.70833 1.48698 4.75521 3.10156 3.14062Z" fill="#808080"/></svg>
+									<span>{{ video.created_at |date }}, {{ video.created_at |time }}</span>
+								</li>
+							</ul>
+							<div class="article-btns">
+								<a href="#" class="article-share">
+									<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 12.3984C13.6771 12.3984 14.25 12.6458 14.7188 13.1406C15.1875 13.6094 15.4219 14.1693 15.4219 14.8203C15.4219 15.4974 15.1745 16.0833 14.6797 16.5781C14.2109 17.0469 13.651 17.2812 13 17.2812C12.349 17.2812 11.776 17.0469 11.2812 16.5781C10.8125 16.0833 10.5781 15.4974 10.5781 14.8203C10.5781 14.5599 10.5911 14.3776 10.6172 14.2734L4.71875 10.8359C4.22396 11.2786 3.65104 11.5 3 11.5C2.32292 11.5 1.73698 11.2526 1.24219 10.7578C0.747396 10.263 0.5 9.67708 0.5 9C0.5 8.32292 0.747396 7.73698 1.24219 7.24219C1.73698 6.7474 2.32292 6.5 3 6.5C3.65104 6.5 4.22396 6.72135 4.71875 7.16406L10.5781 3.76562C10.526 3.50521 10.5 3.3099 10.5 3.17969C10.5 2.5026 10.7474 1.91667 11.2422 1.42188C11.737 0.927083 12.3229 0.679688 13 0.679688C13.6771 0.679688 14.263 0.927083 14.7578 1.42188C15.2526 1.91667 15.5 2.5026 15.5 3.17969C15.5 3.85677 15.2526 4.44271 14.7578 4.9375C14.263 5.43229 13.6771 5.67969 13 5.67969C12.375 5.67969 11.8021 5.44531 11.2812 4.97656L5.42188 8.41406C5.47396 8.67448 5.5 8.86979 5.5 9C5.5 9.13021 5.47396 9.32552 5.42188 9.58594L11.3594 13.0234C11.8281 12.6068 12.375 12.3984 13 12.3984Z" fill="#808080"/></svg>
+									Поделиться
+								</a>
+								<div class="article-estimate">
+									<a href="#" class="article-like active">
+										<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#808080"/></svg>
+										{{ video.likes }}
+									</a>
+									<a href="#" class="article-dislike">
+										<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8203 0.5H19.1797V10.5H15.8203V0.5ZM12.5 0.5C12.9427 0.5 13.3333 0.669271 13.6719 1.00781C14.0104 1.34635 14.1797 1.73698 14.1797 2.17969V10.5C14.1797 10.9427 14.0104 11.3333 13.6719 11.6719L8.20312 17.1797L7.30469 16.2812C7.07031 16.0469 6.95312 15.7604 6.95312 15.4219V15.1484L7.77344 11.3203H2.5C2.05729 11.3203 1.66667 11.1641 1.32812 10.8516C0.989583 10.513 0.820312 10.1224 0.820312 9.67969L0.859375 9.60156H0.820312V8C0.820312 7.79167 0.859375 7.58333 0.9375 7.375L3.47656 1.51562C3.73698 0.838542 4.24479 0.5 5 0.5H12.5Z" fill="#808080"/></svg>
+										{{ video.dislikes }}
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="testimonials">
+						<div class="testimonials-main">
+							<div class="testimonials-row">
+								<div class="testimonials-img">
+									<img src="{{ video.user.get_avatar }}" alt="">
+								</div>
+								<div class="testimonials-info">
+									<div class="testimonials-top">
+										<span class="testimonials-name">{{ video.user.get_nickname }}</span>
+									</div>
+									<p>{{ video.description }}</p>
+								</div>
+							</div>
+						</div>
+                        {% if video.comments > 0 %}
+						    <div class="testimonials-row">
+							<div class="testimonials-img">
+								<img src="img/user-2.jpg" alt="">
+							</div>
+							<div class="testimonials-info">
+								<div class="testimonials-top">
+									<span class="testimonials-name">Moonwalker</span>
+									<span class="testimonials-date">3 часа назад</span>
+								</div>
+								<p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
+								<ul class="testimonials-list">
+									<li>
+										<a href="#" class="active">
+											<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#808080"/></svg>
+											482
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8203 0.5H19.1797V10.5H15.8203V0.5ZM12.5 0.5C12.9427 0.5 13.3333 0.669271 13.6719 1.00781C14.0104 1.34635 14.1797 1.73698 14.1797 2.17969V10.5C14.1797 10.9427 14.0104 11.3333 13.6719 11.6719L8.20312 17.1797L7.30469 16.2812C7.07031 16.0469 6.95312 15.7604 6.95312 15.4219V15.1484L7.77344 11.3203H2.5C2.05729 11.3203 1.66667 11.1641 1.32812 10.8516C0.989583 10.513 0.820312 10.1224 0.820312 9.67969L0.859375 9.60156H0.820312V8C0.820312 7.79167 0.859375 7.58333 0.9375 7.375L3.47656 1.51562C3.73698 0.838542 4.24479 0.5 5 0.5H12.5Z" fill="#808080"/></svg>
+											12
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						{% endif %}
+
+
+						<div class="testimonials-form">
+							<form action="">
+								<h3 class="testimonials-title">Оставьте комментарий</h3>
+								<div class="testimonials-form__row">
+									<div class="testimonials-form__img">
+										<img src="img/user-2.jpg" alt="">
+									</div>
+									<div class="testimonials-form__info input-block">
+										<textarea name="text" placeholder="Ваше сообщение"></textarea>
+										<div class="testimonials-form__bottom">
+											<div class="checkbox">
+												<input type="checkbox">
+												<span class="checkbox-ico"></span>
+												<p>Не уведомлять об ответах</p>
+											</div>
+											<button class="main-btn">
+												<svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.679688 15.5V9.67969L13.1797 8L0.679688 6.32031V0.5L18.1797 8L0.679688 15.5Z" fill="white"/></svg>
+												Отправить
+											</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="article-sidebar">
+					<h2 class="article-subtitle">Что смотрят другие</h2>
+					<div class="article-sidebar__row">
+						<div class="article-post">
+							<div class="article-img">
+								<a href="#"><img src="img/article-1.jpg" alt=""></a>
+							</div>
+							<h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
+						</div>
+						<div class="article-post">
+							<div class="article-img">
+								<a href="#"><img src="img/article-1.jpg" alt=""></a>
+							</div>
+							<h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
+						</div>
+						<div class="article-post">
+							<div class="article-img">
+								<a href="#"><img src="img/article-1.jpg" alt=""></a>
+							</div>
+							<h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
+						</div>
+						<div class="article-post">
+							<div class="article-img">
+								<a href="#"><img src="img/article-1.jpg" alt=""></a>
+							</div>
+							<h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
+						</div>
+						<div class="article-post">
+							<div class="article-img">
+								<a href="#"><img src="img/article-1.jpg" alt=""></a>
+							</div>
+							<h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
+						</div>
+						<div class="article-post">
+							<div class="article-img">
+								<a href="#"><img src="img/article-1.jpg" alt=""></a>
+							</div>
+							<h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
+						</div>
+						<div class="article-post">
+							<div class="article-img">
+								<a href="#"><img src="img/article-1.jpg" alt=""></a>
+							</div>
+							<h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end article -->
+{% endblock %}
+{% block js %}
+      {{ block.super }}
+
+{% endblock %}

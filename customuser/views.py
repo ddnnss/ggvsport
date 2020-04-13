@@ -6,6 +6,8 @@ from .forms import SignUpForm,UpdateForm
 from customuser.models import *
 from django.http import JsonResponse, HttpResponseRedirect
 from category.models import Category
+from video.forms import CreateVideo
+from video.forms import *
 import settings
 
 def login_req(request):
@@ -25,6 +27,8 @@ def register(request):
     print(form.errors)
     if form.is_valid():
         new_user = form.save(data)
+        new_user.is_social_reg = False
+        new_user.save()
         login(request, new_user, backend='django.contrib.auth.backends.ModelBackend')
         return HttpResponseRedirect('/')
     else:
@@ -39,6 +43,7 @@ def logout_page(request):
 
 def profile(request):
     if request.user.is_authenticated:
+        own_videos = Video.objects.filter(user=request.user)
         return render(request, 'user/profile.html', locals())
     else:
         return HttpResponseRedirect('/')
@@ -75,7 +80,10 @@ def profile_edit(request):
                     user.fav_category4 = None
 
                 if request.POST.get('old_password'):
-                    success = user.check_password(request.POST['old_password'])
+                    if not user.is_social_reg:
+                        success = user.check_password(request.POST['old_password'])
+                    else:
+                        success = True
                     if success:
                         print('Old pass is good')
                         if request.POST.get('password1') == request.POST.get('password2'):
@@ -97,5 +105,12 @@ def profile_edit(request):
         allCats = Category.objects.all()
         updateForm = UpdateForm()
         return render(request, 'user/profile-edit.html', locals())
+    else:
+        return HttpResponseRedirect('/')
+
+def profile_add(request):
+    if request.user.is_authenticated:
+        form = CreateVideo()
+        return render(request, 'user/profile-add-video.html', locals())
     else:
         return HttpResponseRedirect('/')

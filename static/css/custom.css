@@ -1,0 +1,15 @@
+.not-visible{
+    display: none;
+}
+
+.hover{
+    border-color: #4285f4;
+}
+
+.file-good{
+    border-color: #0bf447;
+}
+
+.file-bad{
+    border-color: #f41f16;
+}

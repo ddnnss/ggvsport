@@ -63,6 +63,7 @@ class User(AbstractUser):
     fav_category4 = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL,
                                       verbose_name='Категория4',
                                       related_name='fav_category4')
+    is_social_reg = models.BooleanField(default=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
