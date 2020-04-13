@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 from django.db.models.signals import post_save
 from category.models import Category
+from pytils.translit import slugify
 
 
 
@@ -44,7 +45,7 @@ class User(AbstractUser):
     username = None
     avatar = models.ImageField('Фото', upload_to='user',blank=True,null=True)
     photo = models.CharField('VK аватар', max_length=255, blank=True, null=True)
-    first_name = models.CharField('Имя', max_length=50, blank=True, null=True)
+    first_name = models.CharField('Имя', max_length=50, blank=True, null=True, default='Mr.Anonim')
     last_name = models.CharField('Фамилия', max_length=50, blank=True, null=True)
     genre = models.BooleanField('Пол мужской?',blank=True, null=True)
     nickname = models.CharField('Ник', max_length=50, blank=True, null=True)
@@ -82,13 +83,13 @@ class User(AbstractUser):
             if self.first_name:
                 return f'{self.first_name}'
             else:
-                return 'Имя не установлено'
+                return 'Аноним'
 
     def get_nickname(self):
         if self.nickname:
             return self.nickname
         else:
-            return 'Ник не установлен'
+            return slugify(self.first_name)
 
     def get_avatar(self):
         if self.avatar:

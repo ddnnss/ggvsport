@@ -3,3 +3,4 @@ django-ckeditor
 pillow
 pytils
 python-dateutil
+opencv-python

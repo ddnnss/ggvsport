@@ -65,7 +65,7 @@ class FavoriteVideo(models.Model):
 class CommentVideo(models.Model):
     user = models.ForeignKey(User, blank=False, null=True, on_delete=models.CASCADE,
                              verbose_name='Пользователь')
-    videos = models.ForeignKey(Video, blank=False, null=True, on_delete=models.CASCADE,
+    video = models.ForeignKey(Video, blank=False, null=True, on_delete=models.CASCADE,
                              verbose_name='Видео')
     comment = models.TextField('Комментарий', blank=False,null=True)
     created_at = models.DateTimeField("Дата добавления", auto_now_add=True)
@@ -80,6 +80,8 @@ class CommentVideo(models.Model):
         verbose_name_plural = "Комментарии"
     def get_likes(self):
         print(self.commentlike_set.all())
+    def get_created_time(self):
+        return f'{self.created_at.strftime("%d.%m.%Y,%H:%M:%S")}'
 
 class CommentLike(models.Model):
     user = models.ForeignKey(User, blank=False, null=True, on_delete=models.CASCADE,
@@ -110,10 +112,8 @@ def video_post_save(sender, instance, created, **kwargs):
         res, im_ar = vcap.read()
         while im_ar.mean() < threshold and res:
             res, im_ar = vcap.read()
-        im_ar = cv2.resize(im_ar, (550, 330), 0, 0, cv2.INTER_LINEAR)
+        im_ar = cv2.resize(im_ar, (770, 410), 0, 0, cv2.INTER_LINEAR)
         cv2.imwrite(f'{instance.name_slug}.jpg', im_ar)
-        # instance.image = f'{bd}/{instance.name_slug}.jpg'
-
         instance.image.save(
             f'{instance.name_slug}.jpg',
             File(open(f'{bd}/{instance.name_slug}.jpg', 'rb'))

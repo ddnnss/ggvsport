@@ -86,7 +86,7 @@ def profile_edit(request):
                         success = True
                     if success:
                         print('Old pass is good')
-                        if request.POST.get('password1') == request.POST.get('password2'):
+                        if request.POST.get('password1') == request.POST.get('password2') and request.POST.get('password1') != '' and request.POST.get('password2') != '':
                             print('Change password')
                             user.set_password(request.POST.get('password1'))
                         else:

@@ -23,9 +23,12 @@ def subcategory(request,slug,subcat_slug):
 
 def video_page(request,slug,subcat_slug,video_slug):
     video = get_object_or_404(Video, name_slug=video_slug)
+    own_video = True
+    all_comments = CommentVideo.objects.filter(video=video).order_by('-created_at')
     if not request.user == video.user:
         video.views +=1
         video.save()
+        own_video = False
     return render(request, 'page/video.html', locals())
 
 
