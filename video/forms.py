@@ -9,6 +9,6 @@ class CreateVideo(ModelForm):
 
     class Meta:
         model = Video
-        fields = ('name', 'file', 'description', 'subcategory' )
+        fields = ('name', 'file', 'description', )
 
 

@@ -13,3 +13,13 @@
 .file-bad{
     border-color: #f41f16;
 }
+
+.article-like,.article-dislike{
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .1s linear;
+}
+
+.article-like:hover,.article-dislike:hover{
+    opacity: 1;
+}

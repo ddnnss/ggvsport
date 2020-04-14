@@ -21,7 +21,7 @@
                             <video width="100%" autobuffer  controls  poster="{{ video.image.url }}" >
                                 <source  src="{{ video.file.url }}">
 
-                                Your browser doesn't support HTML5 video tag.
+
                             </video>
                         </div>
                     </div>
@@ -49,14 +49,14 @@
                                     Поделиться
                                 </a>
                                 <div class="article-estimate">
-                                    <a href="#" class="article-like active">
+                                    <span class="article-like active" onclick="reactionVideo('like')">
                                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#808080"/></svg>
-                                        {{ video.likes }}
-                                    </a>
-                                    <a href="#" class="article-dislike">
+                                        <span id="likes_count">{{ video.get_like_count }}</span>
+                                    </span>
+                                    <span class="article-dislike" onclick="reactionVideo('dislike')">
                                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8203 0.5H19.1797V10.5H15.8203V0.5ZM12.5 0.5C12.9427 0.5 13.3333 0.669271 13.6719 1.00781C14.0104 1.34635 14.1797 1.73698 14.1797 2.17969V10.5C14.1797 10.9427 14.0104 11.3333 13.6719 11.6719L8.20312 17.1797L7.30469 16.2812C7.07031 16.0469 6.95312 15.7604 6.95312 15.4219V15.1484L7.77344 11.3203H2.5C2.05729 11.3203 1.66667 11.1641 1.32812 10.8516C0.989583 10.513 0.820312 10.1224 0.820312 9.67969L0.859375 9.60156H0.820312V8C0.820312 7.79167 0.859375 7.58333 0.9375 7.375L3.47656 1.51562C3.73698 0.838542 4.24479 0.5 5 0.5H12.5Z" fill="#808080"/></svg>
-                                        {{ video.dislikes }}
-                                    </a>
+                                        <span id="dislikes_count">{{ video.get_dislike_count }}</span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                             </div>
                         {% endif %}
 
-                        {% if not own_video %}
+                        {% if not own_video and request.user.is_authenticated %}
                             <div class="testimonials-form">
 
                                 <h3 class="testimonials-title">Оставьте комментарий</h3>
@@ -195,7 +195,6 @@
         let comments = document.getElementById('comments')
         function newComment() {
             let comment = document.getElementById('comment')
-
             let body = {
                 v_id: {{ video.id }},
                 c_from: {{ request.user.id }},
@@ -241,10 +240,28 @@
                         `
                     }
                     comment.value=''
+                })
+        }
 
+        function reactionVideo(type) {
+
+             let body = {
+                v_id: {{ video.id }},
+                r_from: {{ request.user.id }},
+                r_type: type
+            }
+            fetch('/video/reaction_video/', {
+                method: 'post',
+                body: JSON.stringify(body),
+                headers: { "X-CSRFToken": '{{ csrf_token }}' },
+                credentials: 'same-origin'
+            }).then(res=>res.json())
+                .then(res => {
+                    console.log(res)
 
                 })
-
         }
+
+
     </script>
 {% endblock %}

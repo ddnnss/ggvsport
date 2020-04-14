@@ -7,6 +7,13 @@ def index(request):
 
 def category(request,slug):
     category = get_object_or_404(Category, name_slug=slug)
+    all_videos = Video.objects.filter(category=category)
+    try:
+        top2_video = all_videos.order_by('-likes')[:2]
+        top5_video = all_videos.order_by('-likes')[3:6]
+        other_videos = all_videos.exclude(id__in=top2_video).exclude(id__in=top5_video)
+    except:
+        other_videos = all_videos
     return render(request, 'page/category.html', locals())
 
 def subcategory(request,slug,subcat_slug):
@@ -15,7 +22,7 @@ def subcategory(request,slug,subcat_slug):
     try:
         top2_video = all_videos.order_by('-likes')[:2]
         top5_video = all_videos.order_by('-likes')[3:6]
-        other_videos = all_videos.exclude(top2_video).exclude(top5_video)
+        other_videos = all_videos.exclude(id__in=top2_video).exclude(id__in=top5_video)
     except:
         other_videos = all_videos
     return render(request, 'page/subcategory.html', locals())

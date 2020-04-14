@@ -35,7 +35,6 @@ class Video(models.Model):
                 slugRandom = '-' + ''.join(choices(string.ascii_lowercase + string.digits, k=2))
             self.name_slug = slug + slugRandom
         self.name_lower = self.name.lower()
-        self.category = self.subcategory.category
 
 
         super(Video, self).save(*args, **kwargs)
@@ -46,6 +45,15 @@ class Video(models.Model):
     class Meta:
         verbose_name = "Видео"
         verbose_name_plural = "Видео"
+
+    def get_like_count(self):
+        all_likes = VideoLike.objects.filter(video=self,is_like=True)
+        return all_likes.count()
+
+    def get_dislike_count(self):
+        all_likes = VideoLike.objects.filter(video=self,is_dislike=True)
+        return all_likes.count()
+
     def check_favotites(self):
         print(FavoriteVideo.objects.filter(user=self.user))
 
@@ -90,8 +98,6 @@ class CommentLike(models.Model):
                              verbose_name='Комментарий')
     is_like = models.BooleanField('Лайк?', blank=True, null=True)
 
-
-
     def __str__(self):
         return f'Реакция на комментарий : {self.comment.id}'
 
@@ -99,6 +105,20 @@ class CommentLike(models.Model):
         verbose_name = "Реакция на комментарий"
         verbose_name_plural = "Реакция на комментарий"
 
+class VideoLike(models.Model):
+    user = models.ForeignKey(User, blank=False, null=True, on_delete=models.CASCADE,
+                             verbose_name='Пользователь')
+    video = models.ForeignKey(Video, blank=False, null=True, on_delete=models.CASCADE,
+                             verbose_name='Видео')
+    is_like = models.BooleanField('Лайк?', blank=True, null=True, default=None)
+    is_dislike = models.BooleanField('ДизЛайк?', blank=True, null=True, default=None)
+
+    def __str__(self):
+        return f'Реакция на видео : {self.comment.id}'
+
+    class Meta:
+        verbose_name = "Реакция на видео"
+        verbose_name_plural = "Реакция на видео"
 
 def video_post_save(sender, instance, created, **kwargs):
 
