@@ -139,48 +139,15 @@
                 <div class="article-sidebar">
                     <h2 class="article-subtitle">Что смотрят другие</h2>
                     <div class="article-sidebar__row">
-                        <div class="article-post">
+                        {% for video in watch_now_videos %}
+                            <div class="article-post">
                             <div class="article-img">
-                                <a href="#"><img src="img/article-1.jpg" alt=""></a>
+                                <a href="{{ video.get_absolute_url }}"><img src="{{ video.image.url }}" alt=""></a>
                             </div>
-                            <h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
+                            <h3 class="article-name"><a href="{{ video.get_absolute_url }}">{{ video.name }}</a></h3>
                         </div>
-                        <div class="article-post">
-                            <div class="article-img">
-                                <a href="#"><img src="img/article-1.jpg" alt=""></a>
-                            </div>
-                            <h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
-                        </div>
-                        <div class="article-post">
-                            <div class="article-img">
-                                <a href="#"><img src="img/article-1.jpg" alt=""></a>
-                            </div>
-                            <h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
-                        </div>
-                        <div class="article-post">
-                            <div class="article-img">
-                                <a href="#"><img src="img/article-1.jpg" alt=""></a>
-                            </div>
-                            <h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
-                        </div>
-                        <div class="article-post">
-                            <div class="article-img">
-                                <a href="#"><img src="img/article-1.jpg" alt=""></a>
-                            </div>
-                            <h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
-                        </div>
-                        <div class="article-post">
-                            <div class="article-img">
-                                <a href="#"><img src="img/article-1.jpg" alt=""></a>
-                            </div>
-                            <h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
-                        </div>
-                        <div class="article-post">
-                            <div class="article-img">
-                                <a href="#"><img src="img/article-1.jpg" alt=""></a>
-                            </div>
-                            <h3 class="article-name"><a href="#">30 тысяч граждан будут обеспечены постоянной ...</a></h3>
-                        </div>
+                        {% endfor %}
+
                     </div>
                 </div>
             </div>

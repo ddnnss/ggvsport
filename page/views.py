@@ -95,6 +95,11 @@ def video_page(request,video_slug):
     all_comments = CommentVideo.objects.filter(video=video).order_by('-created_at')
     video.is_now_watching = True
     video.start_watch = datetime.now()
+    watch_now_videos = Video.objects.filter(is_now_watching=True, is_moderated=True).exclude(id=video.id)
+    for v in watch_now_videos:
+        if (timezone.now() - v.start_watch) > dt.timedelta(seconds=v.duration):
+            v.is_now_watching = False
+            v.save()
     if request.user.is_authenticated:
         try:
             history = VideoHistory.objects.get(user=request.user)
