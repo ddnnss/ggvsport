@@ -1,3 +1,6 @@
+import json
+
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from category.models import *
 from video.models import *
@@ -5,6 +8,7 @@ import datetime as dt
 from datetime import datetime
 from django.utils import timezone
 from itertools import chain
+from django.db.models import Q
 
 def index(request):
     watch_now_videos = Video.objects.filter(is_now_watching=True, is_moderated=True)
@@ -100,10 +104,27 @@ def video_page(request,video_slug):
             history.video.add(video)
         history.save()
         if not request.user == video.user:
-            video.views +=1
-
+            video.views += 1
             own_video = False
     video.save()
     return render(request, 'page/video.html', locals())
 
+def search(request):
+    q = request.GET.get('query').lower()
+    search_result = Video.objects.filter(Q(name_lower__contains=q) | Q(description__contains=q))
+    return render(request, 'page/search.html', locals())
 
+
+def search_a(request):
+    request_unicode = request.body.decode('utf-8')
+    request_body = json.loads(request_unicode)
+    print(request_body)
+    search_result = Video.objects.filter(Q(name_lower__contains=request_body['query']) | Q(description__contains=request_body['query']))
+
+    return_dict = list()
+    for i in search_result:
+        try:
+            return_dict.append({'url': i.get_absolute_url(), 'name': i.name})
+        except:
+            pass
+    return JsonResponse(return_dict, safe=False)

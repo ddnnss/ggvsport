@@ -3,21 +3,21 @@
 <!-- SKIBORG WAS HERE -->
 <html lang="ru">
 <head>
-	<meta charset="utf-8">
-	<title>{% block title %}block title{% endblock %}</title>
-	<meta name="description" content="{% block description %}   block description {% endblock %}">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!--<meta property="og:image" content="path/to/image.jpg">
-	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">-->
-	<link rel="stylesheet" href="{% static 'css/main.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/custom.css' %}">
-	<meta name="theme-color" content="#000">
-	<meta name="msapplication-navbutton-color" content="#000">
-	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <meta charset="utf-8">
+    <title>{% block title %}block title{% endblock %}</title>
+    <meta name="description" content="{% block description %}   block description {% endblock %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--<meta property="og:image" content="path/to/image.jpg">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">-->
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <meta name="theme-color" content="#000">
+    <meta name="msapplication-navbutton-color" content="#000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
 </head>
 <body>
 <form style="display: none" id="dummy_form" >{% csrf_token %}</form>
@@ -27,9 +27,48 @@
 {% include 'footer.html' %}
 
 {% block js %}
-   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="{% static 'js/common.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    <script>
+    let search_result = document.getElementById('search_result')
+        function search(el) {
 
+            if (el.value.length <= 2){
+                console.log('too small')
+                search_result.classList.remove('search-results-active')
+                return
+            }else{
+                console.log(el.value)
+                el.disabled = true
+                let body = {'query':el.value}
+                fetch('/search_a', {
+                    method: 'post',
+                    body: JSON.stringify(body),
+                    headers: { "X-CSRFToken": '{{ csrf_token }}' },
+                    credentials: 'same-origin'
+                }).then(res=>res.json())
+                    .then(res => {
+                        console.log(res)
+                        el.disabled = false
+                        el.focus()
+                        if (res.length >= 1){
+                            console.log('+')
+                            search_result.innerHTML = ''
+                            for(i of res){
+                                search_result.innerHTML = search_result.innerHTML +
+                                    `  <a href="${i['url']}">${i['name']}</a>`
+                                }
+                            search_result.classList.add('search-results-active')
+                        }
+                        else
+                            {
+                                search_result.classList.remove('search-results-active')
+
+                            }
+                    })
+            }
+        }
+    </script>
 {% endblock %}
 </body>
 </html>

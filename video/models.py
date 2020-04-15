@@ -30,9 +30,9 @@ class Video(models.Model):
     is_moderated = models.BooleanField('Проверено?', default=True)
     is_now_watching = models.BooleanField('Смотрят?', default=False)
     start_watch = models.DateTimeField(blank=True,null=True)
-    created_at = models.DateTimeField("Дата добавления", auto_now_add=True)    
-    
-    
+    created_at = models.DateTimeField("Дата добавления", auto_now_add=True)
+
+
     def save(self, *args, **kwargs):
         slug = slugify(self.name)
         if not self.name_slug:
@@ -43,7 +43,8 @@ class Video(models.Model):
             self.name_slug = slug + slugRandom
         self.name_lower = self.name.lower()
         super(Video, self).save(*args, **kwargs)
-        
+    def get_absolute_url(self):
+        return f'/video/{self.name_slug}'
 
     def __str__(self):
         return f'Видео : {self.name}'
@@ -51,7 +52,7 @@ class Video(models.Model):
     class Meta:
         verbose_name = "Видео"
         verbose_name_plural = "Видео"
-   
+
 
 
 class FavoriteVideo(models.Model):
@@ -85,10 +86,10 @@ class CommentVideo(models.Model):
     class Meta:
         verbose_name = "Комментарий"
         verbose_name_plural = "Комментарии"
-    
+
     def get_created_time(self):
         return f'{self.created_at.strftime("%d.%m.%Y,%H:%M:%S")}'
-    
+
 
 class CommentLike(models.Model):
     user = models.ForeignKey(User, blank=False, null=True, on_delete=models.CASCADE,
@@ -103,7 +104,7 @@ class CommentLike(models.Model):
     class Meta:
         verbose_name = "Реакция на комментарий"
         verbose_name_plural = "Реакция на комментарий"
-        
+
 
 class VideoLike(models.Model):
     user = models.ManyToManyField(User, blank=True,  verbose_name='Пользователь')

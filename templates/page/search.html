@@ -1,0 +1,29 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}
+    {{ block.super }}
+{% endblock %}
+{% block description %}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+    <section class="pageName" style="background-image: url(img/pattern-football.svg);">
+        <div class="wrapper">
+            <h1 class="page-title">Результат поиска по запросу {{ q }}</h1>
+
+        </div>
+    </section>
+    <section class="watching watching-second">
+        <div class="wrapper">
+
+            <div class="post-row">
+               {% for video in search_result %}
+                    {% include 'page/_video-card-small.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+{% endblock %}
