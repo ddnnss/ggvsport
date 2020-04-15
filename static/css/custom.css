@@ -14,12 +14,16 @@
     border-color: #f41f16;
 }
 
-.article-like,.article-dislike{
+.article-like,.article-dislike,.testimonials-list li span{
     cursor: pointer;
     opacity: .8;
     transition: opacity .1s linear;
 }
 
-.article-like:hover,.article-dislike:hover{
+.article-like:hover,.article-dislike:hover,.testimonials-list li span:hover{
     opacity: 1;
+}
+
+.testimonials-list li span.active svg path {
+    fill: #ef6969;
 }

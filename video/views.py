@@ -12,7 +12,7 @@ def new_video(request):
         video = form.save(commit=False)
         video.user = request.user
         video.category_id = request.POST.get('category')
-        if request.POST.get('subcategory'):
+        if request.POST.get('subcategory') != '0':
             video.subcategory_id = request.POST.get('subcategory')
         video.save()
         return HttpResponseRedirect('/user/profile/#tab-1')
@@ -22,32 +22,122 @@ def new_video(request):
 
 
 def reaction_video(request):
-    body_unicode = request.body.decode('utf-8')
-    body = json.loads(body_unicode)
-    video = Video.objects.get(id=body['v_id'])
-    user_id = body['r_from']
-    print(video)
-    video_is_like = False
-    if body['r_type'] == 'like':
-        print('like')
-        video_is_like = True
-    reaction = None
-    try:
-        reaction = VideoLike.objects.get(video=video,user_id=user_id)
-        reaction.delete()
-        print(reaction.is_like)
-        print('Reaction found')
-    except:
-        print('Reaction NOT found')
-        VideoLike.objects.create(video=video,user_id=user_id,is_like=video_is_like)
+    if request.user.is_authenticated:
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        video = Video.objects.get(id=body['v_id'])
+        user_id = str(body['r_from'])
+        print(video)
+        video_is_like = False
+        all_likes = video.liked_by_users.split(',')
+        all_dislikes = video.disliked_by_users.split(',')
+        try:
+            fav = FavoriteVideo.objects.get(user_id=user_id)
+        except:
+            fav = FavoriteVideo.objects.create(user_id=user_id)
+        if body['r_type'] == 'like':
+            print('like')
+            video_is_like = True
+
+        if video_is_like:
+            print('all_likes',all_likes)
+            if not user_id in all_likes:
+                all_likes.append(user_id)
+                video.likes +=1
+                fav.videos.add(video)
+                print('set like')
+                if user_id in all_dislikes:
+                    all_dislikes.remove(user_id)
+                    video.dislikes -= 1
+                    print('retset dislike')
+                    video.disliked_by_users = ','.join(all_dislikes)
+                video.liked_by_users = ','.join(all_likes)
+            else:
+                all_likes.remove(user_id)
+                video.likes -= 1
+                print('retset like')
+                fav.videos.remove(video)
+                video.liked_by_users = ','.join(all_likes)
 
 
+        else:
+            print('all_dislikes', all_dislikes)
+            if not user_id in all_dislikes:
+                all_dislikes.append(user_id)
+                video.dislikes += 1
+                fav.videos.remove(video)
+                print('set dislike')
+                if user_id in all_likes:
+                    all_likes.remove(user_id)
+                    video.likes -= 1
+                    print('retset like')
+                    video.liked_by_users = ','.join(all_likes)
+                video.disliked_by_users = ','.join(all_dislikes)
+            else:
+                all_dislikes.remove(user_id)
+                video.dislikes -= 1
+                print('retset dislike')
+                video.disliked_by_users = ','.join(all_dislikes)
+        video.save()
+        return JsonResponse({'likes':video.likes,'dislikes':video.dislikes})
+    else:
+        return JsonResponse({'status': 'not auth'})
+
+def reaction_comment(request):
+    if request.user.is_authenticated:
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        comment = CommentVideo.objects.get(id=body['c_id'])
+        user_id = str(body['r_from'])
+        print(comment)
+        video_is_like = False
+        all_likes = comment.liked_by_users.split(',')
+        all_dislikes = comment.disliked_by_users.split(',')
+        if body['r_type'] == 'like':
+            print('like')
+            video_is_like = True
+
+        if video_is_like:
+            print('all_likes',all_likes)
+            if not user_id in all_likes:
+                all_likes.append(user_id)
+                comment.likes +=1
+                print('set like')
+                if user_id in all_dislikes:
+                    all_dislikes.remove(user_id)
+                    comment.dislikes -= 1
+                    print('retset dislike')
+                    comment.disliked_by_users = ','.join(all_dislikes)
+                comment.liked_by_users = ','.join(all_likes)
+            else:
+                all_likes.remove(user_id)
+                comment.likes -= 1
+                print('retset like')
+                comment.liked_by_users = ','.join(all_likes)
 
 
+        else:
+            print('all_dislikes', all_dislikes)
+            if not user_id in all_dislikes:
+                all_dislikes.append(user_id)
+                comment.dislikes += 1
+                print('set dislike')
+                if user_id in all_likes:
+                    all_likes.remove(user_id)
+                    comment.likes -= 1
+                    print('retset like')
+                    comment.liked_by_users = ','.join(all_likes)
+                comment.disliked_by_users = ','.join(all_dislikes)
+            else:
+                all_dislikes.remove(user_id)
+                comment.dislikes -= 1
+                print('retset dislike')
+                comment.disliked_by_users = ','.join(all_dislikes)
+        comment.save()
+        return JsonResponse({'likes':comment.likes,'dislikes':comment.dislikes})
+    else:
+        return JsonResponse({'status': 'not auth'})
 
-
-
-    return JsonResponse({'status':'ok'})
 def add_comment_video(request):
     return_dict = {}
     comments = []

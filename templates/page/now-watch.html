@@ -20,23 +20,23 @@
     </section>
     <section class="watching watching-second">
         <div class="wrapper">
-            {% if top2_video %}
+            {% if top2_watch_now_videos %}
                 <div class="section-top">
                     <h2 class="section-title">Топ в этой категории</h2>
                 </div>
                 <div class="post-row post-row__big">
-                    {% for video in top2_video %}
+                    {% for video in top2_watch_now_videos %}
                         {% include 'page/_video-card-big.html' %}
                     {% endfor %}
                 </div>
             {% endif %}
             <div class="post-row">
-                {% if top5_video %}
-                    {% for video in top5_video %}
+                {% if top5_watch_now_videos %}
+                    {% for video in top5_watch_now_videos %}
                         {% include 'page/_video-card-med.html' %}
                     {% endfor %}
                 {% endif %}
-                {% for video in other_videos %}
+                {% for video in other_watch_now_videos %}
                     {% include 'page/_video-card-small.html' %}
                 {% endfor %}
             </div>

@@ -6,7 +6,7 @@ from .forms import SignUpForm,UpdateForm
 from customuser.models import *
 from django.http import JsonResponse, HttpResponseRedirect
 from category.models import Category
-from video.forms import CreateVideo
+from video.models import *
 from video.forms import *
 import settings
 
@@ -44,6 +44,10 @@ def logout_page(request):
 def profile(request):
     if request.user.is_authenticated:
         own_videos = Video.objects.filter(user=request.user)
+        try:
+            fav_videos = FavoriteVideo.objects.get(user=request.user)
+        except:
+            fav_videos = FavoriteVideo.objects.create(user=request.user)
         return render(request, 'user/profile.html', locals())
     else:
         return HttpResponseRedirect('/')
@@ -112,5 +116,15 @@ def profile_add(request):
     if request.user.is_authenticated:
         form = CreateVideo()
         return render(request, 'user/profile-add-video.html', locals())
+    else:
+        return HttpResponseRedirect('/')
+
+def profile_history(request):
+    if request.user.is_authenticated:
+        try:
+            history_videos = VideoHistory.objects.get(user=request.user)
+        except:
+            history_videos = None
+        return render(request, 'user/profile-history.html', locals())
     else:
         return HttpResponseRedirect('/')

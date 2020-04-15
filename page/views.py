@@ -1,8 +1,51 @@
 from django.shortcuts import render, get_object_or_404
 from category.models import *
 from video.models import *
+import datetime as dt
+from datetime import datetime
+from django.utils import timezone
+from itertools import chain
 
 def index(request):
+    watch_now_videos = Video.objects.filter(is_now_watching=True, is_moderated=True)
+    for v in watch_now_videos:
+        print(v.start_watch)
+        print(v.duration)
+        print(timezone.now() - v.start_watch)
+        print((timezone.now() - v.start_watch) > dt.timedelta(seconds=v.duration))
+        if (timezone.now() - v.start_watch) > dt.timedelta(seconds=v.duration):
+            v.is_now_watching = False
+            v.save()
+    if watch_now_videos:
+        try:
+            top2_watch_now_videos = watch_now_videos.order_by('-likes')[:2]
+            other_watch_now_videos = watch_now_videos.exclude(id__in=top2_watch_now_videos)
+        except:
+            other_watch_now_videos = watch_now_videos
+    if request.user.is_authenticated:
+        user=request.user
+        fav_videos1 = []
+        fav_videos2 = []
+        fav_videos3 = []
+        fav_videos4 = []
+        if user.fav_category1:
+            fav_videos1 = Video.objects.filter(category=user.fav_category1).order_by('-likes')
+        if user.fav_category2:
+            fav_videos2 = Video.objects.filter(category=user.fav_category2).order_by('-likes')
+        if user.fav_category3:
+            fav_videos3 = Video.objects.filter(category=user.fav_category3).order_by('-likes')
+        if user.fav_category4:
+            fav_videos4 = Video.objects.filter(category=user.fav_category4).order_by('-likes')
+        all_recomended_videos = list(chain(fav_videos1, fav_videos2, fav_videos3, fav_videos4))
+        if all_recomended_videos:
+            try:
+                top3_all_recomended_videos = all_recomended_videos[:3]
+                other_all_recomended_videos = set(all_recomended_videos) - set(top3_all_recomended_videos)
+                print(other_all_recomended_videos)
+
+            except:
+                other_all_recomended_videos = all_recomended_videos
+
     return render(request, 'page/index.html', locals())
 
 def category(request,slug):
@@ -27,15 +70,40 @@ def subcategory(request,slug,subcat_slug):
         other_videos = all_videos
     return render(request, 'page/subcategory.html', locals())
 
+def watch_now(request):
+    watch_now_videos = Video.objects.filter(is_now_watching=True, is_moderated=True)
+    for v in watch_now_videos:
+        if (timezone.now() - v.start_watch) > dt.timedelta(seconds=v.duration):
+            v.is_now_watching = False
+            v.save()
+    if watch_now_videos:
+        try:
+            top2_watch_now_videos = watch_now_videos.order_by('-likes')[:2]
+            top5_watch_now_videos = watch_now_videos.order_by('-likes')[3:6]
+            other_watch_now_videos = watch_now_videos.exclude(id__in=top2_watch_now_videos).exclude(id__in=top5_watch_now_videos)
+        except:
+            other_watch_now_videos = watch_now_videos
 
-def video_page(request,slug,subcat_slug,video_slug):
+    return render(request, 'page/now-watch.html', locals())
+def video_page(request,video_slug):
     video = get_object_or_404(Video, name_slug=video_slug)
     own_video = True
     all_comments = CommentVideo.objects.filter(video=video).order_by('-created_at')
-    if not request.user == video.user:
-        video.views +=1
-        video.save()
-        own_video = False
+    video.is_now_watching = True
+    video.start_watch = datetime.now()
+    if request.user.is_authenticated:
+        try:
+            history = VideoHistory.objects.get(user=request.user)
+            history.video.add(video)
+        except:
+            history = VideoHistory.objects.create(user=request.user)
+            history.video.add(video)
+        history.save()
+        if not request.user == video.user:
+            video.views +=1
+
+            own_video = False
+    video.save()
     return render(request, 'page/video.html', locals())
 
 
