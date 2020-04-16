@@ -149,6 +149,7 @@ def add_comment_video(request):
     comment.video.save()
     for c in comment.video.commentvideo_set.all().order_by('-created_at'):
         comments.append({
+            'id': c.id,
             'avatar': c.user.get_avatar(),
             'nickname': c.user.get_nickname(),
             'likes': c.likes,
