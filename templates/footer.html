@@ -30,7 +30,7 @@
      <div class="modal-overlay"></div>
 	<div class="modal" id="modal-registration">
 		<div class="modal-content">
-			<form action="{% url 'register' %}" method="post">{% csrf_token %}
+			<form onsubmit="reg(event)">
 				<h3 class="modal-title">Регистрация</h3>
 				<span class="modal-subtitle">Займет всего пару секунд!</span>
 				<div class="modal-social">
@@ -40,27 +40,30 @@
 						<li><a href="/oauth/login/google-oauth2" class="modal-go"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.24 10.2507V13.8135H17.5308C17.4306 14.4382 17.205 15.0362 16.8677 15.5715C16.5304 16.1068 16.0883 16.5683 15.568 16.9283C14.5857 17.587 13.4222 17.9226 12.24 17.8883C11.0261 17.8812 9.84521 17.492 8.86494 16.7759C7.88467 16.0599 7.15477 15.0533 6.7788 13.8991C6.569 13.2878 6.4609 12.6462 6.4588 11.9999C6.46261 11.3547 6.56693 10.7141 6.768 10.1011C7.14768 8.94701 7.88001 7.94121 8.86175 7.22551C9.84349 6.5098 11.0251 6.12029 12.24 6.11188C13.6156 6.0904 14.946 6.60264 15.952 7.54108L18.6612 4.89588C16.9235 3.26576 14.6224 2.3713 12.24 2.39988C10.6019 2.3992 8.9909 2.81787 7.5604 3.61603C6.12991 4.41419 4.92755 5.56526 4.06783 6.95962C3.20811 8.35398 2.71964 9.94521 2.64895 11.5818C2.57827 13.2184 2.92771 14.8458 3.664 16.3091C4.46209 17.8996 5.68687 19.2368 7.20138 20.1712C8.7159 21.1055 10.4605 21.6002 12.24 21.5999C14.5784 21.666 16.8533 20.8339 18.5972 19.2747C20.4108 17.5999 21.456 15.1359 21.456 12.2131C21.4674 11.553 21.3993 10.894 21.2532 10.2503L12.24 10.2507Z" fill="#4285F4"/></svg></a></li>
 					</ul>
 				</div>
+                <div id="reg_form_error" class="form-error not-visible">
+                    <p id="error_text" class="color-red">Проверьте введенные данные</p>
+                </div>
 				<div class="input-block">
-					<label for="i-1">Через почту</label>
-					<input id="i-1" required type="email" name="email" placeholder="E-mail">
+					<label for="email_reg">Через почту</label>
+					<input id="email_reg" required type="email" name="email" placeholder="E-mail">
 				</div>
 				<div class="input-block">
-					<input type="password" required name="password1" placeholder="Пароль">
+					<input id="password1_reg" type="password" required name="password1" placeholder="Пароль">
 					<p>Пароль должен содержать хотя бы 8 символов</p>
 				</div>
 				<div class="input-block">
-					<input type="password" required name="password2" placeholder="Повторите пароль">
+					<input id="password2_reg" type="password" required name="password2" placeholder="Повторите пароль">
 				</div>
 				<div class="modal-text">
 					<p>Нажимая “Готово”, Вы соглашаетесь с <a href="#">Условиями использования</a> и <a href="#">Политикой конфиденциальности</a>.</p>
 				</div>
-				<button class="main-btn">Регистрация</button>
+				<button type="submit" class="main-btn" >Регистрация</button>
 			</form>
 		</div>
 	</div>
 	<div class="modal" id="modal-login">
 		<div class="modal-content">
-			<form action="{% url 'login_req' %}" method="post">{% csrf_token %}
+			<form onsubmit="login(event)">
 				<h3 class="modal-title">Авторизуйтесь</h3>
 				<span class="modal-subtitle">Займет всего пару секунд!</span>
 				<div class="modal-social">
@@ -70,18 +73,21 @@
 						<li><a href="/oauth/login/google-oauth2" class="modal-go"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.24 10.2507V13.8135H17.5308C17.4306 14.4382 17.205 15.0362 16.8677 15.5715C16.5304 16.1068 16.0883 16.5683 15.568 16.9283C14.5857 17.587 13.4222 17.9226 12.24 17.8883C11.0261 17.8812 9.84521 17.492 8.86494 16.7759C7.88467 16.0599 7.15477 15.0533 6.7788 13.8991C6.569 13.2878 6.4609 12.6462 6.4588 11.9999C6.46261 11.3547 6.56693 10.7141 6.768 10.1011C7.14768 8.94701 7.88001 7.94121 8.86175 7.22551C9.84349 6.5098 11.0251 6.12029 12.24 6.11188C13.6156 6.0904 14.946 6.60264 15.952 7.54108L18.6612 4.89588C16.9235 3.26576 14.6224 2.3713 12.24 2.39988C10.6019 2.3992 8.9909 2.81787 7.5604 3.61603C6.12991 4.41419 4.92755 5.56526 4.06783 6.95962C3.20811 8.35398 2.71964 9.94521 2.64895 11.5818C2.57827 13.2184 2.92771 14.8458 3.664 16.3091C4.46209 17.8996 5.68687 19.2368 7.20138 20.1712C8.7159 21.1055 10.4605 21.6002 12.24 21.5999C14.5784 21.666 16.8533 20.8339 18.5972 19.2747C20.4108 17.5999 21.456 15.1359 21.456 12.2131C21.4674 11.553 21.3993 10.894 21.2532 10.2503L12.24 10.2507Z" fill="#4285F4"/></svg></a></li>
 					</ul>
 				</div>
+                <div id="login_form_error" class="form-error not-visible">
+                    <p class="color-red">Проверьте введенные данные</p>
+                </div>
 				<div class="input-block">
-					<label for="i-2">Через почту</label>
-					<input id="i-2" type="email" required name="email" placeholder="E-mail">
+					<label for="email_login">Через почту</label>
+					<input id="email_login" type="email" required name="email" placeholder="E-mail">
 				</div>
 				<div class="input-block">
-					<input type="password" required name="password" placeholder="Пароль">
+					<input id="password_login" type="password" required name="password" placeholder="Пароль">
 				</div>
 				<a href="#modal-forgot" class="button-modal help">
 					<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.03125 6.5C9.44792 6.08333 9.65625 5.58333 9.65625 5C9.65625 4.27083 9.39583 3.64583 8.875 3.125C8.35417 2.60417 7.72917 2.34375 7 2.34375C6.27083 2.34375 5.64583 2.60417 5.125 3.125C4.60417 3.64583 4.34375 4.27083 4.34375 5H5.65625C5.65625 4.64583 5.79167 4.33333 6.0625 4.0625C6.33333 3.79167 6.64583 3.65625 7 3.65625C7.35417 3.65625 7.66667 3.79167 7.9375 4.0625C8.20833 4.33333 8.34375 4.64583 8.34375 5C8.34375 5.35417 8.20833 5.66667 7.9375 5.9375L7.125 6.78125C6.60417 7.34375 6.34375 7.96875 6.34375 8.65625V9H7.65625C7.65625 8.3125 7.91667 7.6875 8.4375 7.125L9.03125 6.5ZM7.65625 11.6562V10.3438H6.34375V11.6562H7.65625ZM2.28125 2.3125C3.59375 1 5.16667 0.34375 7 0.34375C8.83333 0.34375 10.3958 1 11.6875 2.3125C13 3.60417 13.6562 5.16667 13.6562 7C13.6562 8.83333 13 10.4062 11.6875 11.7188C10.3958 13.0104 8.83333 13.6562 7 13.6562C5.16667 13.6562 3.59375 13.0104 2.28125 11.7188C0.989583 10.4062 0.34375 8.83333 0.34375 7C0.34375 5.16667 0.989583 3.60417 2.28125 2.3125Z" fill="#689CD8"/></svg>
 					Забыл пароль
 				</a>
-				<button class="main-btn">Войти</button>
+				<button type="submit" class="main-btn">Войти</button>
 				<div class="modal-bottom">
 					<p>Нет аккаунта? <a href="#modal-registration" class="button-modal">Зарегистрируйтесь</a></p>
 				</div>

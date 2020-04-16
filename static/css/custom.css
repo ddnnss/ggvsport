@@ -62,3 +62,16 @@
 .search-results a:hover{
     color: #ef6969;
 }
+
+.form-error{
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px dashed #ef6969;
+    padding: 10px 0;
+}
+
+.color-red{
+    color: #ef6969;
+    text-transform: uppercase;
+    font-size: 12px;
+}

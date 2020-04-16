@@ -1,3 +1,5 @@
+import json
+
 from django.contrib import messages
 
 from django.contrib.auth import login, logout,authenticate
@@ -11,29 +13,33 @@ from video.forms import *
 import settings
 
 def login_req(request):
-    user = authenticate(username=request.POST.get('email'), password=request.POST.get('password'))
+    request_unicode = request.body.decode('utf-8')
+    request_body = json.loads(request_unicode)
+    print(request_body)
+    user = authenticate(username=request_body['email'], password=request_body['password'])
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect("/user/profile")
+        return JsonResponse({'status': 'success'}, safe=False)
     else:
-        messages.success(request, 'Проверьте введенные данные')
-        return HttpResponseRedirect('/login')
+        return JsonResponse({'status':'error'}, safe=False)
 
 def register(request):
     print(request.POST)
+    request_unicode = request.body.decode('utf-8')
+    request_body = json.loads(request_unicode)
     data = request.POST.copy()
 
-    form = SignUpForm(data)
+    form = SignUpForm(request_body)
     print(form.errors)
     if form.is_valid():
         new_user = form.save(data)
         new_user.is_social_reg = False
         new_user.save()
         login(request, new_user, backend='django.contrib.auth.backends.ModelBackend')
-        return HttpResponseRedirect('/')
+        return JsonResponse({'status': 'success'}, safe=False)
     else:
-        form = SignUpForm()
-    return HttpResponseRedirect("/")
+
+        return JsonResponse({'status':'error','errors': form.errors}, safe=False)
 
 
 def logout_page(request):
