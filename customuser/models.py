@@ -75,7 +75,10 @@ class User(AbstractUser):
             return self.nickname
         else:
             return self.email
-
+    def get_published_videos(self):
+        return self.video_set.filter(is_moderated=True).count()
+    def get_unpublished_videos(self):
+        return self.video_set.filter(is_moderated=False).count()
     def get_name(self):
         if self.last_name:
             return f'{self.last_name} {self.first_name}'

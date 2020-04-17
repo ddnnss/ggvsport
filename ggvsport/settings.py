@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'customuser.apps.CustomuserConfig',
     'page.apps.PageConfig',
     'category.apps.CategoryConfig',
-    'video.apps.VideoConfig'
+    'video.apps.VideoConfig',
+    'adminPanel'
 ]
 
 AUTHENTICATION_BACKENDS = (
