@@ -1,5 +1,6 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}
     {{ block.super }}
 {% endblock %}
@@ -12,46 +13,46 @@
         <div class="wrapper">
             <form action="{% url 'new_video' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
                 <div class="personalArea-top">
-                    <h1 class="page-title">Новое видео</h1>
+                    <h1 class="page-title">{% trans 'Новое видео'%}</h1>
                     <button id="submit_btn_d" type="submit" class="personalArea-btn ">
                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
-                        Опубликовать
+                        {% trans 'Опубликовать'%}
                     </button>
                 </div>
                 <div class="personalArea-download">
-                    <span class="personalArea-subtitle">Загрузите видео сюда</span>
+                    <span class="personalArea-subtitle">{% trans 'Загрузите видео сюда'%}</span>
                     <div id="holder" class="input-download">
                         <input id="file" type="file" name="{{ form.file.name }}" accept=".mp4, .3gp, .mov, .avi, .wmv">
 
-                        <p id="download_text" class="download-text">Для загрузки видео нажмите на “+”</p>
+                        <p id="download_text" class="download-text">{% trans 'Для загрузки видео нажмите на '%}“+”</p>
                         <div id="download_info" class="download-info not-visible">
                             <span class="download-name"><b id="fileDragName"></b> (<span id="fileDragSize"></span> MB)</span>
                             <ul class="article-settings">
                                 <li><a href="#" class="link-editing">
                                     <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.8203 6.82031H6.82031V11.8203H5.17969V6.82031H0.179688V5.17969H5.17969V0.179688H6.82031V5.17969H11.8203V6.82031Z" fill="#0088CC"></path></svg></span>
-                                    Загрузить заново
+                                    {% trans 'Загрузить заново'%}
                                 </a></li>
                                 <li><a href="#">
                                     <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1797 12.0078L10.1719 9L13.1797 5.99219L12.0078 4.82031L9 7.82812L5.99219 4.82031L4.82031 5.99219L7.82812 9L4.82031 12.0078L5.99219 13.1797L9 10.1719L12.0078 13.1797L13.1797 12.0078ZM3.10156 3.14062C4.74219 1.5 6.70833 0.679688 9 0.679688C11.2917 0.679688 13.2448 1.5 14.8594 3.14062C16.5 4.75521 17.3203 6.70833 17.3203 9C17.3203 11.2917 16.5 13.2578 14.8594 14.8984C13.2448 16.513 11.2917 17.3203 9 17.3203C6.70833 17.3203 4.74219 16.513 3.10156 14.8984C1.48698 13.2578 0.679688 11.2917 0.679688 9C0.679688 6.70833 1.48698 4.75521 3.10156 3.14062Z" fill="#808080"></path></svg></span>
-                                    Удалить
+                                   {% trans 'Удалить'%}
                                 </a></li>
                             </ul>
                         </div>
                         <div id="download_ico" class="download-ico">
                             <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="45" cy="45" r="45" fill="#0088CC"/><path d="M59.5508 47.0508H47.0508V59.5508H42.9492V47.0508H30.4492V42.9492H42.9492V30.4492H47.0508V42.9492H59.5508V47.0508Z" fill="white"/></svg>
                         </div>
-                        <p id="download_text1" class="download-text"><b>Поддерживаемые форматы:</b> MP4, 3GP, MOV, AVI, WMV. <b>Максимальный размер:</b> 500MB.</p>
+                        <p id="download_text1" class="download-text"><b>{% trans 'Поддерживаемые форматы'%}:</b> MP4, 3GP, MOV, AVI, WMV. <b>Максимальный размер:</b> 500MB.</p>
                     </div>
                     <div class="personalArea-bottom">
-                        <span class="personalArea-subtitle">Опишите видео</span>
+                        <span class="personalArea-subtitle">{% trans 'Опишите видео'%}</span>
                         <div class="personalArea-bottom__row">
                             <div class="personalArea-bottom__col">
                                 <div class="input-block">
-                                    <label for="k-1">Название для видео *</label>
-                                    <input required id="k-1" type="text" name="{{form.name.name}}" placeholder="Название">
+                                    <label for="k-1">{% trans 'Название для видео'%} *</label>
+                                    <input required id="k-1" type="text" name="{{form.name.name}}" placeholder="{% trans 'Название'%}">
                                 </div>
                                 <div class="input-block">
-                                    <label for="k-2">Категория *</label>
+                                    <label for="k-2">{% trans 'Категория'%} *</label>
                                     <select id="category" required name="category">
                                         {% for cat in all_cats %}
                                             <option value="{{cat.id}}">{{ cat.name }}</option>
@@ -59,9 +60,9 @@
                                     </select>
                                 </div>
                                 <div class="input-block">
-                                    <label for="k-2">Подкатегория</label>
+                                    <label for="k-2">{% trans 'Подкатегория'%}</label>
                                     <select id="subcategory" name="subcategory">
-                                        <option value="0">Выберите...</option>
+                                        <option value="0">{% trans 'Выберите'%}...</option>
                                         {% for subcat in all_cats.first.subcat.all %}
                                             <option class="subcat-name" value="{{subcat.id}}">{{ subcat.name }}</option>
                                         {% endfor %}
@@ -73,10 +74,10 @@
                             <div class="personalArea-bottom__col">
                                 <div class="input-block">
                                     <div class="input-block__top">
-                                        <label for="k-3">Описание *</label>
+                                        <label for="k-3">{% trans 'Описание'%} *</label>
                                         <span>0/500</span>
                                     </div>
-                                    <textarea required name="{{ form.description.name }}" placeholder="Описание видео"></textarea>
+                                    <textarea required name="{{ form.description.name }}" placeholder="{% trans 'Описание видео'%}"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +86,7 @@
                 <div class="personalArea-mob">
                     <button id="submit_btn_m" type="submit"  class="personalArea-btn">
                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
-                        Опубликовать
+                        {% trans 'Опубликовать'%}
                     </button>
                 </div>
             </form>

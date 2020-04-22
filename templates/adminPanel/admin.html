@@ -32,19 +32,19 @@
                     </div>
                 </div>
                 <ul class="profile-list tab-list">
-                    <li><a href="#tab-1" class="active">
+                    <li><a id="btn_tab-1" href="#tab-1" >
                         <span><svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1797 3.75L15.5 0.429688V9.57031L12.1797 6.25V9.17969C12.1797 9.41406 12.0885 9.60938 11.9062 9.76562C11.75 9.92188 11.5547 10 11.3203 10H1.32031C1.08594 10 0.890625 9.92188 0.734375 9.76562C0.578125 9.60938 0.5 9.41406 0.5 9.17969V0.820312C0.5 0.585938 0.578125 0.390625 0.734375 0.234375C0.890625 0.078125 1.08594 0 1.32031 0H11.3203C11.5547 0 11.75 0.078125 11.9062 0.234375C12.0885 0.390625 12.1797 0.585938 12.1797 0.820312V3.75Z" fill="#0088CC"/></svg></span>
                         <b>Пользователи</b>
                     </a></li>
-                    <li><a href="#tab-2">
+                    <li><a id="btn_tab-2" href="#tab-2">
                         <span><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#0088CC"/></svg></span>
                         <b>Категории</b>
                     </a></li>
-                    <li><a href="#tab-3">
+                    <li><a id="btn_tab-3" href="#tab-3">
                         <span><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#0088CC"/></svg></span>
                         <b>Видео</b>
                     </a></li>
-                    <li><a href="#tab-4">
+                    <li><a id="btn_tab-4" href="#tab-4">
                         <span><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#0088CC"/></svg></span>
                         <b>Страницы</b>
                     </a></li>
@@ -82,7 +82,7 @@
                         <div class="personalArea-wrap">
                             <div style="margin-bottom: 20px" class="category-item">
                                 <div class="category-item-header">
-                                    <span style="background: #0bf447" class="main-btn">Новая категория</span>
+                                    <span onclick="newCategory()" style="background: #0bf447" class="main-btn">Новая категория</span>
                                 </div>
                             </div>
                             {% for cat in all_cats %}
@@ -90,22 +90,22 @@
                                     <div class="category-item-header">
                                         <h3>{{ cat.name }}</h3>
                                         <div>
-                                            <span style="background: #0bf447" class="main-btn">&#9998;</span>
-                                            <span class="main-btn">&#10006;</span>
+                                            <span onclick="editCategory('{{ cat.id }}')" style="background: #0bf447" class="main-btn">&#9998;</span>
+                                            <a href="{% url 'admin_delete_cat' cat.id%}" class="main-btn">&#10006;</a>
                                         </div>
 
                                     </div>
-                                    <span>Новая подкатегория</span>
+                                    <span style="cursor: pointer" onclick="newSubCategory('{{ cat.id }}')">Новая подкатегория</span>
                                     <ul>
                                         {% for subcat in cat.subcat.all %}
-                                            <li class="subcat_row"><p>{{ subcat.name }}</p> <p><span class="subcat_icon">&#9998;</span> <span class="subcat_icon">&#10006;</span></p></li>
+                                            <li class="subcat_row"><p>{{ subcat.name }}</p> <p><span onclick="editSubCategory('{{ subcat.id }}')" class="subcat_icon">&#9998;</span> <a href="{% url 'admin_delete_subcat' subcat.id %}" class="subcat_icon">&#10006;</a></p></li>
                                         {% endfor %}
                                     </ul>
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="personalArea-col">
+                    <div id="new_cat_div" style="display: none" class="personalArea-col">
                         <div class="personalArea-wrap">
                             <form action="{% url 'admin_create_category' %}" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
@@ -134,10 +134,96 @@
 
                         </div>
                     </div>
+                    <div id="new_subcat_div" style="display: none" class="personalArea-col">
+                        <div class="personalArea-wrap">
+                            <form action="{% url 'admin_create_subcategory' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <span class="personalArea-subtitle">Новая подкатегория</span>
+                                <div class="input-block">
+                                    <label>Название</label>
+                                    <input type="text" name="{{ newSubCategoryForm.name.name }}" required placeholder="Название категории" value="">
+                                    <label>Изображение</label>
+                                    <input style="border: none;  box-shadow: none" required name="{{ newSubCategoryForm.image.name }}" type="file">
+                                    <label>TITLE</label>
+                                    <input name="{{ newSubCategoryForm.page_title.name }}" required type="text">
+                                    <label>KEYWORDS (через запятую)</label>
+                                    <textarea name="{{ newSubCategoryForm.page_keywords.name }}"  id="" cols="30" rows="10"></textarea>
+                                    <label>DESCRIPTION</label>
+                                    <textarea name="{{ newSubCategoryForm.page_description.name }}" required cols="30" rows="10"></textarea>
+                                    <label>SEO текст</label>
+                                    <textarea style="height: 300px;resize: vertical" class="editor1" name="{{ newSubCategoryForm.seo_text.name }}"  cols="30" rows="10"></textarea>
+                                    <input id="cat_id" type="hidden" name="{{ newSubCategoryForm.category.name }}">
+                                </div>
+                                <button type="submit" class="personalArea-btn">
+                                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
+                                    Создать категорию
+                                </button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                    <div id="edit_cat_div" style="display: none;" class="personalArea-col">
+                        <div class="personalArea-wrap">
+                            <form action="{% url 'admin_update_category' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                <span class="personalArea-subtitle">Редактирование категории </span>
+                                <div class="input-block">
+                                    <label>Название</label>
+                                    <input id="cat_name" type="text" name="name" required="" placeholder="Название категории" value="">
+                                    <label>Текущее изображение категории</label>
+                                    <img id="cat_image" src="" alt="">
+                                    <label>Изображение</label>
+                                    <input id="cat_image" style="border: none;  box-shadow: none"  name="image" type="file">
+                                    <label>TITLE</label>
+                                    <input id="cat_page_title" name="page_title" required="" type="text">
+                                    <label>KEYWORDS (через запятую)</label>
+                                    <textarea id="cat_page_keywords" name="page_keywords"  cols="30" rows="10"></textarea>
+                                    <label>DESCRIPTION</label>
+                                    <textarea id="cat_page_description" name="page_description" required="" cols="30" rows="10"></textarea>
+                                    <label>SEO текст</label>
+                                    <textarea id="cat_seo_text" style="height: 300px;resize: vertical" class="editor2" name="seo_text"  cols="30" rows="10"></textarea>
+                                    <input id="update_cat_id" type="hidden" name="id">
+                                </div>
+                                <button type="submit" class="personalArea-btn">
+                                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"></path></svg>
+                                    Сохранить изменения
+                                </button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                  <div id="edit_subcat_div" style="display: none;" class="personalArea-col">
+                        <div class="personalArea-wrap">
+                            <form action="{% url 'admin_update_subcategory' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+                                <span class="personalArea-subtitle">Редактирование подкатегории </span>
+                                <div class="input-block">
+                                    <label>Название</label>
+                                    <input id="subcat_name" type="text" name="name" required="" placeholder="Название категории" value="">
+                                    <label>Текущее изображение категории</label>
+                                    <img id="subcat_image" src="" alt="">
+                                    <label>Изображение</label>
+                                    <input id="subcat_image" style="border: none;  box-shadow: none"  name="image" type="file">
+                                    <label>TITLE</label>
+                                    <input id="subcat_page_title" name="page_title" required="" type="text">
+                                    <label>KEYWORDS (через запятую)</label>
+                                    <textarea id="subcat_page_keywords" name="page_keywords"  cols="30" rows="10"></textarea>
+                                    <label>DESCRIPTION</label>
+                                    <textarea id="subcat_page_description" name="page_description" required="" cols="30" rows="10"></textarea>
+                                    <label>SEO текст</label>
+                                    <textarea id="subcat_seo_text" style="height: 300px;resize: vertical" class="editor2" name="seo_text"  cols="30" rows="10"></textarea>
+                                    <input id="update_subcat_id" type="hidden" name="id">
+                                </div>
+                                <button type="submit" class="personalArea-btn">
+                                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"></path></svg>
+                                    Сохранить изменения
+                                </button>
+                            </form>
+
+
+                        </div>
+                    </div>
                 </div>
-
-
-
 
 
             </div>
@@ -160,30 +246,122 @@
 {% endblock %}
 {% block js %}
     {{ block.super }}
-    <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
-    <script>
-        ClassicEditor.create( document.querySelector( '.editor' ) )
-            .then( editor => {
-                console.log( editor );
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("accordion-tab-active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "100px";
-                }
-            });
+    <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        try{
+
+          let tab = window.location.href.split('#')[1]
+            console.log(tab)
+            document.getElementById(`btn_${tab}`).click()
+            document.getElementById(`btn_${tab}`).classList.add('active')
+        }
+        catch (e) {
+            
+        }
+        
+    });
+    </script>
+
+    <script>
+        let new_cat = document.getElementById('new_cat_div'),
+            edit_cat = document.getElementById('edit_cat_div'),
+            edit_subcat = document.getElementById('edit_subcat_div'),
+            new_subcat = document.getElementById('new_subcat_div'),
+            cat_id = document.getElementById('cat_id')
+
+
+
+            function newCategory() {
+            new_cat.style.display = 'block'
+            new_subcat.style.display = 'none'
+            edit_cat.style.display = 'none'
+            edit_subcat.style.display = 'none'
+        }
+        function newSubCategory(id) {
+            new_subcat.style.display = 'block'
+            new_cat.style.display = 'none'
+            edit_cat.style.display = 'none'
+            edit_subcat.style.display = 'none'
+            cat_id.value = id
+        }
+        function editCategory(id) {
+            let cat_name = document.getElementById('cat_name'),
+                cat_page_title = document.getElementById('cat_page_title'),
+                cat_page_keywords = document.getElementById('cat_page_keywords'),
+                cat_page_description = document.getElementById('cat_page_description'),
+                cat_image = document.getElementById('cat_image'),
+                cat_seo = document.getElementById('cat_seo_text'),
+                update_cat_id = document.getElementById('update_cat_id')
+            new_cat.style.display = 'none'
+            new_subcat.style.display = 'none'
+            edit_subcat.style.display = 'none'
+
+
+            let body = {
+                id: id
+
+            }
+            fetch('/cp/category/get_cat_info', {
+                method: 'post',
+                body: JSON.stringify(body),
+                headers: { "X-CSRFToken": '{{ csrf_token }}' },
+                credentials: 'same-origin'
+            }).then(res=>res.json())
+                .then(res => {
+                    console.log(res)
+                    cat_name.value = res['name']
+                    cat_image.setAttribute('src',res['image'])
+                    cat_page_title.value = res['page_title']
+                    cat_page_keywords.value =  res['page_keywords']
+                    cat_page_description.value = res['page_description']
+                    cat_seo.innerHTML=res['seo_text']
+                    update_cat_id.value = res['id']
+
+
+
+                    edit_cat.style.display = 'block'
+                })
+
+        }
+         function editSubCategory(id) {
+            let cat_name = document.getElementById('subcat_name'),
+                cat_page_title = document.getElementById('subcat_page_title'),
+                cat_page_keywords = document.getElementById('subcat_page_keywords'),
+                cat_page_description = document.getElementById('subcat_page_description'),
+                cat_image = document.getElementById('subcat_image'),
+                cat_seo = document.getElementById('subcat_seo_text'),
+                update_cat_id = document.getElementById('update_subcat_id')
+
+            new_cat.style.display = 'none'
+            new_subcat.style.display = 'none'
+            edit_cat.style.display = 'none'
+
+            let body = {
+                id: id
+
+            }
+            fetch('/cp/category/get_subcat_info', {
+                method: 'post',
+                body: JSON.stringify(body),
+                headers: { "X-CSRFToken": '{{ csrf_token }}' },
+                credentials: 'same-origin'
+            }).then(res=>res.json())
+                .then(res => {
+                    console.log(res)
+                    cat_name.value = res['name']
+                    cat_image.setAttribute('src',res['image'])
+                    cat_page_title.value = res['page_title']
+                    cat_page_keywords.value =  res['page_keywords']
+                    cat_page_description.value = res['page_description']
+                    cat_seo.innerHTML=res['seo_text']
+                    update_cat_id.value = res['id']
+
+
+
+                    edit_subcat.style.display = 'block'
+                })
+
         }
     </script>
 {% endblock %}

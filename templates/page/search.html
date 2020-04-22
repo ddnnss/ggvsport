@@ -1,5 +1,6 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}
     {{ block.super }}
 {% endblock %}
@@ -9,7 +10,7 @@
 {% block content %}
     <section class="pageName" style="background-image: url(img/pattern-football.svg);">
         <div class="wrapper">
-            <h1 class="page-title">Результат поиска по запросу {{ q }}</h1>
+            <h1 class="page-title">{% trans 'Результат поиска по запросу'%} {{ q }}</h1>
 
         </div>
     </section>

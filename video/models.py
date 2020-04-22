@@ -9,10 +9,10 @@ from io import BytesIO
 from django.core.files import File
 import os
 class Video(models.Model):
-    user = models.ForeignKey(User, blank=False, null=True, on_delete=models.SET_NULL,
+    user = models.ForeignKey(User, blank=False, null=True, on_delete=models.CASCADE,
                               verbose_name='Загрузил')
-    category = models.ForeignKey(Category,blank=True,null=True,on_delete=models.SET_NULL,verbose_name='Категория')
-    subcategory = models.ForeignKey(SubCategory,blank=False,null=True,on_delete=models.SET_NULL,verbose_name='Подкатегория')
+    category = models.ForeignKey(Category,blank=True,null=True,on_delete=models.CASCADE,verbose_name='Категория')
+    subcategory = models.ForeignKey(SubCategory,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Подкатегория')
     name = models.CharField('Название', max_length=255, blank=False, null=True)
     name_lower = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
     name_slug = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)

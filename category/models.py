@@ -8,7 +8,7 @@ class Category(models.Model):
     name = models.CharField('Категория', max_length=255, blank=False, null=True)
     name_lower = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
     name_slug = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
-    image = models.ImageField('Изображение (420 x 225)', upload_to='category/', blank=False, null=True)
+    image = models.ImageField('Изображение (420 x 225)', upload_to='category/', blank=True, null=True)
     page_h1 = models.CharField('Тег H1 (если не указан, выводится название категории)',
                                max_length=255, blank=True, null=True)
     page_title = models.CharField('Название страницы SEO', max_length=255, blank=True, null=True)
@@ -36,12 +36,12 @@ class Category(models.Model):
         verbose_name_plural = "Категории"
 
 class SubCategory(models.Model):
-    category = models.ForeignKey(Category, blank=False, null=True, on_delete=models.SET_NULL,
+    category = models.ForeignKey(Category, blank=False, null=True, on_delete=models.CASCADE,
                              verbose_name='Относится к ', related_name='subcat')
     name = models.CharField('Подкатегория', max_length=255, blank=False, null=True)
     name_lower = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
     name_slug = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
-    image = models.ImageField('Изображение (420 x 225)', upload_to='subcategory/', blank=False, null=True)
+    image = models.ImageField('Изображение (420 x 225)', upload_to='subcategory/', blank=True, null=True)
     page_h1 = models.CharField('Тег H1 (если не указан, выводится название подкатегории)',
                                max_length=255, blank=True, null=True)
     page_title = models.CharField('Название страницы SEO', max_length=255, blank=True, null=True)

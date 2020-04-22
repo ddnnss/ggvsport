@@ -1,5 +1,6 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}
     {{ block.super }}
 {% endblock %}
@@ -19,7 +20,7 @@
         <div class="wrapper">
             {% if top2_watch_now_videos %}
                 <div class="section-top">
-                    <h2 class="section-title">Топ в этой категории</h2>
+                    <h2 class="section-title">{% trans 'Топ в этой категории'%}</h2>
                 </div>
                 <div class="post-row post-row__big">
                     {% for video in top2_watch_now_videos %}

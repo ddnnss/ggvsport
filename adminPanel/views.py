@@ -1,4 +1,6 @@
-from django.http import HttpResponseRedirect
+import json
+
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from customuser.models import User
 from customuser.forms import UpdateForm
@@ -10,6 +12,7 @@ def admin_index(request):
         all_users = User.objects.filter(is_superuser=False)
         all_cats = Category.objects.all()
         newCategoryForm = NewCategory()
+        newSubCategoryForm = NewSubCategory()
         return render(request, 'adminPanel/admin.html', locals())
     else:
         return HttpResponseRedirect('/')
@@ -141,14 +144,71 @@ def admin_create_category(request):
         print(form.errors)
         if form.is_valid():
             form.save()
-        return HttpResponseRedirect('/cp')
+        return HttpResponseRedirect('/cp/#tab-2')
 
 def admin_update_category(request):
     print(request.POST)
     if request.POST:
-
-        form = NewCategory(request.POST, request.FILES)
+        cat = Category.objects.get(id=request.POST.get('id'))
+        form = NewCategory(request.POST, request.FILES,instance=cat)
         print(form.errors)
         if form.is_valid():
             form.save()
-        return HttpResponseRedirect('/cp')
+        return HttpResponseRedirect('/cp/#tab-2')
+
+def admin_create_subcategory(request):
+    print(request.POST)
+    if request.POST:
+        form = NewSubCategory(request.POST, request.FILES)
+        print(form.errors)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect('/cp/#tab-2')
+
+def admin_update_subcategory(request):
+    print(request.POST)
+    if request.POST:
+        cat = SubCategory.objects.get(id=request.POST.get('id'))
+        form = UpdateSubCategory(request.POST, request.FILES,instance=cat)
+        print(form.errors)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect('/cp/#tab-2')
+
+
+def delete_cat(request,id):
+    Category.objects.get(id=id).delete()
+    return HttpResponseRedirect('/cp/#tab-2')
+
+def delete_subcat(request,id):
+    SubCategory.objects.get(id=id).delete()
+    return HttpResponseRedirect('/cp/#tab-2')
+
+def get_cat_info(request):
+    body = json.loads(request.body)
+    cat = Category.objects.get(id=body['id'])
+    cat_info={
+        'id': cat.id,
+        'name': cat.name,
+        'image': cat.image.url,
+        'page_title': cat.page_title,
+        'page_description': cat.page_description,
+        'page_keywords': cat.page_keywords,
+        'seo_text': cat.seo_text
+    }
+    return JsonResponse(cat_info)
+
+
+def get_subcat_info(request):
+    body = json.loads(request.body)
+    cat = SubCategory.objects.get(id=body['id'])
+    cat_info={
+        'id': cat.id,
+        'name': cat.name,
+        'image': cat.image.url,
+        'page_title': cat.page_title,
+        'page_description': cat.page_description,
+        'page_keywords': cat.page_keywords,
+        'seo_text': cat.seo_text
+    }
+    return JsonResponse(cat_info)

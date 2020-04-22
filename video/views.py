@@ -148,6 +148,14 @@ def add_comment_video(request):
     comment.video.comments += 1
     comment.video.save()
     for c in comment.video.commentvideo_set.all().order_by('-created_at'):
+        is_liked = ''
+        is_disliked = ''
+        all_likes = c.liked_by_users.split(',')
+        all_dislikes = c.disliked_by_users.split(',')
+        if str(request.user.id) in all_likes:
+            is_liked = 'active'
+        if str(request.user.id) in all_dislikes:
+            is_disliked = 'active'
         comments.append({
             'id': c.id,
             'avatar': c.user.get_avatar(),
@@ -155,6 +163,8 @@ def add_comment_video(request):
             'likes': c.likes,
             'dislikes': c.dislikes,
             'comment': c.comment,
+            'liked': is_liked,
+            'disliked': is_disliked,
             'dt': c.get_created_time()
         })
     return_dict['comments'] = comments

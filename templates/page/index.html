@@ -1,5 +1,6 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}
     {{ block.super }}
 {% endblock %}
@@ -10,7 +11,7 @@
     	<!-- start pageTop -->
 	<section class="pageTop">
 		<div class="wrapper">
-			<h1 class="page-title">Крупнейший видеопортал про спорт</h1>
+			<h1 class="page-title">{% trans 'Крупнейший видеопортал про спорт' %}</h1>
 			<div class="pageTop-search input-block">
 				{% include 'page/_search_form.html' %}
 			</div>
@@ -20,7 +21,7 @@
 	<!-- start categories -->
 	<section class="categories">
 		<div class="wrapper">
-			<h4 class="categories-title">Категории</h4>
+			<h4 class="categories-title">{% trans 'Категории'%}</h4>
 			<div class="categories-row">
                 {% for cat in all_cats %}
 				<div class="categories-col">
@@ -31,7 +32,7 @@
                 {% endfor %}
 			</div>
 			<div class="categories-bottom">
-				<a href="#" class="categories-all"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#8B8B8B"/></svg>Все категории</a>
+				<a href="#" class="categories-all"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#8B8B8B"/></svg>{% trans 'Все категории'%}</a>
 			</div>
 		</div>
 	</section>
@@ -41,7 +42,7 @@
 	<section class="watching">
 		<div class="wrapper">
 			<div class="section-top">
-				<h2 class="section-title">Сейчас смотрят</h2>
+				<h2 class="section-title">{% trans 'Сейчас смотрят'%}</h2>
 				<a href="{% url 'watch_now' %}" class="section-link">Смотреть все<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 0.320312L13.6797 7L7 13.6797L5.82812 12.5078L10.4766 7.82031H0.320312V6.17969H10.4766L5.82812 1.49219L7 0.320312Z" fill="#EF6969"/></svg></a>
 			</div>
             {% if top2_watch_now_videos %}
@@ -69,12 +70,12 @@
 		<div class="joinUs-bg" style="background-image: url({% static 'img/joinUs-bg.png' %});"></div>
 		<div class="wrapper">
 			<div class="joinUs-img">
-				<img src="{% static 'img/joinUs-bg.png' %}" alt="">
+				<img src="{% static 'img/joinUs.jpg' %}" alt="">
 			</div>
 			<div class="joinUs-info">
-				<h2 class="page-title">Присоединяйся к нам!</h2>
-				<p>Saytımızdan qeydiyyatdan keçerek döyüşlere oynanan oyunlara ve qollara rey bildirib beyene bilersiniz. Her 6 ayda bir en çox like toplayan videoların sahiblerine hediyyeler ve ilde bir defe keçirilecek olan yarışlarda birinci yerlerin sahiblerine saytımız terefinden deyerli hediyyeler ve nağd pul verilecekdir.</p>
-				<a href="#" class="main-btn">РЕГИСТРАЦИЯ</a>
+				<h2 class="page-title">{% trans 'Присоединяйся к нам!'%}</h2>
+				<p>{% trans 'Вы можете зарегистрироваться на нашем сайте и комментировать сражения, игры и голы. Каждые 6 месяцев авторы самых популярных видео получат призы, а победители ежегодных конкурсов получат ценные подарки и денежные призы от нашего сайта.' %}</p>
+				<a href="#" class="main-btn">{% trans 'РЕГИСТРАЦИЯ'%}</a>
 			</div>
 		</div>
 	</section>
@@ -84,8 +85,8 @@
 	<section class="recommendations">
 		<div class="wrapper">
 			<div class="section-top">
-				<h2 class="section-title">Рекомендации</h2>
-				<a href="#" class="section-link">Смотреть все<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 0.320312L13.6797 7L7 13.6797L5.82812 12.5078L10.4766 7.82031H0.320312V6.17969H10.4766L5.82812 1.49219L7 0.320312Z" fill="#EF6969"/></svg></a>
+				<h2 class="section-title">{% trans 'Рекомендации'%}</h2>
+				<a href="#" class="section-link">{% trans 'Смотреть все'%}<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 0.320312L13.6797 7L7 13.6797L5.82812 12.5078L10.4766 7.82031H0.320312V6.17969H10.4766L5.82812 1.49219L7 0.320312Z" fill="#EF6969"/></svg></a>
 			</div>
 			<div class="post-row">
                 {% if top3_all_recomended_videos %}
@@ -109,8 +110,8 @@
 	<section class="podcasts">
 		<div class="wrapper">
 			<div class="section-top">
-				<h2 class="section-title">Подкасты</h2>
-				<a href="#" class="section-link">Смотреть все<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 0.320312L13.6797 7L7 13.6797L5.82812 12.5078L10.4766 7.82031H0.320312V6.17969H10.4766L5.82812 1.49219L7 0.320312Z" fill="#EF6969"/></svg></a>
+				<h2 class="section-title">{% trans 'Подкасты'%}</h2>
+				<a href="#" class="section-link">{% trans 'Смотреть все'%}<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 0.320312L13.6797 7L7 13.6797L5.82812 12.5078L10.4766 7.82031H0.320312V6.17969H10.4766L5.82812 1.49219L7 0.320312Z" fill="#EF6969"/></svg></a>
 			</div>
 			<div class="post-row post-row__big">
 				<div class="post post-big">

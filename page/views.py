@@ -96,11 +96,19 @@ def video_page(request,video_slug):
     video.is_now_watching = True
     video.start_watch = datetime.now()
     watch_now_videos = Video.objects.filter(is_now_watching=True, is_moderated=True).exclude(id=video.id)
+    is_liked = False
+    is_disliked = False
     for v in watch_now_videos:
         if (timezone.now() - v.start_watch) > dt.timedelta(seconds=v.duration):
             v.is_now_watching = False
             v.save()
     if request.user.is_authenticated:
+        all_likes = video.liked_by_users.split(',')
+        all_dislikes = video.disliked_by_users.split(',')
+        if str(request.user.id) in all_likes:
+            is_liked = True
+        if str(request.user.id) in all_dislikes:
+            is_disliked = True
         try:
             history = VideoHistory.objects.get(user=request.user)
             history.video.add(video)
