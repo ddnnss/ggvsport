@@ -162,7 +162,7 @@
 						</div>
                         <div class="">
                             <div style="margin-bottom: 20px" class="radio">
-									<input  type="checkbox" name="block">
+									<input  type="checkbox" name="block_user" {% if not user.is_active %}checked{% endif %}>
 									<span class="radio-ico"></span>
 									<p>Заблокировать пользователя?</p>
 								</div>

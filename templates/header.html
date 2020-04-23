@@ -23,7 +23,9 @@
             </div>
             <div class="header-menu">
                 <ul class="header-list">
+                {% if index_page %}
                     <li><a href="{% url 'index' %}#joinUs" class="scroll-link">{% trans 'GGV это?' %} </a></li>
+                {% endif %}
                     <li><a href="{% url 'index' %}">{% trans 'Главная'%}</a></li>
                     <li><a href="{% url 'watch_now' %}">{% trans 'Сейчас смотрят'%}</a></li>
                     <li><a href="#">{% trans 'Тренды'%}</a></li>

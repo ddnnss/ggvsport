@@ -49,7 +49,7 @@ class User(AbstractUser):
     last_name = models.CharField('Фамилия', max_length=50, blank=True, null=True)
     genre = models.BooleanField('Пол мужской?',blank=True, null=True)
     nickname = models.CharField('Ник', max_length=50, blank=True, null=True)
-    email = models.EmailField('Эл. почта', blank=True, null=True, unique=True)
+    email = models.EmailField('E-Mail', blank=True, null=True, unique=True)
     birthday_day = models.CharField('День рождения',max_length=10, blank=True, null=True)
     birthday_month = models.CharField('Месяц рождения',max_length=10, blank=True, null=True)
     birthday_year = models.CharField('Год рождения',max_length=10, blank=True, null=True)

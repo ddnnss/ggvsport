@@ -6,11 +6,14 @@ from customuser.models import User
 from customuser.forms import UpdateForm
 from category.models import *
 from category.forms import *
+from video.models import *
 
 def admin_index(request):
     if request.user.is_superuser:
         all_users = User.objects.filter(is_superuser=False)
         all_cats = Category.objects.all()
+        all_moderated_video = Video.objects.filter(is_moderated=True)
+        all_non_moderated_video = Video.objects.filter(is_moderated=False)
         newCategoryForm = NewCategory()
         newSubCategoryForm = NewSubCategory()
         return render(request, 'adminPanel/admin.html', locals())
@@ -19,63 +22,14 @@ def admin_index(request):
 
 def admin_user_info(request,user_id):
     if request.user.is_superuser:
-        if request.POST:
-            print(request.POST)
-            user = User.objects.get(id=int(request.POST.get('id')))
-            form = UpdateForm(request.POST, request.FILES, instance=user)
-            print(form.errors)
-            if form.is_valid():
-                user = form.save()
-                if request.POST.get('ismale'):
-                    user.genre = True
-                if request.POST.get('isfemale'):
-                    user.genre = False
-                if request.POST.get('fav_cat1') != '0':
-                    user.fav_category1_id = int(request.POST.get('fav_cat1'))
-                else:
-                    user.fav_category1 = None
-                if request.POST.get('fav_cat2') != '0':
-                    user.fav_category2_id = int(request.POST.get('fav_cat2'))
-                else:
-                    user.fav_category2 = None
-                if request.POST.get('fav_cat3') != '0':
-                    user.fav_category3_id = int(request.POST.get('fav_cat3'))
-                else:
-                    user.fav_category3 = None
-                if request.POST.get('fav_cat4') != '0':
-                    user.fav_category4_id = int(request.POST.get('fav_cat4'))
-                else:
-                    user.fav_category4 = None
 
-                if request.POST.get('old_password'):
-                    if not user.is_social_reg:
-                        success = user.check_password(request.POST['old_password'])
-                    else:
-                        success = True
-                    if success:
-                        print('Old pass is good')
-                        if request.POST.get('password1') == request.POST.get('password2') and request.POST.get(
-                                'password1') != '' and request.POST.get('password2') != '':
-                            print('Change password')
-                            user.set_password(request.POST.get('password1'))
-                        else:
-                            print('NOT Change password')
-                    else:
-                        print('Old pass is bad')
-                        return HttpResponseRedirect("/user/profile/edit")
-                user.save()
-                return HttpResponseRedirect('/cp')
-            else:
-                form = UpdateForm()
-            return HttpResponseRedirect("/user/profile/edit")
-        else:
-            user = User.objects.get(id=user_id)
-            updateForm = UpdateForm()
-            allCats = Category.objects.all()
-            dates = ['01', '02', '03', '04']
-            months = ['Январь', 'Февраль']
-            years = ['1950', '1951']
-            return render(request, 'adminPanel/user-info.html', locals())
+        user = User.objects.get(id=user_id)
+        updateForm = UpdateForm()
+        allCats = Category.objects.all()
+        dates = ['01', '02', '03', '04']
+        months = ['Январь', 'Февраль']
+        years = ['1950', '1951']
+        return render(request, 'adminPanel/user-info.html', locals())
     else:
         return HttpResponseRedirect('/')
 
@@ -84,12 +38,15 @@ def admin_profile_edit(request):
     if request.POST:
         print(request.POST)
         user = User.objects.get(id=int(request.POST.get('id')))
-        print(request.POST.get('block'))
-        if request.POST.get('is_active'):
+        print(request.POST.get('block_user'))
+        if request.POST.get('block_user'):
             print('disable user')
             user.is_active = False
             user.save()
             return HttpResponseRedirect('/cp')
+        else:
+            user.is_active = True
+            user.save()
         form = UpdateForm(request.POST, request.FILES, instance=user)
         print(form.errors)
         if form.is_valid():
@@ -115,26 +72,18 @@ def admin_profile_edit(request):
             else:
                 user.fav_category4 = None
 
-            if request.POST.get('old_password'):
-                if not user.is_social_reg:
-                    success = user.check_password(request.POST['old_password'])
-                else:
-                    success = True
-                if success:
-                    print('Old pass is good')
-                    if request.POST.get('password1') == request.POST.get('password2') and request.POST.get('password1') != '' and request.POST.get('password2') != '':
-                        print('Change password')
-                        user.set_password(request.POST.get('password1'))
-                    else:
-                        print('NOT Change password')
-                else:
-                    print('Old pass is bad')
-                    return HttpResponseRedirect("/user/profile/edit")
+
+
+            if request.POST.get('password1') == request.POST.get('password2') and request.POST.get('password1') != '' and request.POST.get('password2') != '':
+                print('Change password')
+                user.set_password(request.POST.get('password1'))
+            else:
+                print('NOT Change password')
             user.save()
             return HttpResponseRedirect('/cp')
         else:
             form = UpdateForm()
-        return HttpResponseRedirect("/user/profile/edit")
+        return HttpResponseRedirect("/cp")
 
 def admin_create_category(request):
     print(request.POST)
@@ -212,3 +161,13 @@ def get_subcat_info(request):
         'seo_text': cat.seo_text
     }
     return JsonResponse(cat_info)
+
+def delete_video(request,id):
+    Video.objects.get(id=id).delete()
+    return HttpResponseRedirect(f'/cp/#t{request.GET.get("tab")}')
+
+def moderate_video(request,id):
+    video = Video.objects.get(id=id)
+    video.is_moderated = True
+    video.save()
+    return HttpResponseRedirect('/cp/#tab-4')

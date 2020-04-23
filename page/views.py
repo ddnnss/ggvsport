@@ -11,6 +11,7 @@ from itertools import chain
 from django.db.models import Q
 
 def index(request):
+    index_page = True
     watch_now_videos = Video.objects.filter(is_now_watching=True, is_moderated=True)
     for v in watch_now_videos:
         print(v.start_watch)
@@ -54,7 +55,7 @@ def index(request):
 
 def category(request,slug):
     category = get_object_or_404(Category, name_slug=slug)
-    all_videos = Video.objects.filter(category=category)
+    all_videos = Video.objects.filter(category=category,is_moderated=True)
     try:
         top2_video = all_videos.order_by('-likes')[:2]
         top5_video = all_videos.order_by('-likes')[3:6]
@@ -65,7 +66,7 @@ def category(request,slug):
 
 def subcategory(request,slug,subcat_slug):
     subcategory = get_object_or_404(SubCategory, name_slug=subcat_slug)
-    all_videos = Video.objects.filter(subcategory=subcategory)
+    all_videos = Video.objects.filter(subcategory=subcategory,is_moderated=True)
     try:
         top2_video = all_videos.order_by('-likes')[:2]
         top5_video = all_videos.order_by('-likes')[3:6]
@@ -125,6 +126,7 @@ def video_page(request,video_slug):
 def search(request):
     q = request.GET.get('query').lower()
     search_result = Video.objects.filter(Q(name_lower__contains=q) | Q(description__contains=q))
+    search_result = search_result.filter(is_moderated=True)
     return render(request, 'page/search.html', locals())
 
 
@@ -133,7 +135,7 @@ def search_a(request):
     request_body = json.loads(request_unicode)
     print(request_body)
     search_result = Video.objects.filter(Q(name_lower__contains=request_body['query']) | Q(description__contains=request_body['query']))
-
+    search_result = search_result.filter(is_moderated=True)
     return_dict = list()
     for i in search_result:
         try:

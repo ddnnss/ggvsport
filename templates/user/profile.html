@@ -44,11 +44,22 @@
                 </ul>
             </div>
             <div class="profile-tab tab profile-post tab-active" id="tab-1">
+            <h4 class="categories-title">{% trans 'Опубликованные видео'%}</h4>
                 <div class="post-row">
-                    {% for video in own_videos %}
+                    {% for video in own_videos_moderated %}
                         {% include 'page/_video-card-small.html' %}
+
                     {% endfor %}
                 </div>
+            {% if own_videos_non_moderated %}
+                <h4 class="categories-title">{% trans 'На модерации'%}</h4>
+                <div class="post-row">
+                    {% for video in own_videos_non_moderated %}
+                        {% include 'page/_video-card-small.html' %}
+
+                    {% endfor %}
+                </div>
+            {% endif %}
             </div>
             <div class="profile-tab tab" id="tab-2">
                 <div class="post-row">

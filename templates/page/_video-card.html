@@ -1,5 +1,5 @@
 	<div class="post-img">
-						<a href="{% url 'video_page' video.name_slug%}"><img src="{{ video.image.url }}" alt=""></a>
+						<a {% if video.is_moderated %}href="{% url 'video_page' video.name_slug%}"{% endif %} ><img src="{{ video.image.url }}" alt=""></a>
 					</div>
 					<div class="post-info">
 						<div class="post-info__row">
@@ -7,7 +7,7 @@
 								<img style="width: 30px;height: 30px;object-fit: cover;" src="{{ video.user.get_avatar }}" alt="">
 							</div>
 							<div class="post-descr">
-								<h3 class="post-title"><a href="{% url 'video_page' video.name_slug%}">{{ video.name }}</a></h3>
+								<h3  class="post-title"><a {% if video.is_moderated %}href="{% url 'video_page' video.name_slug%}"{% endif %}  >{{ video.name }}</a></h3>
 								<ul class="post-tag">
 									<li><a href="#">{{ video.user.get_nickname }}</a></li>
 								</ul>

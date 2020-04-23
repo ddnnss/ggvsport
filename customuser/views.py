@@ -49,7 +49,8 @@ def logout_page(request):
 
 def profile(request):
     if request.user.is_authenticated:
-        own_videos = Video.objects.filter(user=request.user)
+        own_videos_moderated = Video.objects.filter(user=request.user,is_moderated=True)
+        own_videos_non_moderated = Video.objects.filter(user=request.user, is_moderated=False)
         try:
             fav_videos = FavoriteVideo.objects.get(user=request.user)
         except:

@@ -27,7 +27,7 @@ class Video(models.Model):
     disliked_by_users = models.TextField(blank=True, null=True,default='')
     comments = models.IntegerField('Комментариев', default=0)
     is_active = models.BooleanField('Отображается на сайте?', default=True)
-    is_moderated = models.BooleanField('Проверено?', default=True)
+    is_moderated = models.BooleanField('Проверено?', default=False)
     is_now_watching = models.BooleanField('Смотрят?', default=False)
     start_watch = models.DateTimeField(blank=True,null=True)
     created_at = models.DateTimeField("Дата добавления", auto_now_add=True)
@@ -42,6 +42,8 @@ class Video(models.Model):
                 slugRandom = '-' + ''.join(choices(string.ascii_lowercase + string.digits, k=2))
             self.name_slug = slug + slugRandom
         self.name_lower = self.name.lower()
+        if self.user.is_superuser:
+            self.is_moderated = True
         super(Video, self).save(*args, **kwargs)
     def get_absolute_url(self):
         return f'/video/{self.name_slug}'
