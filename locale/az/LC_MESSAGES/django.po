@@ -1,0 +1,377 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-23 17:17+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\footer.html:8
+msgid "Политика конфиденциальности"
+msgstr "Məxfilik siyasəti"
+
+#: .\templates\footer.html:9
+msgid "Условия и положения"
+msgstr "Şərtlər və müddəalar"
+
+#: .\templates\footer.html:19
+msgid "Свяжитесь с нами"
+msgstr "Bizimlə əlaqə saxlayın"
+
+#: .\templates\footer.html:35 .\templates\footer.html:61
+msgid "Регистрация"
+msgstr "Qeydiyyat"
+
+#: .\templates\footer.html:36 .\templates\footer.html:69
+msgid "Займет всего пару секунд!"
+msgstr "Yalnız bir neçə saniyə alacaq!"
+
+#: .\templates\footer.html:38 .\templates\footer.html:71
+msgid "Через соцсети"
+msgstr "Sosial şəbəkələr vasitəsilə"
+
+#: .\templates\footer.html:45 .\templates\footer.html:78
+msgid "Проверьте введенные данные"
+msgstr "Daxil edilmiş məlumatları yoxlayın"
+
+#: .\templates\footer.html:48 .\templates\footer.html:81
+#: .\templates\footer.html:103
+msgid "Через почту"
+msgstr "Elektron poçt vasitəsilə"
+
+#: .\templates\footer.html:53
+msgid "Пароль должен содержать хотя бы 8 символов"
+msgstr "Şifrə ən azı 8 simvoldan ibarət olmalıdır"
+
+#: .\templates\footer.html:59
+msgid "Нажимая “Готово”, Вы соглашаетесь с "
+msgstr "Hazırdır düyməsinə basaraq, Siz ... razılaşırsınız"
+
+#: .\templates\footer.html:59
+msgid "Условиями использования"
+msgstr "İstifadə şərtləri"
+
+#: .\templates\footer.html:59
+msgid "и"
+msgstr "və"
+
+#: .\templates\footer.html:59
+msgid "Политикой конфиденциальности"
+msgstr "Məxfilik siyasəti ilə"
+
+#: .\templates\footer.html:68
+msgid "Авторизуйтесь"
+msgstr "Daxil ol"
+
+#: .\templates\footer.html:89
+msgid "Забыл пароль"
+msgstr "Şifrəni unutmuşam"
+
+#: .\templates\footer.html:91
+msgid "Войти"
+msgstr "Daxil ol"
+
+#: .\templates\footer.html:93 .\templates\footer.html:108
+msgid "Нет аккаунта?"
+msgstr "Hesabınız yoxdur?"
+
+#: .\templates\footer.html:93 .\templates\footer.html:108
+msgid "Зарегистрируйтесь"
+msgstr "Qeydiyyatdan keçin"
+
+#: .\templates\footer.html:101
+msgid "Забыл пароль?"
+msgstr "Şifrəni unutmusan?"
+
+#: .\templates\footer.html:106 .\templates\page\video.html:130
+msgid "Отправить"
+msgstr "Göndərmək"
+
+#: .\templates\header.html:27
+msgid "GGV это?"
+msgstr "GGV nədir?"
+
+#: .\templates\header.html:29
+msgid "Главная"
+msgstr "Ana səhifə"
+
+#: .\templates\header.html:30 .\templates\page\index.html:45
+msgid "Сейчас смотрят"
+msgstr "İndi izləyirlər"
+
+#: .\templates\header.html:31
+msgid "Тренды"
+msgstr "Trendlər"
+
+#: .\templates\header.html:33 .\templates\page\index.html:24
+msgid "Категории"
+msgstr "Növlər"
+
+#: .\templates\header.html:71 .\templates\page\index.html:78
+msgid "РЕГИСТРАЦИЯ"
+msgstr "QEYDİYYAT"
+
+#: .\templates\header.html:72
+msgid "ВОЙТИ"
+msgstr "DAXİL OL"
+
+#: .\templates\header.html:85
+msgid "Аккаунт"
+msgstr "Hesab"
+
+#: .\templates\header.html:91
+msgid "АДМИНКА"
+msgstr "ADMIN PANEL"
+
+#: .\templates\header.html:94 .\templates\user\profile.html:31
+msgid "Добавить видео"
+msgstr "Video əlavə etmək"
+
+#: .\templates\header.html:95 .\templates\user\profile.html:38
+msgid "Мои видео"
+msgstr "Mənim videolarım"
+
+#: .\templates\header.html:96 .\templates\user\profile.html:42
+msgid "Мне нравится"
+msgstr "Mən bəyənirəm"
+
+#: .\templates\header.html:97
+msgid "История"
+msgstr "Tarixcə"
+
+#: .\templates\header.html:100 .\templates\user\profile-edit.html:15
+#: .\templates\user\profile.html:27
+msgid "Настройки профиля"
+msgstr "Profil ayarları"
+
+#: .\templates\header.html:101
+msgid "Выход"
+msgstr "Çıxış"
+
+#: .\templates\header.html:112 .\templates\page\_search_form.html:3
+msgid "Поиск видео"
+msgstr "Video axtarışı"
+
+#: .\templates\page\category.html:25
+msgid "Подкатегории"
+msgstr "Alt kateqoriyalar"
+
+#: .\templates\page\category.html:45 .\templates\page\now-watch.html:23
+#: .\templates\page\subcategory.html:23
+msgid "Топ в этой категории"
+msgstr "Bu kateqoriyada ən populyar"
+
+#: .\templates\page\index.html:14
+msgid "Крупнейший видеопортал про спорт"
+msgstr "İdman haqqında ən böyük video portal "
+
+#: .\templates\page\index.html:35
+msgid "Все категории"
+msgstr "Bütün növlər"
+
+#: .\templates\page\index.html:76
+msgid "Присоединяйся к нам!"
+msgstr "Bizə qoşul!"
+
+#: .\templates\page\index.html:77
+msgid ""
+"Вы можете зарегистрироваться на нашем сайте и комментировать сражения, игры "
+"и голы. Каждые 6 месяцев авторы самых популярных видео получат призы, а "
+"победители ежегодных конкурсов получат ценные подарки и денежные призы от "
+"нашего сайта."
+msgstr "Saytımızda qeydiyyatdan keçərək döyüşlərə, keçirilən oyunlara və qollara rəy bildirə bilərsiniz. Hər 6 aydan bir ən çox bəyənilən videoların müəlliflərinə hədiyyələr və ildə bir dəfə keçiriləcək yarışmalarda birinci yerlərin sahiblərinə saytımız tərəfindən dəyərli hədiyyələr və pul mükafatları veriləcəkdir."
+
+
+
+#: .\templates\page\index.html:88
+msgid "Рекомендации"
+msgstr "Tövsiyə olunur"
+
+#: .\templates\page\index.html:89 .\templates\page\index.html:114
+msgid "Смотреть все"
+msgstr "Daha çox göstər"
+
+#: .\templates\page\index.html:113
+msgid "Подкасты"
+msgstr "Podkastlar"
+
+#: .\templates\page\search.html:13
+msgid "Результат поиска по запросу"
+msgstr "Axtarışın nəticələri"
+
+#: .\templates\page\video.html:30 .\templates\user\profile-add-video.html:55
+msgid "Категория"
+msgstr "Növ"
+
+#: .\templates\page\video.html:49
+msgid "Поделиться"
+msgstr "Paylaşmaq"
+
+#: .\templates\page\video.html:115
+msgid "Оставьте комментарий"
+msgstr "Rəy bildirmək"
+
+#: .\templates\page\video.html:141
+msgid "Что смотрят другие"
+msgstr "Digərləri izləyir"
+
+#: .\templates\user\profile-add-video.html:16
+msgid "Новое видео"
+msgstr "Yeni video"
+
+#: .\templates\user\profile-add-video.html:19
+#: .\templates\user\profile-add-video.html:89
+msgid "Опубликовать"
+msgstr "Paylaşmaq"
+
+#: .\templates\user\profile-add-video.html:23
+msgid "Загрузите видео сюда"
+msgstr "Videonu bura yükləyin"
+
+#: .\templates\user\profile-add-video.html:27
+msgid "Для загрузки видео нажмите на "
+msgstr "Videonu yükləmək üçün ... tıklayın"
+
+#: .\templates\user\profile-add-video.html:33
+msgid "Загрузить заново"
+msgstr "Yenidən yükləmək"
+
+#: .\templates\user\profile-add-video.html:37
+#: .\templates\user\profile-edit.html:39
+msgid "Удалить"
+msgstr "Silmək"
+
+#: .\templates\user\profile-add-video.html:44
+msgid "Поддерживаемые форматы"
+msgstr "Dəstəklənən formatlar"
+
+#: .\templates\user\profile-add-video.html:47
+msgid "Опишите видео"
+msgstr "Videonu təsvir edin"
+
+#: .\templates\user\profile-add-video.html:51
+msgid "Название для видео"
+msgstr "Video üçün başlıq"
+
+#: .\templates\user\profile-add-video.html:52
+msgid "Название"
+msgstr "Başlıq"
+
+#: .\templates\user\profile-add-video.html:63
+msgid "Подкатегория"
+msgstr "Alt kateqoriya"
+
+#: .\templates\user\profile-add-video.html:65
+#: .\templates\user\profile-edit.html:110
+#: .\templates\user\profile-edit.html:118
+#: .\templates\user\profile-edit.html:126
+#: .\templates\user\profile-edit.html:134
+msgid "Выберите"
+msgstr "Seçin"
+
+#: .\templates\user\profile-add-video.html:77
+msgid "Описание"
+msgstr "Təsvir"
+
+#: .\templates\user\profile-add-video.html:80
+msgid "Описание видео"
+msgstr "Videonun təsviri"
+
+#: .\templates\user\profile-edit.html:18 .\templates\user\profile-edit.html:169
+msgid "Сохранить"
+msgstr "Yadda saxla"
+
+#: .\templates\user\profile-edit.html:24
+msgid "Личные данные"
+msgstr "Şəxsi məlumatlar"
+
+#: .\templates\user\profile-edit.html:30
+msgid "Фотография профиля"
+msgstr "Profil şəkli"
+
+#: .\templates\user\profile-edit.html:34
+msgid "Изменить"
+msgstr "Yeniləmək"
+
+#: .\templates\user\profile-edit.html:46
+msgid "Имя"
+msgstr "Ad"
+
+#: .\templates\user\profile-edit.html:50
+msgid "Фамилия"
+msgstr "Soyad"
+
+#: .\templates\user\profile-edit.html:55
+msgid "Имя пользователя"
+msgstr "İstifadəçi adı"
+
+#: .\templates\user\profile-edit.html:59
+msgid "Пол"
+msgstr "Cins"
+
+#: .\templates\user\profile-edit.html:64
+msgid "Мужской"
+msgstr "Kişi"
+
+#: .\templates\user\profile-edit.html:69
+msgid "Женский"
+msgstr "Qadın"
+
+#: .\templates\user\profile-edit.html:74
+msgid "Дата рождения"
+msgstr "Doğum tarixi"
+
+#: .\templates\user\profile-edit.html:104
+msgid "Какими видами спорта увлекаетесь? (максимум 4)"
+msgstr "Hansı idman növləri ilə maraqlanırsınız? (maksimum 4)"
+
+#: .\templates\user\profile-edit.html:105
+msgid "Мы будем показывать вам видео из этой категории"
+msgstr "Bu kateqoriyadan olan videoları sizə göstərəcəyik"
+
+#: .\templates\user\profile-edit.html:146
+msgid "Данные аккаунта"
+msgstr "Hesab məlumatları"
+
+#: .\templates\user\profile-edit.html:148
+msgid "Электронная почта"
+msgstr "Elektron poçt"
+
+#: .\templates\user\profile-edit.html:152
+msgid "Изменение пароля"
+msgstr "Şifrənin dəyişdirilməsi"
+
+#: .\templates\user\profile-edit.html:154
+#: .\templates\user\profile-edit.html:155
+msgid "Текущий пароль"
+msgstr "Cari şifrə"
+
+#: .\templates\user\profile-edit.html:158
+#: .\templates\user\profile-edit.html:159
+msgid "Новый пароль"
+msgstr "Yeni şifrə"
+
+#: .\templates\user\profile-edit.html:160
+msgid "Повторите пароль"
+msgstr "Şifrəni təkrar edin"
+
+#: .\templates\user\profile.html:47
+msgid "Опубликованные видео"
+msgstr "Paylaşılan videolar"
+
+#: .\templates\user\profile.html:55
+msgid "На модерации"
+msgstr "Yoxlanışda"
+
