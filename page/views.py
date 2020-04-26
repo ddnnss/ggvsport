@@ -3,6 +3,7 @@ import json
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from category.models import *
+from .models import *
 from video.models import *
 import datetime as dt
 from datetime import datetime
@@ -12,6 +13,16 @@ from django.db.models import Q
 
 def index(request):
     index_page = True
+    try:
+        tags = SeoTag.objects.first()
+        h1 = tags.index_h1
+        title = tags.index_title
+        description = tags.index_description
+    except:
+        pass
+
+
+    h1 = 'H1'
     watch_now_videos = Video.objects.filter(is_now_watching=True, is_moderated=True)
     for v in watch_now_videos:
         print(v.start_watch)
@@ -55,6 +66,11 @@ def index(request):
 
 def category(request,slug):
     category = get_object_or_404(Category, name_slug=slug)
+    title = category.page_title
+    description = category.page_description
+    tle = category.page_keywords
+    h1 = category.page_h1
+
     all_videos = Video.objects.filter(category=category,is_moderated=True)
     try:
         top2_video = all_videos.order_by('-likes')[:2]
@@ -66,6 +82,10 @@ def category(request,slug):
 
 def subcategory(request,slug,subcat_slug):
     subcategory = get_object_or_404(SubCategory, name_slug=subcat_slug)
+    title = subcategory.page_title
+    description = subcategory.page_description
+    tle = subcategory.page_keywords
+    h1 = subcategory.page_h1
     all_videos = Video.objects.filter(subcategory=subcategory,is_moderated=True)
     try:
         top2_video = all_videos.order_by('-likes')[:2]
@@ -92,6 +112,7 @@ def watch_now(request):
     return render(request, 'page/now-watch.html', locals())
 def video_page(request,video_slug):
     video = get_object_or_404(Video, name_slug=video_slug)
+
     own_video = True
     all_comments = CommentVideo.objects.filter(video=video).order_by('-created_at')
     video.is_now_watching = True

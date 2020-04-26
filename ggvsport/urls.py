@@ -17,4 +17,6 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('', include('page.urls')),
+
+    path('cp/', include('adminPanel.urls')),
 )

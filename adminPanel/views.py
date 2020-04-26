@@ -7,6 +7,8 @@ from customuser.forms import UpdateForm
 from category.models import *
 from category.forms import *
 from video.models import *
+from page.models import *
+
 
 def admin_index(request):
     if request.user.is_superuser:
@@ -20,21 +22,23 @@ def admin_index(request):
     else:
         return HttpResponseRedirect('/')
 
+
 def admin_user_info(request,user_id):
     if request.user.is_superuser:
 
         user = User.objects.get(id=user_id)
         updateForm = UpdateForm()
         allCats = Category.objects.all()
-        dates = ['01', '02', '03', '04']
-        months = ['Январь', 'Февраль']
-        years = ['1950', '1951']
+        dates = list(range(1, 31))
+        months = Month.objects.all()
+        years = list(range(1950, 2020))
         return render(request, 'adminPanel/user-info.html', locals())
     else:
         return HttpResponseRedirect('/')
 
-def admin_profile_edit(request):
 
+
+def admin_profile_edit(request):
     if request.POST:
         print(request.POST)
         user = User.objects.get(id=int(request.POST.get('id')))
@@ -72,8 +76,6 @@ def admin_profile_edit(request):
             else:
                 user.fav_category4 = None
 
-
-
             if request.POST.get('password1') == request.POST.get('password2') and request.POST.get('password1') != '' and request.POST.get('password2') != '':
                 print('Change password')
                 user.set_password(request.POST.get('password1'))
@@ -85,6 +87,7 @@ def admin_profile_edit(request):
             form = UpdateForm()
         return HttpResponseRedirect("/cp")
 
+
 def admin_create_category(request):
     print(request.POST)
     if request.POST:
@@ -94,6 +97,7 @@ def admin_create_category(request):
         if form.is_valid():
             form.save()
         return HttpResponseRedirect('/cp/#tab-2')
+
 
 def admin_update_category(request):
     print(request.POST)
@@ -105,14 +109,18 @@ def admin_update_category(request):
             form.save()
         return HttpResponseRedirect('/cp/#tab-2')
 
+
 def admin_create_subcategory(request):
     print(request.POST)
     if request.POST:
         form = NewSubCategory(request.POST, request.FILES)
         print(form.errors)
         if form.is_valid():
-            form.save()
+            newform = form.save(commit=False)
+            newform.category_id = request.POST.get('category_id')
+            newform.save()
         return HttpResponseRedirect('/cp/#tab-2')
+
 
 def admin_update_subcategory(request):
     print(request.POST)
@@ -129,21 +137,33 @@ def delete_cat(request,id):
     Category.objects.get(id=id).delete()
     return HttpResponseRedirect('/cp/#tab-2')
 
+
 def delete_subcat(request,id):
     SubCategory.objects.get(id=id).delete()
     return HttpResponseRedirect('/cp/#tab-2')
+
 
 def get_cat_info(request):
     body = json.loads(request.body)
     cat = Category.objects.get(id=body['id'])
     cat_info={
         'id': cat.id,
-        'name': cat.name,
+        'name_ru': cat.name_ru,
+        'name_en': cat.name_en,
+        'name_az': cat.name_az,
         'image': cat.image.url,
-        'page_title': cat.page_title,
-        'page_description': cat.page_description,
-        'page_keywords': cat.page_keywords,
-        'seo_text': cat.seo_text
+        'page_title_ru': cat.page_title_ru,
+        'page_title_en': cat.page_title_en,
+        'page_title_az': cat.page_title_az,
+        'page_description_ru': cat.page_description_ru,
+        'page_description_en': cat.page_description_en,
+        'page_description_az': cat.page_description_az,
+        'page_keywords_ru': cat.page_keywords_ru,
+        'page_keywords_en': cat.page_keywords_en,
+        'page_keywords_az': cat.page_keywords_az,
+        'seo_text_ru': cat.seo_text_ru,
+        'seo_text_en': cat.seo_text_en,
+        'seo_text_az': cat.seo_text_az
     }
     return JsonResponse(cat_info)
 
@@ -153,18 +173,30 @@ def get_subcat_info(request):
     cat = SubCategory.objects.get(id=body['id'])
     cat_info={
         'id': cat.id,
-        'name': cat.name,
+        'name_ru': cat.name_ru,
+        'name_en': cat.name_en,
+        'name_az': cat.name_az,
         'image': cat.image.url,
-        'page_title': cat.page_title,
-        'page_description': cat.page_description,
-        'page_keywords': cat.page_keywords,
-        'seo_text': cat.seo_text
+        'page_title_ru': cat.page_title_ru,
+        'page_title_en': cat.page_title_en,
+        'page_title_az': cat.page_title_az,
+        'page_description_ru': cat.page_description_ru,
+        'page_description_en': cat.page_description_en,
+        'page_description_az': cat.page_description_az,
+        'page_keywords_ru': cat.page_keywords_ru,
+        'page_keywords_en': cat.page_keywords_en,
+        'page_keywords_az': cat.page_keywords_az,
+        'seo_text_ru': cat.seo_text_ru,
+        'seo_text_en': cat.seo_text_en,
+        'seo_text_az': cat.seo_text_az
     }
     return JsonResponse(cat_info)
+
 
 def delete_video(request,id):
     Video.objects.get(id=id).delete()
     return HttpResponseRedirect(f'/cp/#t{request.GET.get("tab")}')
+
 
 def moderate_video(request,id):
     video = Video.objects.get(id=id)

@@ -1,5 +1,6 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}
     {{ block.super }}
 {% endblock %}
@@ -11,13 +12,13 @@
 		<div class="wrapper">
             <form action="{% url 'admin_profile_edit' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
 			<div class="personalArea-top">
-				<h1 class="page-title">Настройки профиля пользователя {{ user.get_name }}</h1>
+				<h1 class="page-title">{% trans 'Настройки профиля пользователя' %} {{ user.get_name }}</h1>
                 <div class="profile-btns">
-                    <a style="margin-right: 10px" href="{% url 'admin_index' %}" class="profile-settings">Назад
+                    <a style="margin-right: 10px" href="{% url 'admin_index' %}" class="profile-settings">{% trans 'Назад' %}
                         </a>
 				<button type="submit" class="personalArea-btn">
 					<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
-					Сохранить
+					{% trans 'Сохранить' %}
 				</button>
 
                 </div>
@@ -25,38 +26,38 @@
 			<div class="personalArea-row">
 				<div class="personalArea-col">
 					<div class="personalArea-wrap">
-						<span class="personalArea-subtitle">Личные данные</span>
+						<span class="personalArea-subtitle">{% trans 'Личные данные' %}</span>
 						<div class="personalArea-user">
 							<div class="personalArea-img">
 								<img style="width: 140px;    height: 140px;    object-fit: fill;" src="{{ user.get_avatar }}" alt="">
 							</div>
 							<div class="personalArea-profile">
-								<span class="personalArea-profile__subtitle">Фотография профиля</span>
+								<span class="personalArea-profile__subtitle">{% trans 'Фотография профиля' %}</span>
 								<ul class="personalArea-list">
 									<li><a href="#" class="link-editing">
 										<span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.2656 3.85938L13.7422 5.38281L10.6172 2.25781L12.1406 0.734375C12.2969 0.578125 12.4922 0.5 12.7266 0.5C12.9609 0.5 13.1562 0.578125 13.3125 0.734375L15.2656 2.6875C15.4219 2.84375 15.5 3.03906 15.5 3.27344C15.5 3.50781 15.4219 3.70312 15.2656 3.85938ZM0.5 12.375L9.71875 3.15625L12.8438 6.28125L3.625 15.5H0.5V12.375Z" fill="#0088CC"/></svg></span>
-                                        <label for="a_c">Изменить</label>
+                                        <label for="a_c">{% trans 'Изменить' %}</label>
                                         <input style="display: none" id="a_c" type="file" name="{{ updateForm.avatar.name }}">
 									</a></li>
 									<li><a href="#">
 										<span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1797 12.0078L10.1719 9L13.1797 5.99219L12.0078 4.82031L9 7.82812L5.99219 4.82031L4.82031 5.99219L7.82812 9L4.82031 12.0078L5.99219 13.1797L9 10.1719L12.0078 13.1797L13.1797 12.0078ZM3.10156 3.14062C4.74219 1.5 6.70833 0.679688 9 0.679688C11.2917 0.679688 13.2448 1.5 14.8594 3.14062C16.5 4.75521 17.3203 6.70833 17.3203 9C17.3203 11.2917 16.5 13.2578 14.8594 14.8984C13.2448 16.513 11.2917 17.3203 9 17.3203C6.70833 17.3203 4.74219 16.513 3.10156 14.8984C1.48698 13.2578 0.679688 11.2917 0.679688 9C0.679688 6.70833 1.48698 4.75521 3.10156 3.14062Z" fill="#808080"/></svg></span>
-										Удалить
+										{% trans 'Удалить' %}
 									</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="input-row">
 							<div class="input-block">
-								<label for="j-1">Имя</label>
+								<label for="j-1">{% trans 'Имя' %}</label>
 								<input id="j-1" type="text" name="{{ updateForm.first_name.name }}" placeholder="Ваше имя" value="{{ user.first_name }}">
 							</div>
 							<div class="input-block">
-								<label for="j-2">Фамилия</label>
+								<label for="j-2">{% trans 'Фамилия' %}</label>
 								<input id="j-2" type="text" name="{{ updateForm.last_name.name }}" placeholder="Ваша фамилия" value="{{ user.last_name }}">
 							</div>
 						</div>
 						<div class="input-block">
-							<label for="j-3">Имя пользователя</label>
+							<label for="j-3">{% trans 'Имя пользователя' %}</label>
 							<input id="j-3" type="text" name="{{ updateForm.nickname.name }}" placeholder="Имя пользователя" value="{{ user.nickname }}">
 						</div>
 						<div class="personalArea-block">
@@ -65,17 +66,17 @@
 								<div class="radio">
 									<input id="male" onchange="document.getElementById('female').checked=false" type="checkbox"  name="ismale"{% if user.genre ==  True %}checked{% endif %}>
 									<span class="radio-ico"></span>
-									<p>Мужской</p>
+									<p>{% trans 'Мужской' %}</p>
 								</div>
 								<div class="radio">
 									<input id="female" onchange="document.getElementById('male').checked=false" type="checkbox" name="isfemale" {% if user.genre ==  False %}checked{% endif %}>
 									<span class="radio-ico"></span>
-									<p>Женский</p>
+									<p>{% trans 'Женский' %}</p>
 								</div>
 							</div>
 						</div>
 						<div class="personalArea-block">
-							<label for="">Дата рождения</label>
+							<label for="">{% trans 'Дата рождения' %}</label>
 							<div class="input-row input-row__small">
 								<div class="input-block">
 
@@ -105,13 +106,13 @@
 						</div>
 						<div class="personalArea-block personalArea-block__bottom">
 							<div class="personalArea-block__info">
-								<span class="personalArea-block__subtitle">Какими видами спорта увлекаетесь? (максимум 4)</span>
-								<p>Мы будем показывать вам видео из этой категории</p>
+								<span class="personalArea-block__subtitle">{% trans 'Какими видами спорта увлекаетесь? (максимум 4)' %}</span>
+								<p>{% trans 'Мы будем показывать вам видео из этой категории' %}</p>
 							</div>
 							<div class="input-row">
 								<div class="input-block">
 									<select name="fav_cat1" >
-                                    <option value="0">Выберите...</option>
+                                    <option value="0">{% trans 'Выберите...' %}</option>
                                         {% for cat in allCats %}
 										<option {% if user.fav_category1_id == cat.id %} selected{% endif %} value="{{ cat.id }}">{{ cat.name }}</option>
                                         {% endfor %}
@@ -119,7 +120,7 @@
 								</div>
 								<div class="input-block">
 									<select name="fav_cat2">
-                                     <option value="0">Выберите...</option>
+                                     <option value="0">{% trans 'Выберите...' %}</option>
 										{% for cat in allCats %}
 											<option {% if user.fav_category2_id == cat.id %} selected{% endif %} value="{{ cat.id }}">{{ cat.name }}</option>
                                         {% endfor %}
@@ -127,7 +128,7 @@
 								</div>
 								<div class="input-block">
 									<select name="fav_cat3">
-                                     <option value="0">Выберите...</option>
+                                     <option value="0">{% trans 'Выберите...' %}</option>
 										{% for cat in allCats %}
 											<option {% if user.fav_category3_id == cat.id %} selected{% endif %} value="{{ cat.id }}">{{ cat.name }}</option>
                                         {% endfor %}
@@ -135,7 +136,7 @@
 								</div>
 								<div class="input-block">
 									<select name="fav_cat4">
-                                     <option value="0">Выберите...</option>
+                                     <option value="0">{% trans 'Выберите...' %}</option>
 										{% for cat in allCats %}
 											<option {% if user.fav_category4_id == cat.id %} selected{% endif %} value="{{ cat.id }}">{{ cat.name }}</option>
                                         {% endfor %}
@@ -147,26 +148,26 @@
 				</div>
 				<div class="personalArea-col">
 					<div class="personalArea-wrap">
-						<span class="personalArea-subtitle">Данные аккаунта</span>
+						<span class="personalArea-subtitle">{% trans 'Данные аккаунта' %}</span>
 						<div class="input-block">
-							<label for="g-1">Электронная почта</label>
+							<label for="g-1">{% trans 'Электронная почта' %}</label>
 							<input id="g-1" type="text" name="{{ updateForm.email.name }}" placeholder="Электронная почта" value="{{ user.email }}">
 						</div>
 						<div class="personalArea-col__bottom">
-							<span class="personalArea-col__subtitle">Изменение пароля</span>
+							<span class="personalArea-col__subtitle">{% trans 'Изменение пароля' %}</span>
 
 							<div class="input-block input-block__new">
-								<input id="g-3" type="password" name="password1" placeholder="Новый пароль">
-								<input id="g-4" type="password" name="password2" placeholder="Повторите пароль">
+								<input id="g-3" type="password" name="password1" placeholder="{% trans 'Новый пароль' %}">
+								<input id="g-4" type="password" name="password2" placeholder="{% trans 'Повторите пароль' %}">
 							</div>
 						</div>
                         <div class="">
                             <div style="margin-bottom: 20px" class="radio">
 									<input  type="checkbox" name="block_user" {% if not user.is_active %}checked{% endif %}>
 									<span class="radio-ico"></span>
-									<p>Заблокировать пользователя?</p>
+									<p>{% trans 'Заблокировать пользователя?' %}</p>
 								</div>
-                             <a href="#" class="main-btn">Удалить пользователя</a>
+                             <a href="#" class="main-btn">{% trans 'Удалить пользователя' %}</a>
                         </div>
 
 					</div>
@@ -176,7 +177,7 @@
 			<div class="personalArea-mob">
                 <button type="submit" class="personalArea-btn">
 					<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
-					Сохранить
+					{% trans 'Сохранить' %}
 				</button>
 			</div>
         </form>

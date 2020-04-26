@@ -1,6 +1,8 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}
+
     {{ block.super }}
 {% endblock %}
 {% block description %}
@@ -12,30 +14,27 @@
             <div class="profile-top">
                 <div class="profile-row">
                     <div class="profile-user">
-
                         <div class="profile-info">
-                            <h3 class="profile-name">Панель управления</h3>
-
+                            <h3 class="profile-name">{% trans 'Панель управления' %}</h3>
                         </div>
                     </div>
-
                 </div>
                 <ul class="profile-list tab-list">
                     <li><a id="btn_tab-1" href="#tab-1" >
                         <span><svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1797 3.75L15.5 0.429688V9.57031L12.1797 6.25V9.17969C12.1797 9.41406 12.0885 9.60938 11.9062 9.76562C11.75 9.92188 11.5547 10 11.3203 10H1.32031C1.08594 10 0.890625 9.92188 0.734375 9.76562C0.578125 9.60938 0.5 9.41406 0.5 9.17969V0.820312C0.5 0.585938 0.578125 0.390625 0.734375 0.234375C0.890625 0.078125 1.08594 0 1.32031 0H11.3203C11.5547 0 11.75 0.078125 11.9062 0.234375C12.0885 0.390625 12.1797 0.585938 12.1797 0.820312V3.75Z" fill="#0088CC"/></svg></span>
-                        <b>Пользователи</b>
+                        <b>{% trans 'Пользователи' %}</b>
                     </a></li>
                     <li><a id="btn_tab-2" href="#tab-2">
                         <span><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#0088CC"/></svg></span>
-                        <b>Категории</b>
+                        <b>{% trans 'Категории' %}</b>
                     </a></li>
                     <li><a id="btn_tab-3" href="#tab-3">
                         <span><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#0088CC"/></svg></span>
-                        <b>Опубликованные видео ({{ all_moderated_video.count }})</b>
+                        <b>{% trans 'Опубликованные видео' %} ({{ all_moderated_video.count }})</b>
                     </a></li>
                     <li><a id="btn_tab-4" href="#tab-4">
                         <span><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#0088CC"/></svg></span>
-                        <b>Не опубликованные видео ({{ all_non_moderated_video.count }})</b>
+                        <b>{% trans 'Не опубликованные видео' %} ({{ all_non_moderated_video.count }})</b>
                     </a></li>
                 </ul>
             </div>
@@ -43,14 +42,12 @@
                 <table class="users-table" cellspacing="0" cellpadding="0">
                     <tr class="users-table-header">
                         <td class="users-table-header-item">E-Mail</td>
-                        <td class="users-table-header-item">Nickname</td>
-                        <td class="users-table-header-item">ФИО</td>
-                        <td class="users-table-header-item">Дата регистрации</td>
-                        <td class="users-table-header-item">Опубликованные<br>видео</td>
-                        <td class="users-table-header-item">Не опубликованные видео</td>
-
+                        <td class="users-table-header-item">{% trans 'Имя пользователя' %}</td>
+                        <td class="users-table-header-item">{% trans 'ФИО' %}</td>
+                        <td class="users-table-header-item">{% trans 'Дата регистрации' %}</td>
+                        <td class="users-table-header-item">{% trans 'Опубликованные видео' %}</td>
+                        <td class="users-table-header-item">{% trans 'Не опубликованные видео' %}</td>
                     </tr>
-
                     {% for user in all_users %}
                         <tr class="users-table-row" onclick="window.location.href = '/cp/user/{{ user.id }}'">
                             <td class="users-table-row-item">{{ user.email }}</td>
@@ -59,19 +56,17 @@
                             <td class="users-table-row-item">{{ user.date_joined | date }}</td>
                             <td class="users-table-row-item">{{ user.get_published_videos }}</td>
                             <td class="users-table-row-item">{{ user.get_unpublished_videos }}</td>
-
                         </tr>
                     {% endfor %}
                 </table>
             </div>
             <div class="profile-tab tab" id="tab-2">
-
                 <div class="personalArea-row">
                     <div class="personalArea-col">
                         <div class="personalArea-wrap">
                             <div style="margin-bottom: 20px" class="category-item">
                                 <div class="category-item-header">
-                                    <span onclick="newCategory()" style="background: #0bf447" class="main-btn">Новая категория</span>
+                                    <span onclick="newCategory()" style="background: #0bf447" class="main-btn">{% trans 'Новая категория' %}</span>
                                 </div>
                             </div>
                             {% for cat in all_cats %}
@@ -82,9 +77,8 @@
                                             <span onclick="editCategory('{{ cat.id }}')" style="background: #0bf447" class="main-btn">&#9998;</span>
                                             <a href="{% url 'admin_delete_cat' cat.id%}" class="main-btn">&#10006;</a>
                                         </div>
-
                                     </div>
-                                    <span style="cursor: pointer; display: block; margin-bottom: 10px; text-decoration: underline" onclick="newSubCategory('{{ cat.id }}')">Новая подкатегория</span>
+                                    <span style="cursor: pointer; display: block; margin-bottom: 10px; text-decoration: underline" onclick="newSubCategory('{{ cat.id }}')">{% trans 'Новая подкатегория' %}</span>
                                     <ul>
                                         {% for subcat in cat.subcat.all %}
                                             <li class="subcat_row"><p>{{ subcat.name }}</p> <p><span style="margin-right: 20px" onclick="editSubCategory('{{ subcat.id }}')" class="subcat_icon">&#9998;</span> <a href="{% url 'admin_delete_subcat' subcat.id %}" class="subcat_icon">&#10006;</a></p></li>
@@ -98,25 +92,46 @@
                         <div class="personalArea-wrap">
                             <form action="{% url 'admin_create_category' %}" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <span class="personalArea-subtitle">Новая категория</span>
+                                <span class="personalArea-subtitle">{% trans 'Новая категория' %}</span>
+
                                 <div class="input-block">
-                                    <label>Название</label>
-                                    <input type="text" name="{{ newCategoryForm.name.name }}" required placeholder="Название категории" value="">
-                                    <label>Изображение</label>
+                                    <label>{% trans 'Название' %}[RU]</label>
+                                    <input type="text" name="{{ newCategoryForm.name_ru.name }}" required placeholder="Название категории" value="">
+                                    <label>{% trans 'Название' %}[EN]</label>
+                                    <input type="text" name="{{ newCategoryForm.name_en.name }}" required placeholder="Название категории" value="">
+                                     <label>{% trans 'Название' %} [AZ]</label>
+                                    <input type="text" name="{{ newCategoryForm.name_az.name }}" required placeholder="Название категории" value="">
+                                    <label>{% trans 'Изображение' %}</label>
                                     <input style="border: none;  box-shadow: none" required name="{{ newCategoryForm.image.name }}" type="file">
-                                    <label>TITLE</label>
-                                    <input name="{{ newCategoryForm.page_title.name }}" required type="text">
-                                    <label>KEYWORDS (через запятую)</label>
-                                    <textarea name="{{ newCategoryForm.page_keywords.name }}"  id="" cols="30" rows="10"></textarea>
-                                    <label>DESCRIPTION</label>
-                                    <textarea name="{{ newCategoryForm.page_description.name }}" required cols="30" rows="10"></textarea>
-                                    <label>SEO текст</label>
-                                    <textarea style="height: 300px;resize: vertical" class="editor" name="{{ newCategoryForm.seo_text.name }}"  cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег TITLE' %} [RU]</label>
+                                    <input name="{{ newCategoryForm.page_title_ru.name }}" required type="text">
+                                    <label>{% trans 'Тег TITLE' %} [EN]</label>
+                                    <input name="{{ newCategoryForm.page_title_en.name }}" required type="text">
+                                    <label>{% trans 'Тег TITLE' %} [AZ]</label>
+                                    <input name="{{ newCategoryForm.page_title_az.name }}" required type="text">
+                                    <label>{% trans 'Тег KEYWORDS (через запятую)' %} [RU]</label>
+                                    <textarea name="{{ newCategoryForm.page_keywords_ru.name }}"  id="" cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег KEYWORDS (через запятую)' %} [EN]</label>
+                                    <textarea name="{{ newCategoryForm.page_keywords_en.name }}"  id="" cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег KEYWORDS (через запятую)' %} [AZ]</label>
+                                    <textarea name="{{ newCategoryForm.page_keywords_az.name }}"  id="" cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег DESCRIPTION' %} [RU]</label>
+                                    <textarea name="{{ newCategoryForm.page_description_ru.name }}" required cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег DESCRIPTION' %} [EN]</label>
+                                    <textarea name="{{ newCategoryForm.page_description_en.name }}" required cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег DESCRIPTION' %} [AZ]</label>
+                                    <textarea name="{{ newCategoryForm.page_description_az.name }}" required cols="30" rows="10"></textarea>
+                                    <label>{% trans 'SEO текст' %} [RU]</label>
+                                    <textarea style="height: 300px;resize: vertical" class="editor" name="{{ newCategoryForm.seo_text_ru.name }}"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'SEO текст' %} [EN]</label>
+                                    <textarea style="height: 300px;resize: vertical" class="editor" name="{{ newCategoryForm.seo_text_en.name }}"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'SEO текст' %} [AZ]</label>
+                                    <textarea style="height: 300px;resize: vertical" class="editor" name="{{ newCategoryForm.seo_text_az.name }}"  cols="30" rows="10"></textarea>
 
                                 </div>
                                 <button type="submit" class="personalArea-btn">
                                     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
-                                    Создать категорию
+                                    {% trans 'Создать категорию' %}
                                 </button>
                             </form>
 
@@ -129,23 +144,43 @@
                                 {% csrf_token %}
                                 <span class="personalArea-subtitle">Новая подкатегория</span>
                                 <div class="input-block">
-                                    <label>Название</label>
-                                    <input type="text" name="{{ newSubCategoryForm.name.name }}" required placeholder="Название категории" value="">
-                                    <label>Изображение</label>
+                                    <label>{% trans 'Название' %}[RU]</label>
+                                    <input type="text" name="{{ newSubCategoryForm.name_ru.name }}" required placeholder="Название категории" value="">
+                                    <label>{% trans 'Название' %}[EN]</label>
+                                    <input type="text" name="{{ newSubCategoryForm.name_en.name }}" required placeholder="Название категории" value="">
+                                     <label>{% trans 'Название' %} [AZ]</label>
+                                    <input type="text" name="{{ newSubCategoryForm.name_az.name }}" required placeholder="Название категории" value="">
+                                    <label>{% trans 'Изображение' %}</label>
                                     <input style="border: none;  box-shadow: none" required name="{{ newSubCategoryForm.image.name }}" type="file">
-                                    <label>TITLE</label>
-                                    <input name="{{ newSubCategoryForm.page_title.name }}" required type="text">
-                                    <label>KEYWORDS (через запятую)</label>
-                                    <textarea name="{{ newSubCategoryForm.page_keywords.name }}"  id="" cols="30" rows="10"></textarea>
-                                    <label>DESCRIPTION</label>
-                                    <textarea name="{{ newSubCategoryForm.page_description.name }}" required cols="30" rows="10"></textarea>
-                                    <label>SEO текст</label>
-                                    <textarea style="height: 300px;resize: vertical" class="editor1" name="{{ newSubCategoryForm.seo_text.name }}"  cols="30" rows="10"></textarea>
-                                    <input id="cat_id" type="hidden" name="{{ newSubCategoryForm.category.name }}">
+                                    <label>{% trans 'Тег TITLE' %} [RU]</label>
+                                    <input name="{{ newSubCategoryForm.page_title_ru.name }}" required type="text">
+                                    <label>{% trans 'Тег TITLE' %} [EN]</label>
+                                    <input name="{{ newSubCategoryForm.page_title_en.name }}" required type="text">
+                                    <label>{% trans 'Тег TITLE' %} [AZ]</label>
+                                    <input name="{{ newSubCategoryForm.page_title_az.name }}" required type="text">
+                                    <label>{% trans 'Тег KEYWORDS (через запятую)' %} [RU]</label>
+                                    <textarea name="{{ newSubCategoryForm.page_keywords_ru.name }}"  id="" cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег KEYWORDS (через запятую)' %} [EN]</label>
+                                    <textarea name="{{ newSubCategoryForm.page_keywords_en.name }}"  id="" cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег KEYWORDS (через запятую)' %} [AZ]</label>
+                                    <textarea name="{{ newSubCategoryForm.page_keywords_az.name }}"  id="" cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег DESCRIPTION' %} [RU]</label>
+                                    <textarea name="{{ newSubCategoryForm.page_description_ru.name }}" required cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег DESCRIPTION' %} [EN]</label>
+                                    <textarea name="{{ newSubCategoryForm.page_description_en.name }}" required cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег DESCRIPTION' %} [AZ]</label>
+                                    <textarea name="{{ newSubCategoryForm.page_description_az.name }}" required cols="30" rows="10"></textarea>
+                                    <label>{% trans 'SEO текст' %} [RU]</label>
+                                    <textarea style="height: 300px;resize: vertical" class="editor" name="{{ newSubCategoryForm.seo_text_ru.name }}"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'SEO текст' %} [EN]</label>
+                                    <textarea style="height: 300px;resize: vertical" class="editor" name="{{ newSubCategoryForm.seo_text_en.name }}"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'SEO текст' %} [AZ]</label>
+                                    <textarea style="height: 300px;resize: vertical" class="editor" name="{{ newSubCategoryForm.seo_text_az.name }}"  cols="30" rows="10"></textarea>
+                                    <input id="cat_id" type="hidden" name="category_id">
                                 </div>
                                 <button type="submit" class="personalArea-btn">
                                     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
-                                    Создать категорию
+                                    {% trans 'Создать подкатегорию' %}
                                 </button>
                             </form>
 
@@ -155,27 +190,47 @@
                     <div id="edit_cat_div" style="display: none;" class="personalArea-col">
                         <div class="personalArea-wrap">
                             <form action="{% url 'admin_update_category' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-                                <span class="personalArea-subtitle">Редактирование категории </span>
+                                <span class="personalArea-subtitle">{% trans 'Редактирование категории' %} </span>
                                 <div class="input-block">
-                                    <label>Название</label>
-                                    <input id="cat_name" type="text" name="name" required="" placeholder="Название категории" value="">
-                                    <label>Текущее изображение категории</label>
+                                    <label>{% trans 'Название' %} [RU]</label>
+                                    <input id="cat_name_ru" type="text" name="name_ru" required="" placeholder="Название категории" value="">
+                                    <label>{% trans 'Название' %} [EN]</label>
+                                    <input id="cat_name_en" type="text" name="name_en" required="" placeholder="Название категории" value="">
+                                    <label>{% trans 'Название' %} [AZ]</label>
+                                    <input id="cat_name_az" type="text" name="name_az" required="" placeholder="Название категории" value="">
+                                    <label>{% trans 'Текущее изображение категории' %}</label>
                                     <img id="cat_image" src="" alt="">
-                                    <label>Изображение</label>
+                                    <label>{% trans 'Изображение' %}</label>
                                     <input id="cat_image" style="border: none;  box-shadow: none"  name="image" type="file">
-                                    <label>TITLE</label>
-                                    <input id="cat_page_title" name="page_title" required="" type="text">
-                                    <label>KEYWORDS (через запятую)</label>
-                                    <textarea id="cat_page_keywords" name="page_keywords"  cols="30" rows="10"></textarea>
-                                    <label>DESCRIPTION</label>
-                                    <textarea id="cat_page_description" name="page_description" required="" cols="30" rows="10"></textarea>
-                                    <label>SEO текст</label>
-                                    <textarea id="cat_seo_text" style="height: 300px;resize: vertical" class="editor2" name="seo_text"  cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег TITLE' %} [RU]</label>
+                                    <input id="cat_page_title_ru" name="page_title_ru" required="" type="text">
+                                    <label>{% trans 'Тег TITLE' %} [EN]</label>
+                                    <input id="cat_page_title_en" name="page_title_en" required="" type="text">
+                                    <label>{% trans 'Тег TITLE' %} [AZ]</label>
+                                    <input id="cat_page_title_az" name="page_title_az" required="" type="text">
+                                    <label>{% trans 'Тег KEYWORDS (через запятую)' %} [RU]</label>
+                                    <textarea id="cat_page_keywords_ru" name="page_keywords_ru"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег KEYWORDS (через запятую)' %} [EN]</label>
+                                    <textarea id="cat_page_keywords_en" name="page_keywords_en"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег KEYWORDS (через запятую)' %} [AZ]</label>
+                                    <textarea id="cat_page_keywords_az" name="page_keywords_az"  cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег DESCRIPTION' %} [RU]</label>
+                                    <textarea id="cat_page_description_ru" name="page_description_ru" required="" cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег DESCRIPTION' %} [EN]</label>
+                                    <textarea id="cat_page_description_en" name="page_description_en" required="" cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег DESCRIPTION' %} [AZ]</label>
+                                    <textarea id="cat_page_description_az" name="page_description_az" required="" cols="30" rows="10"></textarea>
+                                    <label>{% trans 'SEO текст' %} [RU]</label>
+                                    <textarea id="cat_seo_text_ru" style="height: 300px;resize: vertical" class="editor2" name="seo_text_ru"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'SEO текст' %} [EN]</label>
+                                    <textarea id="cat_seo_text_en" style="height: 300px;resize: vertical" class="editor2" name="seo_text_en"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'SEO текст' %} [AZ]</label>
+                                    <textarea id="cat_seo_text_az" style="height: 300px;resize: vertical" class="editor2" name="seo_text_az"  cols="30" rows="10"></textarea>
                                     <input id="update_cat_id" type="hidden" name="id">
                                 </div>
                                 <button type="submit" class="personalArea-btn">
                                     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"></path></svg>
-                                    Сохранить изменения
+                                    {% trans 'Сохранить изменения' %}
                                 </button>
                             </form>
 
@@ -185,27 +240,48 @@
                     <div id="edit_subcat_div" style="display: none;" class="personalArea-col">
                         <div class="personalArea-wrap">
                             <form action="{% url 'admin_update_subcategory' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-                                <span class="personalArea-subtitle">Редактирование подкатегории </span>
+                                <span class="personalArea-subtitle">{% trans 'Редактирование подкатегории' %} </span>
                                 <div class="input-block">
-                                    <label>Название</label>
-                                    <input id="subcat_name" type="text" name="name" required="" placeholder="Название категории" value="">
-                                    <label>Текущее изображение категории</label>
+                                   <label>{% trans 'Название' %} [RU]</label>
+                                    <input id="subcat_name_ru" type="text" name="name_ru" required="" placeholder="Название категории" value="">
+                                    <label>{% trans 'Название' %} [EN]</label>
+                                    <input id="subcat_name_en" type="text" name="name_en" required="" placeholder="Название категории" value="">
+                                    <label>{% trans 'Название' %} [AZ]</label>
+                                    <input id="subcat_name_az" type="text" name="name_az" required="" placeholder="Название категории" value="">
+                                    <label>{% trans 'Текущее изображение категории' %}</label>
                                     <img id="subcat_image" src="" alt="">
-                                    <label>Изображение</label>
+                                    <label>{% trans 'Изображение' %}</label>
                                     <input id="subcat_image" style="border: none;  box-shadow: none"  name="image" type="file">
-                                    <label>TITLE</label>
-                                    <input id="subcat_page_title" name="page_title" required="" type="text">
-                                    <label>KEYWORDS (через запятую)</label>
-                                    <textarea id="subcat_page_keywords" name="page_keywords"  cols="30" rows="10"></textarea>
-                                    <label>DESCRIPTION</label>
-                                    <textarea id="subcat_page_description" name="page_description" required="" cols="30" rows="10"></textarea>
-                                    <label>SEO текст</label>
-                                    <textarea id="subcat_seo_text" style="height: 300px;resize: vertical" class="editor2" name="seo_text"  cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег TITLE' %} [RU]</label>
+                                    <input id="subcat_page_title_ru" name="page_title_ru" required="" type="text">
+                                    <label>{% trans 'Тег TITLE' %} [EN]</label>
+                                    <input id="subcat_page_title_en" name="page_title_en" required="" type="text">
+                                    <label>{% trans 'Тег TITLE' %} [AZ]</label>
+                                    <input id="subcat_page_title_az" name="page_title_az" required="" type="text">
+                                    <label>{% trans 'Тег KEYWORDS (через запятую)' %} [RU]</label>
+                                    <textarea id="subcat_page_keywords_ru" name="page_keywords_ru"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег KEYWORDS (через запятую)' %} [EN]</label>
+                                    <textarea id="subcat_page_keywords_en" name="page_keywords_en"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег KEYWORDS (через запятую)' %} [AZ]</label>
+                                    <textarea id="subcat_page_keywords_az" name="page_keywords_az"  cols="30" rows="10"></textarea>
+                                    <label>{% trans 'Тег DESCRIPTION' %} [RU]</label>
+                                    <textarea id="subcat_page_description_ru" name="page_description_ru" required="" cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег DESCRIPTION' %} [EN]</label>
+                                    <textarea id="subcat_page_description_en" name="page_description_en" required="" cols="30" rows="10"></textarea>
+                                     <label>{% trans 'Тег DESCRIPTION' %} [AZ]</label>
+                                    <textarea id="subcat_page_description_az" name="page_description_az" required="" cols="30" rows="10"></textarea>
+                                    <label>{% trans 'SEO текст' %} [RU]</label>
+                                    <textarea id="subcat_seo_text_ru" style="height: 300px;resize: vertical" class="editor2" name="seo_text_ru"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'SEO текст' %} [EN]</label>
+                                    <textarea id="subcat_seo_text_en" style="height: 300px;resize: vertical" class="editor2" name="seo_text_en"  cols="30" rows="10"></textarea>
+                                     <label>{% trans 'SEO текст' %} [AZ]</label>
+                                    <textarea id="subcat_seo_text_az" style="height: 300px;resize: vertical" class="editor2" name="seo_text_az"  cols="30" rows="10"></textarea>
+
                                     <input id="update_subcat_id" type="hidden" name="id">
                                 </div>
                                 <button type="submit" class="personalArea-btn">
                                     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"></path></svg>
-                                    Сохранить изменения
+                                   {% trans 'Сохранить изменения' %}
                                 </button>
                             </form>
 
@@ -260,8 +336,8 @@
                                 </a></li>
                             </ul>
                         </div>
-                        <a href="{% url 'moderate_video' video.id %}" style="background: #0bf447; width: 100%; margin-bottom: 10px" class="main-btn">Проверено</a>
-                        <a href="{% url 'delete_video' video.id %}?tab=tab-4" style=" width: 100%" class="main-btn"> Удалить</a>
+                        <a href="{% url 'moderate_video' video.id %}" style="background: #0bf447; width: 100%; margin-bottom: 10px" class="main-btn">{% trans 'Проверено' %}</a>
+                        <a href="{% url 'delete_video' video.id %}?tab=tab-4" style=" width: 100%" class="main-btn">{% trans 'Удалить' %} </a>
                         </div>
 
 
@@ -314,12 +390,22 @@
             cat_id.value = id
         }
         function editCategory(id) {
-            let cat_name = document.getElementById('cat_name'),
-                cat_page_title = document.getElementById('cat_page_title'),
-                cat_page_keywords = document.getElementById('cat_page_keywords'),
-                cat_page_description = document.getElementById('cat_page_description'),
+            let cat_name_ru = document.getElementById('cat_name_ru'),
+                cat_name_en = document.getElementById('cat_name_en'),
+                cat_name_az = document.getElementById('cat_name_az'),
+                cat_page_title_ru = document.getElementById('cat_page_title_ru'),
+                cat_page_title_en = document.getElementById('cat_page_title_en'),
+                cat_page_title_az = document.getElementById('cat_page_title_az'),
+                cat_page_keywords_ru = document.getElementById('cat_page_keywords_ru'),
+                cat_page_keywords_en = document.getElementById('cat_page_keywords_en'),
+                cat_page_keywords_az = document.getElementById('cat_page_keywords_az'),
+                cat_page_description_ru = document.getElementById('cat_page_description_ru'),
+                cat_page_description_en = document.getElementById('cat_page_description_en'),
+                cat_page_description_az = document.getElementById('cat_page_description_az'),
                 cat_image = document.getElementById('cat_image'),
-                cat_seo = document.getElementById('cat_seo_text'),
+                cat_seo_ru = document.getElementById('cat_seo_text_ru'),
+                cat_seo_en = document.getElementById('cat_seo_text_en'),
+                cat_seo_az = document.getElementById('cat_seo_text_az'),
                 update_cat_id = document.getElementById('update_cat_id')
             new_cat.style.display = 'none'
             new_subcat.style.display = 'none'
@@ -338,12 +424,22 @@
             }).then(res=>res.json())
                 .then(res => {
                     console.log(res)
-                    cat_name.value = res['name']
+                    cat_name_ru.value = res['name_ru']
+                    cat_name_en.value = res['name_en']
+                    cat_name_az.value = res['name_az']
                     cat_image.setAttribute('src',res['image'])
-                    cat_page_title.value = res['page_title']
-                    cat_page_keywords.value =  res['page_keywords']
-                    cat_page_description.value = res['page_description']
-                    cat_seo.innerHTML=res['seo_text']
+                    cat_page_title_ru.value = res['page_title_ru']
+                    cat_page_title_en.value = res['page_title_en']
+                    cat_page_title_az.value = res['page_title_az']
+                    cat_page_keywords_ru.value =  res['page_keywords_ru']
+                    cat_page_keywords_en.value =  res['page_keywords_en']
+                    cat_page_keywords_az.value =  res['page_keywords_az']
+                    cat_page_description_ru.value = res['page_description_ru']
+                    cat_page_description_en.value = res['page_description_en']
+                    cat_page_description_az.value = res['page_description_az']
+                    cat_seo_ru.innerHTML=res['seo_text_ru']
+                    cat_seo_en.innerHTML=res['seo_text_en']
+                    cat_seo_az.innerHTML=res['seo_text_az']
                     update_cat_id.value = res['id']
 
 
@@ -353,12 +449,22 @@
 
         }
         function editSubCategory(id) {
-            let cat_name = document.getElementById('subcat_name'),
-                cat_page_title = document.getElementById('subcat_page_title'),
-                cat_page_keywords = document.getElementById('subcat_page_keywords'),
-                cat_page_description = document.getElementById('subcat_page_description'),
+            let cat_name_ru = document.getElementById('subcat_name_ru'),
+                cat_name_en = document.getElementById('subcat_name_en'),
+                cat_name_az = document.getElementById('subcat_name_az'),
+                cat_page_title_ru = document.getElementById('subcat_page_title_ru'),
+                cat_page_title_en = document.getElementById('subcat_page_title_en'),
+                cat_page_title_az = document.getElementById('subcat_page_title_az'),
+                cat_page_keywords_ru = document.getElementById('subcat_page_keywords_ru'),
+                cat_page_keywords_en = document.getElementById('subcat_page_keywords_en'),
+                cat_page_keywords_az = document.getElementById('subcat_page_keywords_az'),
+                cat_page_description_ru = document.getElementById('subcat_page_description_ru'),
+                cat_page_description_en = document.getElementById('subcat_page_description_en'),
+                cat_page_description_az = document.getElementById('subcat_page_description_az'),
                 cat_image = document.getElementById('subcat_image'),
-                cat_seo = document.getElementById('subcat_seo_text'),
+                cat_seo_ru = document.getElementById('subcat_seo_text_ru'),
+                cat_seo_en = document.getElementById('subcat_seo_text_en'),
+                cat_seo_az = document.getElementById('subcat_seo_text_az'),
                 update_cat_id = document.getElementById('update_subcat_id')
 
             new_cat.style.display = 'none'
@@ -377,12 +483,25 @@
             }).then(res=>res.json())
                 .then(res => {
                     console.log(res)
-                    cat_name.value = res['name']
+
+                   cat_name_ru.value = res['name_ru']
+                    cat_name_en.value = res['name_en']
+                    cat_name_az.value = res['name_az']
                     cat_image.setAttribute('src',res['image'])
-                    cat_page_title.value = res['page_title']
-                    cat_page_keywords.value =  res['page_keywords']
-                    cat_page_description.value = res['page_description']
-                    cat_seo.innerHTML=res['seo_text']
+                    cat_page_title_ru.value = res['page_title_ru']
+                    cat_page_title_en.value = res['page_title_en']
+                    cat_page_title_az.value = res['page_title_az']
+                    cat_page_keywords_ru.value =  res['page_keywords_ru']
+                    cat_page_keywords_en.value =  res['page_keywords_en']
+                    cat_page_keywords_az.value =  res['page_keywords_az']
+                    cat_page_description_ru.value = res['page_description_ru']
+                    cat_page_description_en.value = res['page_description_en']
+                    cat_page_description_az.value = res['page_description_az']
+                    cat_seo_ru.innerHTML=res['seo_text_ru']
+                    cat_seo_en.innerHTML=res['seo_text_en']
+                    cat_seo_az.innerHTML=res['seo_text_az']
+
+
                     update_cat_id.value = res['id']
 
 

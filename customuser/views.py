@@ -6,6 +6,7 @@ from django.contrib.auth import login, logout,authenticate
 from django.shortcuts import render, get_object_or_404
 from .forms import SignUpForm,UpdateForm
 from customuser.models import *
+from page.models import *
 from django.http import JsonResponse, HttpResponseRedirect
 from category.models import Category
 from video.models import *
@@ -110,9 +111,9 @@ def profile_edit(request):
             else:
                 form = UpdateForm()
             return HttpResponseRedirect("/user/profile/edit")
-        dates = ['01', '02', '03', '04']
-        months = ['Январь', 'Февраль']
-        years = ['1950', '1951']
+        dates = list(range(1, 31))
+        months = Month.objects.all()
+        years = list(range(1950, 2020))
         allCats = Category.objects.all()
         updateForm = UpdateForm()
         return render(request, 'user/profile-edit.html', locals())

@@ -4,7 +4,7 @@
 	<footer class="footer">
 		<div class="wrapper">
 			<div class="footer-col">
-				<p>© Lorem Company, 2020. Все права защищены.</p>
+				<p>{% trans '© Lorem Company, 2020. Все права защищены.' %}</p>
 				<a href="#" class="footer-link">{% trans 'Политика конфиденциальности'%}</a>
 				<a href="#" class="footer-link">{% trans 'Условия и положения'%}</a>
 			</div>
@@ -49,11 +49,11 @@
 					<input id="email_reg" required type="email" name="email" placeholder="E-mail">
 				</div>
 				<div class="input-block">
-					<input id="password1_reg" type="password" required name="password1" placeholder="Пароль">
+					<input id="password1_reg" type="password" required name="password1" placeholder="{% trans 'Пароль' %}">
 					<p>{% trans 'Пароль должен содержать хотя бы 8 символов'%}</p>
 				</div>
 				<div class="input-block">
-					<input id="password2_reg" type="password" required name="password2" placeholder="Повторите пароль">
+					<input id="password2_reg" type="password" required name="password2" placeholder="{% trans 'Повторите пароль' %}">
 				</div>
 				<div class="modal-text">
 					<p>{% trans 'Нажимая “Готово”, Вы соглашаетесь с '%}<a href="#">{% trans 'Условиями использования'%}</a> {% trans 'и'%} <a href="#">{% trans 'Политикой конфиденциальности'%}</a>.</p>
@@ -82,7 +82,7 @@
 					<input id="email_login" type="email" required name="email" placeholder="E-mail">
 				</div>
 				<div class="input-block">
-					<input id="password_login" type="password" required name="password" placeholder="Пароль">
+					<input id="password_login" type="password" required name="password" placeholder="{% trans 'Пароль' %}">
 				</div>
 				<a href="#modal-forgot" class="button-modal help">
 					<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.03125 6.5C9.44792 6.08333 9.65625 5.58333 9.65625 5C9.65625 4.27083 9.39583 3.64583 8.875 3.125C8.35417 2.60417 7.72917 2.34375 7 2.34375C6.27083 2.34375 5.64583 2.60417 5.125 3.125C4.60417 3.64583 4.34375 4.27083 4.34375 5H5.65625C5.65625 4.64583 5.79167 4.33333 6.0625 4.0625C6.33333 3.79167 6.64583 3.65625 7 3.65625C7.35417 3.65625 7.66667 3.79167 7.9375 4.0625C8.20833 4.33333 8.34375 4.64583 8.34375 5C8.34375 5.35417 8.20833 5.66667 7.9375 5.9375L7.125 6.78125C6.60417 7.34375 6.34375 7.96875 6.34375 8.65625V9H7.65625C7.65625 8.3125 7.91667 7.6875 8.4375 7.125L9.03125 6.5ZM7.65625 11.6562V10.3438H6.34375V11.6562H7.65625ZM2.28125 2.3125C3.59375 1 5.16667 0.34375 7 0.34375C8.83333 0.34375 10.3958 1 11.6875 2.3125C13 3.60417 13.6562 5.16667 13.6562 7C13.6562 8.83333 13 10.4062 11.6875 11.7188C10.3958 13.0104 8.83333 13.6562 7 13.6562C5.16667 13.6562 3.59375 13.0104 2.28125 11.7188C0.989583 10.4062 0.34375 8.83333 0.34375 7C0.34375 5.16667 0.989583 3.60417 2.28125 2.3125Z" fill="#689CD8"/></svg>

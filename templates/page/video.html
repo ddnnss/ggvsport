@@ -18,7 +18,7 @@
                     </div>
                     <div class="article-video">
                         <div class="article-video__wrap">
-                            <video width="100%" autobuffer  controls  poster="{{ video.image.url }}" >
+                            <video width="100%" autoplay  controls  poster="{{ video.image.url }}" >
                                 <source  src="{{ video.file.url }}">
 
 
@@ -81,7 +81,7 @@
 
                                     <div  class="testimonials-row">
                                         <div class="testimonials-img">
-                                            <img src="{{ comment.user.get_avatar }}" alt="">
+                                            <img  src="{{ comment.user.get_avatar }}" alt="">
                                         </div>
                                         <div class="testimonials-info">
                                             <div class="testimonials-top">
@@ -115,7 +115,7 @@
                                 <h3 class="testimonials-title">{% trans 'Оставьте комментарий'%}</h3>
                                 <div class="testimonials-form__row">
                                     <div class="testimonials-form__img">
-                                        <img  src="{{ request.user.get_avatar }}" alt="">
+                                        <img style="width: 50px;height: 50px;object-fit: cover; box-sizing: border-box" src="{{ request.user.get_avatar }}" alt="">
                                     </div>
                                     <div class="testimonials-form__info input-block">
                                         <textarea id="comment" placeholder="Ваше сообщение"></textarea>

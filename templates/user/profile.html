@@ -33,11 +33,11 @@
                     </div>
                 </div>
                 <ul class="profile-list tab-list">
-                    <li><a href="#tab-1" class="active">
+                    <li><a id="btn_tab-1" href="#tab-1" class="active">
                         <span><svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1797 3.75L15.5 0.429688V9.57031L12.1797 6.25V9.17969C12.1797 9.41406 12.0885 9.60938 11.9062 9.76562C11.75 9.92188 11.5547 10 11.3203 10H1.32031C1.08594 10 0.890625 9.92188 0.734375 9.76562C0.578125 9.60938 0.5 9.41406 0.5 9.17969V0.820312C0.5 0.585938 0.578125 0.390625 0.734375 0.234375C0.890625 0.078125 1.08594 0 1.32031 0H11.3203C11.5547 0 11.75 0.078125 11.9062 0.234375C12.0885 0.390625 12.1797 0.585938 12.1797 0.820312V3.75Z" fill="#0088CC"/></svg></span>
                         <b>{% trans 'Мои видео'%}</b>
                     </a></li>
-                    <li><a href="#tab-2">
+                    <li><a id="btn_tab-2" href="#tab-2">
                         <span><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#0088CC"/></svg></span>
                         <b>{% trans 'Мне нравится'%}</b>
                     </a></li>
@@ -73,5 +73,17 @@
 {% endblock %}
 {% block js %}
     {{ block.super }}
+    <script>    document.addEventListener("DOMContentLoaded", function(event) {
+            try{
 
+                let tab = window.location.href.split('#')[1]
+                console.log(tab)
+                document.getElementById(`btn_${tab}`).click()
+                document.getElementById(`btn_${tab}`).classList.add('active')
+            }
+            catch (e) {
+
+            }
+
+        });</script>
 {% endblock %}

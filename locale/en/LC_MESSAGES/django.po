@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 17:17+0300\n"
+"POT-Creation-Date: 2020-04-26 13:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,246 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\adminPanel\admin.html:18
+msgid "Панель управления"
+msgstr "Control panel"
+
+#: .\templates\adminPanel\admin.html:25
+msgid "Пользователи"
+msgstr "Users"
+
+#: .\templates\adminPanel\admin.html:29 .\templates\header.html:33
+#: .\templates\page\index.html:24
+msgid "Категории"
+msgstr "Category"
+
+#: .\templates\adminPanel\admin.html:33 .\templates\adminPanel\admin.html:48
+#: .\templates\user\profile.html:47
+msgid "Опубликованные видео"
+msgstr "Published"
+
+#: .\templates\adminPanel\admin.html:37 .\templates\adminPanel\admin.html:49
+msgid "Не опубликованные видео"
+msgstr "Not published"
+
+#: .\templates\adminPanel\admin.html:45
+#: .\templates\adminPanel\user-info.html:60
+#: .\templates\user\profile-edit.html:55
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: .\templates\adminPanel\admin.html:46
+msgid "ФИО"
+msgstr "Full name"
+
+#: .\templates\adminPanel\admin.html:47
+msgid "Дата регистрации"
+msgstr "Join date"
+
+#: .\templates\adminPanel\admin.html:69 .\templates\adminPanel\admin.html:95
+msgid "Новая категория"
+msgstr "New category"
+
+#: .\templates\adminPanel\admin.html:81
+msgid "Новая подкатегория"
+msgstr "New subcategory"
+
+#: .\templates\adminPanel\admin.html:98 .\templates\adminPanel\admin.html:100
+#: .\templates\adminPanel\admin.html:102 .\templates\adminPanel\admin.html:147
+#: .\templates\adminPanel\admin.html:149 .\templates\adminPanel\admin.html:151
+#: .\templates\adminPanel\admin.html:195 .\templates\adminPanel\admin.html:197
+#: .\templates\adminPanel\admin.html:199 .\templates\adminPanel\admin.html:245
+#: .\templates\adminPanel\admin.html:247 .\templates\adminPanel\admin.html:249
+#: .\templates\user\profile-add-video.html:52
+msgid "Название"
+msgstr "Title"
+
+#: .\templates\adminPanel\admin.html:104 .\templates\adminPanel\admin.html:153
+#: .\templates\adminPanel\admin.html:203 .\templates\adminPanel\admin.html:253
+msgid "Изображение"
+msgstr "Image"
+
+#: .\templates\adminPanel\admin.html:106 .\templates\adminPanel\admin.html:108
+#: .\templates\adminPanel\admin.html:110 .\templates\adminPanel\admin.html:155
+#: .\templates\adminPanel\admin.html:157 .\templates\adminPanel\admin.html:159
+#: .\templates\adminPanel\admin.html:205 .\templates\adminPanel\admin.html:207
+#: .\templates\adminPanel\admin.html:209 .\templates\adminPanel\admin.html:255
+#: .\templates\adminPanel\admin.html:257 .\templates\adminPanel\admin.html:259
+msgid "Тег TITLE"
+msgstr "Tag TITLE"
+
+#: .\templates\adminPanel\admin.html:112 .\templates\adminPanel\admin.html:114
+#: .\templates\adminPanel\admin.html:116 .\templates\adminPanel\admin.html:161
+#: .\templates\adminPanel\admin.html:163 .\templates\adminPanel\admin.html:165
+#: .\templates\adminPanel\admin.html:211 .\templates\adminPanel\admin.html:213
+#: .\templates\adminPanel\admin.html:215 .\templates\adminPanel\admin.html:261
+#: .\templates\adminPanel\admin.html:263 .\templates\adminPanel\admin.html:265
+msgid "Тег KEYWORDS (через запятую)"
+msgstr "Tag KEYWORDS (comma separated)"
+
+#: .\templates\adminPanel\admin.html:118 .\templates\adminPanel\admin.html:120
+#: .\templates\adminPanel\admin.html:122 .\templates\adminPanel\admin.html:167
+#: .\templates\adminPanel\admin.html:169 .\templates\adminPanel\admin.html:171
+#: .\templates\adminPanel\admin.html:217 .\templates\adminPanel\admin.html:219
+#: .\templates\adminPanel\admin.html:221 .\templates\adminPanel\admin.html:267
+#: .\templates\adminPanel\admin.html:269 .\templates\adminPanel\admin.html:271
+msgid "Тег DESCRIPTION"
+msgstr "Тag DESCRIPTION"
+
+#: .\templates\adminPanel\admin.html:124 .\templates\adminPanel\admin.html:126
+#: .\templates\adminPanel\admin.html:128 .\templates\adminPanel\admin.html:173
+#: .\templates\adminPanel\admin.html:175 .\templates\adminPanel\admin.html:177
+#: .\templates\adminPanel\admin.html:223 .\templates\adminPanel\admin.html:225
+#: .\templates\adminPanel\admin.html:227 .\templates\adminPanel\admin.html:273
+#: .\templates\adminPanel\admin.html:275 .\templates\adminPanel\admin.html:277
+msgid "SEO текст"
+msgstr "SEO text"
+
+#: .\templates\adminPanel\admin.html:134
+msgid "Создать категорию"
+msgstr "New category"
+
+#: .\templates\adminPanel\admin.html:183
+msgid "Создать подкатегорию"
+msgstr "New subcategory"
+
+#: .\templates\adminPanel\admin.html:193
+msgid "Редактирование категории"
+msgstr "Edit category"
+
+#: .\templates\adminPanel\admin.html:201 .\templates\adminPanel\admin.html:251
+
+msgid "Текущее изображение категории"
+msgstr "Current category image"
+
+#: .\templates\adminPanel\admin.html:233 .\templates\adminPanel\admin.html:284
+msgid "Сохранить изменения"
+msgstr "Save"
+
+#: .\templates\adminPanel\admin.html:243
+msgid "Редактирование подкатегории"
+msgstr "Edit subcategory"
+
+#: .\templates\adminPanel\admin.html:339
+msgid "Проверено"
+msgstr "Moderated"
+
+#: .\templates\adminPanel\admin.html:340
+#: .\templates\adminPanel\user-info.html:44
+#: .\templates\user\profile-add-video.html:37
+#: .\templates\user\profile-edit.html:39
+msgid "Удалить"
+msgstr "Delete"
+
+#: .\templates\adminPanel\user-info.html:15
+msgid "Настройки профиля пользователя"
+msgstr "Profile settings"
+
+#: .\templates\adminPanel\user-info.html:17
+msgid "Назад"
+msgstr "Back"
+
+#: .\templates\adminPanel\user-info.html:21
+#: .\templates\adminPanel\user-info.html:180
+#: .\templates\user\profile-edit.html:18 .\templates\user\profile-edit.html:169
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\templates\adminPanel\user-info.html:29
+#: .\templates\user\profile-edit.html:24
+msgid "Личные данные"
+msgstr "Personal data"
+
+#: .\templates\adminPanel\user-info.html:35
+#: .\templates\user\profile-edit.html:30
+msgid "Фотография профиля"
+msgstr "Profile picture"
+
+#: .\templates\adminPanel\user-info.html:39
+#: .\templates\user\profile-edit.html:34
+msgid "Изменить"
+msgstr "Edit"
+
+#: .\templates\adminPanel\user-info.html:51
+#: .\templates\user\profile-edit.html:46
+msgid "Имя"
+msgstr "Name"
+
+#: .\templates\adminPanel\user-info.html:55
+#: .\templates\user\profile-edit.html:50
+msgid "Фамилия"
+msgstr "Surname"
+
+#: .\templates\adminPanel\user-info.html:69
+#: .\templates\user\profile-edit.html:64
+msgid "Мужской"
+msgstr "Male"
+
+#: .\templates\adminPanel\user-info.html:74
+#: .\templates\user\profile-edit.html:69
+msgid "Женский"
+msgstr "Female"
+
+#: .\templates\adminPanel\user-info.html:79
+#: .\templates\user\profile-edit.html:74
+msgid "Дата рождения"
+msgstr "Date of birth"
+
+#: .\templates\adminPanel\user-info.html:109
+#: .\templates\user\profile-edit.html:104
+msgid "Какими видами спорта увлекаетесь? (максимум 4)"
+msgstr "What sports do you like? (maximum 4)"
+
+#: .\templates\adminPanel\user-info.html:110
+#: .\templates\user\profile-edit.html:105
+msgid "Мы будем показывать вам видео из этой категории"
+msgstr "We will show you videos from this category."
+
+#: .\templates\adminPanel\user-info.html:115
+#: .\templates\adminPanel\user-info.html:123
+#: .\templates\adminPanel\user-info.html:131
+#: .\templates\adminPanel\user-info.html:139
+msgid "Выберите..."
+msgstr "Choose..."
+
+#: .\templates\adminPanel\user-info.html:151
+#: .\templates\user\profile-edit.html:146
+msgid "Данные аккаунта"
+msgstr "Account data"
+
+#: .\templates\adminPanel\user-info.html:153
+#: .\templates\user\profile-edit.html:148
+msgid "Электронная почта"
+msgstr "Email"
+
+#: .\templates\adminPanel\user-info.html:157
+#: .\templates\user\profile-edit.html:152
+msgid "Изменение пароля"
+msgstr "Change Password"
+
+#: .\templates\adminPanel\user-info.html:160
+#: .\templates\user\profile-edit.html:158
+#: .\templates\user\profile-edit.html:159
+msgid "Новый пароль"
+msgstr "New Password"
+
+#: .\templates\adminPanel\user-info.html:161 .\templates\footer.html:56
+#: .\templates\user\profile-edit.html:160
+msgid "Повторите пароль"
+msgstr "Repeat password"
+
+#: .\templates\adminPanel\user-info.html:168
+msgid "Заблокировать пользователя?"
+msgstr "Block user?"
+
+#: .\templates\adminPanel\user-info.html:170
+msgid "Удалить пользователя"
+msgstr "Delete user?"
+
+#: .\templates\footer.html:7
+msgid "© Lorem Company, 2020. Все права защищены."
+msgstr "© Lorem Company, 2020. Все права защищены."
 
 #: .\templates\footer.html:8
 msgid "Политика конфиденциальности"
@@ -50,6 +290,10 @@ msgstr "Check entered data"
 #: .\templates\footer.html:103
 msgid "Через почту"
 msgstr "Via e-mail"
+
+#: .\templates\footer.html:52 .\templates\footer.html:85
+msgid "Пароль"
+msgstr "Password"
 
 #: .\templates\footer.html:53
 msgid "Пароль должен содержать хотя бы 8 символов"
@@ -114,10 +358,6 @@ msgstr "Watching now"
 #: .\templates\header.html:31
 msgid "Тренды"
 msgstr "Trends"
-
-#: .\templates\header.html:33 .\templates\page\index.html:24
-msgid "Категории"
-msgstr "Sports"
 
 #: .\templates\header.html:71 .\templates\page\index.html:78
 msgid "РЕГИСТРАЦИЯ"
@@ -250,11 +490,6 @@ msgstr "Сlick button"
 msgid "Загрузить заново"
 msgstr "Upload again"
 
-#: .\templates\user\profile-add-video.html:37
-#: .\templates\user\profile-edit.html:39
-msgid "Удалить"
-msgstr "Delete"
-
 #: .\templates\user\profile-add-video.html:44
 msgid "Поддерживаемые форматы"
 msgstr "Supported formats"
@@ -266,10 +501,6 @@ msgstr "Describe the video"
 #: .\templates\user\profile-add-video.html:51
 msgid "Название для видео"
 msgstr "Title for the video"
-
-#: .\templates\user\profile-add-video.html:52
-msgid "Название"
-msgstr "Title"
 
 #: .\templates\user\profile-add-video.html:63
 msgid "Подкатегория"
@@ -291,89 +522,110 @@ msgstr "Description"
 msgid "Описание видео"
 msgstr "Video description"
 
-#: .\templates\user\profile-edit.html:18 .\templates\user\profile-edit.html:169
-msgid "Сохранить"
-msgstr "Save"
-
-#: .\templates\user\profile-edit.html:24
-msgid "Личные данные"
-msgstr "Personal data"
-
-#: .\templates\user\profile-edit.html:30
-msgid "Фотография профиля"
-msgstr "Profile picture"
-
-#: .\templates\user\profile-edit.html:34
-msgid "Изменить"
-msgstr "Edit"
-
-#: .\templates\user\profile-edit.html:46
-msgid "Имя"
-msgstr "Name"
-
-#: .\templates\user\profile-edit.html:50
-msgid "Фамилия"
-msgstr "Surname"
-
-#: .\templates\user\profile-edit.html:55
-msgid "Имя пользователя"
-msgstr "Username"
-
 #: .\templates\user\profile-edit.html:59
 msgid "Пол"
 msgstr "Sex"
-
-#: .\templates\user\profile-edit.html:64
-msgid "Мужской"
-msgstr "Male"
-
-#: .\templates\user\profile-edit.html:69
-msgid "Женский"
-msgstr "Female"
-
-#: .\templates\user\profile-edit.html:74
-msgid "Дата рождения"
-msgstr "Date of birth"
-
-#: .\templates\user\profile-edit.html:104
-msgid "Какими видами спорта увлекаетесь? (максимум 4)"
-msgstr "What sports do you like? (maximum 4)"
-
-#: .\templates\user\profile-edit.html:105
-msgid "Мы будем показывать вам видео из этой категории"
-msgstr "We will show you videos from this category."
-
-#: .\templates\user\profile-edit.html:146
-msgid "Данные аккаунта"
-msgstr "Account data"
-
-#: .\templates\user\profile-edit.html:148
-msgid "Электронная почта"
-msgstr "Email"
-
-#: .\templates\user\profile-edit.html:152
-msgid "Изменение пароля"
-msgstr "Change Password"
 
 #: .\templates\user\profile-edit.html:154
 #: .\templates\user\profile-edit.html:155
 msgid "Текущий пароль"
 msgstr "Current Password"
 
-#: .\templates\user\profile-edit.html:158
-#: .\templates\user\profile-edit.html:159
-msgid "Новый пароль"
-msgstr "New Password"
-
-#: .\templates\user\profile-edit.html:160
-msgid "Повторите пароль"
-msgstr "Repeat password"
-
-#: .\templates\user\profile.html:47
-msgid "Опубликованные видео"
-msgstr "Published"
-
 #: .\templates\user\profile.html:55
 msgid "На модерации"
 msgstr "Under moderation"
 
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:5
+msgid "Select an image to embed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:27
+msgid "Browse for the image you want, then click 'Embed Image' to continue..."
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:29
+msgid ""
+"No images found. Upload images using the 'Image Button' dialog's 'Upload' "
+"tab."
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:50
+msgid "Images in: "
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:62
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:80
+msgid "Embed Image"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:146
+msgid "Play Slideshow"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:147
+msgid "Pause Slideshow"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:148
+msgid "&lsaquo; Previous Photo"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:149
+msgid "Next Photo &rsaquo;"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:150
+msgid "Next &rsaquo;"
+msgstr ""
+
+#: .\venv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:151
+msgid "&lsaquo; Prev"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+msgid "Django: the Web framework for perfectionists with deadlines."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:346
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:368
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:369
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:384
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:385
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:396
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:397
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:408
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:409
+msgid "Connect, get help, or contribute"
+msgstr ""

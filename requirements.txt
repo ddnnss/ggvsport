@@ -4,3 +4,4 @@ pillow
 pytils
 python-dateutil
 opencv-python
+django-modeltranslation
