@@ -20,50 +20,48 @@ msgstr ""
 
 #: .\templates\adminPanel\admin.html:18
 msgid "Панель управления"
-msgstr ""
+msgstr "İdarəetmə paneli"
 
 #: .\templates\adminPanel\admin.html:25
 msgid "Пользователи"
-msgstr ""
+msgstr "İstifadəçilər"
 
 #: .\templates\adminPanel\admin.html:29 .\templates\header.html:33
 #: .\templates\page\index.html:24
 msgid "Категории"
-msgstr ""
+msgstr "Növlər"
 
 #: .\templates\adminPanel\admin.html:33 .\templates\adminPanel\admin.html:48
 #: .\templates\user\profile.html:47
 msgid "Опубликованные видео"
-msgstr ""
+msgstr "Paylaşılmış videolar"
 
 #: .\templates\adminPanel\admin.html:37 .\templates\adminPanel\admin.html:49
-#, fuzzy
-#| msgid "Опубликованные видео"
 msgid "Не опубликованные видео"
-msgstr ""
+msgstr "Paylaşılmamış videolar"
 
 #: .\templates\adminPanel\admin.html:45
 #: .\templates\adminPanel\user-info.html:60
 #: .\templates\user\profile-edit.html:55
 msgid "Имя пользователя"
-msgstr ""
+msgstr "İstifadəçi adı"
 
 #: .\templates\adminPanel\admin.html:46
 msgid "ФИО"
-msgstr ""
+msgstr "Tam adınız"
 
 #: .\templates\adminPanel\admin.html:47
 msgid "Дата регистрации"
-msgstr ""
+msgstr "Qeydiyyat tarixi"
 
 #: .\templates\adminPanel\admin.html:69 .\templates\adminPanel\admin.html:95
 msgid "Новая категория"
-msgstr ""
+msgstr "Yeni növ"
 
 #: .\templates\adminPanel\admin.html:81
 
 msgid "Новая подкатегория"
-msgstr ""
+msgstr "Yeni alt kateqoriya"
 
 #: .\templates\adminPanel\admin.html:98 .\templates\adminPanel\admin.html:100
 #: .\templates\adminPanel\admin.html:102 .\templates\adminPanel\admin.html:147
@@ -73,12 +71,12 @@ msgstr ""
 #: .\templates\adminPanel\admin.html:247 .\templates\adminPanel\admin.html:249
 #: .\templates\user\profile-add-video.html:52
 msgid "Название"
-msgstr ""
+msgstr "Başlıq"
 
 #: .\templates\adminPanel\admin.html:104 .\templates\adminPanel\admin.html:153
 #: .\templates\adminPanel\admin.html:203 .\templates\adminPanel\admin.html:253
 msgid "Изображение"
-msgstr ""
+msgstr "Şəkil"
 
 #: .\templates\adminPanel\admin.html:106 .\templates\adminPanel\admin.html:108
 #: .\templates\adminPanel\admin.html:110 .\templates\adminPanel\admin.html:155
@@ -87,7 +85,7 @@ msgstr ""
 #: .\templates\adminPanel\admin.html:209 .\templates\adminPanel\admin.html:255
 #: .\templates\adminPanel\admin.html:257 .\templates\adminPanel\admin.html:259
 msgid "Тег TITLE"
-msgstr ""
+msgstr "BAŞLIQ teqi"
 
 #: .\templates\adminPanel\admin.html:112 .\templates\adminPanel\admin.html:114
 #: .\templates\adminPanel\admin.html:116 .\templates\adminPanel\admin.html:161
@@ -96,7 +94,7 @@ msgstr ""
 #: .\templates\adminPanel\admin.html:215 .\templates\adminPanel\admin.html:261
 #: .\templates\adminPanel\admin.html:263 .\templates\adminPanel\admin.html:265
 msgid "Тег KEYWORDS (через запятую)"
-msgstr ""
+msgstr "AÇAR SÖZLƏR teqi (vergül ilə)"
 
 #: .\templates\adminPanel\admin.html:118 .\templates\adminPanel\admin.html:120
 #: .\templates\adminPanel\admin.html:122 .\templates\adminPanel\admin.html:167
@@ -105,7 +103,7 @@ msgstr ""
 #: .\templates\adminPanel\admin.html:221 .\templates\adminPanel\admin.html:267
 #: .\templates\adminPanel\admin.html:269 .\templates\adminPanel\admin.html:271
 msgid "Тег DESCRIPTION"
-msgstr ""
+msgstr "TƏSVİR teqi"
 
 #: .\templates\adminPanel\admin.html:124 .\templates\adminPanel\admin.html:126
 #: .\templates\adminPanel\admin.html:128 .\templates\adminPanel\admin.html:173
@@ -114,153 +112,153 @@ msgstr ""
 #: .\templates\adminPanel\admin.html:227 .\templates\adminPanel\admin.html:273
 #: .\templates\adminPanel\admin.html:275 .\templates\adminPanel\admin.html:277
 msgid "SEO текст"
-msgstr ""
+msgstr "SEO mətn"
 
 #: .\templates\adminPanel\admin.html:134
 msgid "Создать категорию"
-msgstr ""
+msgstr "Yeni növ yaratmaq"
 
 #: .\templates\adminPanel\admin.html:183
 msgid "Создать подкатегорию"
-msgstr ""
+msgstr "Alt kateqoriya yaratmaq"
 
 #: .\templates\adminPanel\admin.html:193
 
 msgid "Редактирование категории"
-msgstr ""
+msgstr "Növü redaktə etmək"
 
 #: .\templates\adminPanel\admin.html:201 .\templates\adminPanel\admin.html:251
 msgid "Текущее изображение категории"
-msgstr ""
+msgstr "Növün mövcud şəkili"
 
 #: .\templates\adminPanel\admin.html:233 .\templates\adminPanel\admin.html:284
 msgid "Сохранить изменения"
-msgstr ""
+msgstr "Dəyişiklikləri yadda saxla"
 
 #: .\templates\adminPanel\admin.html:243
 msgid "Редактирование подкатегории"
-msgstr ""
+msgstr "Alt kateqoriyanı redaktə etmək"
 
 #: .\templates\adminPanel\admin.html:339
 msgid "Проверено"
-msgstr ""
+msgstr "Yoxlanıldı"
 
 #: .\templates\adminPanel\admin.html:340
 #: .\templates\adminPanel\user-info.html:44
 #: .\templates\user\profile-add-video.html:37
 #: .\templates\user\profile-edit.html:39
 msgid "Удалить"
-msgstr ""
+msgstr "Silmək"
 
 #: .\templates\adminPanel\user-info.html:15
 
 msgid "Настройки профиля пользователя"
-msgstr ""
+msgstr "İstifadəçi profilinin ayarları"
 
 #: .\templates\adminPanel\user-info.html:17
 msgid "Назад"
-msgstr ""
+msgstr "Geri"
 
 #: .\templates\adminPanel\user-info.html:21
 #: .\templates\adminPanel\user-info.html:180
 #: .\templates\user\profile-edit.html:18 .\templates\user\profile-edit.html:169
 msgid "Сохранить"
-msgstr ""
+msgstr "Yadda saxla"
 
 #: .\templates\adminPanel\user-info.html:29
 #: .\templates\user\profile-edit.html:24
 msgid "Личные данные"
-msgstr ""
+msgstr "Şəxsi məlumatlar"
 
 #: .\templates\adminPanel\user-info.html:35
 #: .\templates\user\profile-edit.html:30
 msgid "Фотография профиля"
-msgstr ""
+msgstr "Profil şəkli"
 
 #: .\templates\adminPanel\user-info.html:39
 #: .\templates\user\profile-edit.html:34
 msgid "Изменить"
-msgstr ""
+msgstr "Yeniləmək"
 
 #: .\templates\adminPanel\user-info.html:51
 #: .\templates\user\profile-edit.html:46
 msgid "Имя"
-msgstr ""
+msgstr "Ad"
 
 #: .\templates\adminPanel\user-info.html:55
 #: .\templates\user\profile-edit.html:50
 msgid "Фамилия"
-msgstr ""
+msgstr "Soyad"
 
 #: .\templates\adminPanel\user-info.html:69
 #: .\templates\user\profile-edit.html:64
 msgid "Мужской"
-msgstr ""
+msgstr "Kişi"
 
 #: .\templates\adminPanel\user-info.html:74
 #: .\templates\user\profile-edit.html:69
 msgid "Женский"
-msgstr ""
+msgstr "Qadın"
 
 #: .\templates\adminPanel\user-info.html:79
 #: .\templates\user\profile-edit.html:74
 msgid "Дата рождения"
-msgstr ""
+msgstr "Doğum tarixi"
 
 #: .\templates\adminPanel\user-info.html:109
 #: .\templates\user\profile-edit.html:104
 msgid "Какими видами спорта увлекаетесь? (максимум 4)"
-msgstr ""
+msgstr "Hansı idman növləri ilə maraqlanırsınız? (maksimum 4)"
 
 #: .\templates\adminPanel\user-info.html:110
 #: .\templates\user\profile-edit.html:105
 msgid "Мы будем показывать вам видео из этой категории"
-msgstr ""
+msgstr "Bu kateqoriyadan olan videoları sizə göstərəcəyik"
 
 #: .\templates\adminPanel\user-info.html:115
 #: .\templates\adminPanel\user-info.html:123
 #: .\templates\adminPanel\user-info.html:131
 #: .\templates\adminPanel\user-info.html:139
 msgid "Выберите..."
-msgstr ""
+msgstr "Seçin..."
 
 #: .\templates\adminPanel\user-info.html:151
 #: .\templates\user\profile-edit.html:146
 msgid "Данные аккаунта"
-msgstr ""
+msgstr "Hesab məlumatları"
 
 #: .\templates\adminPanel\user-info.html:153
 #: .\templates\user\profile-edit.html:148
 msgid "Электронная почта"
-msgstr ""
+msgstr "Elektron poçt"
 
 #: .\templates\adminPanel\user-info.html:157
 #: .\templates\user\profile-edit.html:152
 msgid "Изменение пароля"
-msgstr ""
+msgstr "Şifrənin dəyişdirilməsi"
 
 #: .\templates\adminPanel\user-info.html:160
 #: .\templates\user\profile-edit.html:158
 #: .\templates\user\profile-edit.html:159
 msgid "Новый пароль"
-msgstr ""
+msgstr "Yeni şifrə"
 
 #: .\templates\adminPanel\user-info.html:161 .\templates\footer.html:56
 #: .\templates\user\profile-edit.html:160
 msgid "Повторите пароль"
-msgstr ""
+msgstr "Şifrəni təkrar edin"
 
 #: .\templates\adminPanel\user-info.html:168
 msgid "Заблокировать пользователя?"
-msgstr ""
+msgstr "İstifadəçini əngəlləmək istədiyinizdən əminsiniz?"
 
 #: .\templates\adminPanel\user-info.html:170
 msgid "Удалить пользователя"
-msgstr ""
+msgstr "İstifadəçini ləğv etmək"
 
 #: .\templates\footer.html:7
 msgid "© Lorem Company, 2020. Все права защищены."
-msgstr ""
+msgstr "© Lorem Company, 2020. Bütün hüquqlar qorunur."
 
 #: .\templates\footer.html:8
 msgid "Политика конфиденциальности"
