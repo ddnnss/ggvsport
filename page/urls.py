@@ -11,7 +11,9 @@ urlpatterns = [
     path('catalog/<slug>', views.category, name='category'),
     path('catalog/<slug>/<subcat_slug>', views.subcategory, name='subcategory'),
     path('video/<video_slug>', views.video_page, name='video_page'),
-
+    path('recomended', views.recomended, name='recomended'),
+    path('trends', views.trends, name='trends'),
+    path('podcasts', views.podcasts, name='podcasts'),
 
 
 

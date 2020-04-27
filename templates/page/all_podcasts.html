@@ -1,0 +1,46 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+    {{ block.super }}
+{% endblock %}
+{% block description %}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+    <section class="pageName" >
+        <div class="wrapper">
+            <h1 class="page-title">{% trans 'Подкасты'%}</h1>
+            <div class="pageTop-search input-block">
+               {% include 'page/_search_form.html' %}
+            </div>
+        </div>
+    </section>
+    <section class="watching watching-second">
+        <div class="wrapper">
+            {% if top2_video %}
+                <div class="section-top">
+                    <h2 class="section-title">{% trans 'Топ в этой категории'%}</h2>
+                </div>
+                <div class="post-row post-row__big">
+                    {% for video in top2_video %}
+                        {% include 'page/_video-card-big.html' %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="post-row">
+                {% if top5_video %}
+                    {% for video in top5_video %}
+                        {% include 'page/_video-card-med.html' %}
+                    {% endfor %}
+                {% endif %}
+                {% for video in other_videos %}
+                    {% include 'page/_video-card-small.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+{% endblock %}

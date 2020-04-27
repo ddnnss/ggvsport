@@ -77,7 +77,7 @@
 
                                         <select name="{{ updateForm.birthday_day.name }}">
                                             {% for date in dates %}
-                                                <option {% if request.user.birthday_day == date %} selected{% endif %} value="{{ date }}">{{ date }}</option>
+                                                <option {% if request.user.birthday_day == date|stringformat:"i" %} selected{% endif %} value="{{ date }}">{{ date }}</option>
                                             {% endfor %}
 
                                         </select>
@@ -91,9 +91,11 @@
                                         </select>
                                     </div>
                                     <div class="input-block">
+
                                         <select name="{{ updateForm.birthday_year.name }}">
                                             {% for y in years %}
-                                                <option {% if request.user.birthday_year == y %} selected{% endif %} value="{{ y }}">{{y  }}</option>
+
+                                                <option {% if request.user.birthday_year == y|stringformat:"i" %} selected {% endif %} value="{{ y }}">{{y  }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>

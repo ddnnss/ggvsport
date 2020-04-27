@@ -28,7 +28,7 @@
                 {% endif %}
                     <li><a href="{% url 'index' %}">{% trans 'Главная'%}</a></li>
                     <li><a href="{% url 'watch_now' %}">{% trans 'Сейчас смотрят'%}</a></li>
-                    <li><a href="#">{% trans 'Тренды'%}</a></li>
+                    <li><a href="{% url 'trends' %}">{% trans 'Тренды'%}</a></li>
                     <li class="drop">
 
                         <a href="#" class="drop-text">{% trans 'Категории'%}

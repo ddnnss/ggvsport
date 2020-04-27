@@ -115,6 +115,8 @@ def profile_edit(request):
         months = Month.objects.all()
         years = list(range(1950, 2020))
         allCats = Category.objects.all()
+
+
         updateForm = UpdateForm()
         return render(request, 'user/profile-edit.html', locals())
     else:

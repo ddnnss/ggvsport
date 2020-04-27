@@ -17,6 +17,7 @@ class Category(models.Model):
     page_keywords = models.TextField('Keywords SEO', blank=True, null=True)
     seo_text = RichTextUploadingField('СЕО текст на страницу', blank=True, null=True)
     views = models.IntegerField('Просмотров категории', blank=True, default=0)
+    is_podcast = models.BooleanField('Подкасты?', default=False)
     is_active = models.BooleanField('Отображается на сайте?', default=True)
     def save(self, *args, **kwargs):
         slug = slugify(self.name)

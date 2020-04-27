@@ -20,15 +20,10 @@ def index(request):
         description = tags.index_description
     except:
         pass
-
-
     h1 = 'H1'
     watch_now_videos = Video.objects.filter(is_now_watching=True, is_moderated=True)
     for v in watch_now_videos:
-        print(v.start_watch)
-        print(v.duration)
-        print(timezone.now() - v.start_watch)
-        print((timezone.now() - v.start_watch) > dt.timedelta(seconds=v.duration))
+
         if (timezone.now() - v.start_watch) > dt.timedelta(seconds=v.duration):
             v.is_now_watching = False
             v.save()
@@ -38,6 +33,16 @@ def index(request):
             other_watch_now_videos = watch_now_videos.exclude(id__in=top2_watch_now_videos)
         except:
             other_watch_now_videos = watch_now_videos
+
+    podcats_videos = Video.objects.filter(category__is_podcast=True, is_moderated=True)
+
+    if podcats_videos:
+        try:
+            top2_podcats_videos = podcats_videos.order_by('-likes')[:2]
+            other_podcats_videos = podcats_videos.exclude(id__in=top2_podcats_videos)[:4]
+        except:
+            other_podcats_videos = podcats_videos
+
     if request.user.is_authenticated:
         user=request.user
         fav_videos1 = []
@@ -56,9 +61,8 @@ def index(request):
         if all_recomended_videos:
             try:
                 top3_all_recomended_videos = all_recomended_videos[:3]
-                other_all_recomended_videos = set(all_recomended_videos) - set(top3_all_recomended_videos)
+                other_all_recomended_videos = set(all_recomended_videos) - set(top3_all_recomended_videos)[:4]
                 print(other_all_recomended_videos)
-
             except:
                 other_all_recomended_videos = all_recomended_videos
 
@@ -164,3 +168,70 @@ def search_a(request):
         except:
             pass
     return JsonResponse(return_dict, safe=False)
+
+
+def podcasts(request):
+    try:
+        tags = SeoTag.objects.first()
+
+        title = tags.podcast_title
+        description = tags.podcast_description
+    except:
+        pass
+
+    all_videos = Video.objects.filter(category__is_podcast=True, is_moderated=True)
+    try:
+        top2_video = all_videos.order_by('-likes')[:2]
+        top5_video = all_videos.order_by('-likes')[3:6]
+        other_videos = all_videos.exclude(id__in=top2_video).exclude(id__in=top5_video)
+    except:
+        other_videos = all_videos
+
+    return render(request, 'page/all_podcasts.html', locals())
+
+def recomended(request):
+    try:
+        tags = SeoTag.objects.first()
+
+        title = tags.recomended_title
+        description = tags.recomended_description
+    except:
+        pass
+    user = request.user
+    fav_videos1 = []
+    fav_videos2 = []
+    fav_videos3 = []
+    fav_videos4 = []
+    if user.fav_category1:
+        fav_videos1 = Video.objects.filter(category=user.fav_category1).order_by('-likes')
+    if user.fav_category2:
+        fav_videos2 = Video.objects.filter(category=user.fav_category2).order_by('-likes')
+    if user.fav_category3:
+        fav_videos3 = Video.objects.filter(category=user.fav_category3).order_by('-likes')
+    if user.fav_category4:
+        fav_videos4 = Video.objects.filter(category=user.fav_category4).order_by('-likes')
+    all_recomended_videos = list(chain(fav_videos1, fav_videos2, fav_videos3, fav_videos4))
+    if all_recomended_videos:
+        try:
+            top3_all_recomended_videos = all_recomended_videos[:3]
+            other_all_recomended_videos = set(all_recomended_videos) - set(top3_all_recomended_videos)
+            print(other_all_recomended_videos)
+        except:
+            other_all_recomended_videos = all_recomended_videos
+    return render(request, 'page/all_recomended.html', locals())
+
+def trends(request):
+    all_videos = Video.objects.all().order_by('likes')
+    try:
+        top2_video = all_videos.order_by('-likes')[:2]
+        top5_video = all_videos.order_by('-likes')[3:6]
+        other_videos = all_videos.exclude(id__in=top2_video).exclude(id__in=top5_video)
+    except:
+        other_videos = all_videos
+    try:
+        tags = SeoTag.objects.first()
+        title = tags.trends_title
+        description = tags.trends_description
+    except:
+        pass
+    return render(request, 'page/trends.html', locals())
