@@ -30,18 +30,23 @@
                     <li><a href="{% url 'watch_now' %}">{% trans 'Сейчас смотрят'%}</a></li>
                     <li><a href="#">{% trans 'Тренды'%}</a></li>
                     <li class="drop">
-                        <a href="#" class="drop-text">{% trans 'Категории'%}<span class="drop-arrow"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#8B8B8B"/></svg></span></a>
+
+                        <a href="#" class="drop-text">{% trans 'Категории'%}
+                            <span class="drop-arrow"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#8B8B8B"/></svg></span>
+                        </a>
                         <ul class="drop-list">
                             {% for cat in all_cats %}
                                 <li class="drop drop-second">
-                                    <a href="{% url 'category' cat.name_slug%}" class="drop-text">{{ cat.name }}<span class="drop-arrow"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#8B8B8B"/></svg></span></a>
+                                 <a href="{% url 'category' cat.name_slug%}" class="drop-text">{{ cat.name }}</a>
+                                    <span  class="drop-arrow menu-arrow">
+                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#8B8B8B"/></svg>
+                                    </span>
                                     {% if cat.subcat %}
                                         <ul class="drop-list">
                                             {% for subcat in cat.subcat.all %}
                                                 <li><a href="{% url 'subcategory' cat.name_slug subcat.name_slug %}">{{ subcat.name }}</a></li>
                                             {% endfor %}
                                         </ul>
-
                                     {% endif %}
                                 </li>
                             {% endfor %}
@@ -54,17 +59,13 @@
 
                         <div style="text-transform: uppercase" class="drop-text">{{  LANGUAGE_CODE }}<span class="drop-arrow"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#8B8B8B"/></svg></span></div>
 
- <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                        <select class="drop-list" name="language" onchange="this.form.submit()">
-                            {% for language in languages %}
-                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
-                                        selected{% endif %}>
-                                    {{ language.code }}
-
-                                </option>
-                           {% endfor %}
-                        </select>
- </form>
+                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                    <ul class="drop-list">
+                        {% for language in languages %}
+								<li><label  class="lang-select-label {% if language.code == LANGUAGE_CODE %}lang-select-label-selected{% endif %}" for="lang_{{ language.code }}"><input class="lang-select-input" id="lang_{{ language.code }}" type="radio" name="language" value="{{ language.code }}" onchange="this.form.submit()"> {{ language.code }}</label></li>
+								 {% endfor %}
+							</ul>
+                    </form>
                     </div>
                     {% if not request.user.is_authenticated %}
                         <div class="header-btns">

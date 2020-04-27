@@ -176,3 +176,29 @@
 .subcat_row:hover{
     opacity: 1;
 }
+
+.lang-select-label{
+    cursor: pointer;
+    display: flex;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.lang-select-label-selected{
+    font-weight: bold;
+}
+.lang-select-input{
+    position: absolute;
+    top: -100px;
+}
+.menu-arrow{
+    top:20px !important;
+    cursor: pointer;
+}
+@media only screen and (max-width: 1020px){
+    .lang-select-label{
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+}

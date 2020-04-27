@@ -11,7 +11,7 @@ $(document).ready(function(){
 		$('.header').removeClass('header-open');
 	});
 
-	$('.drop.drop-second .drop-text').on('click', function(e){
+	$('.drop.drop-second .drop-arrow').on('click', function(e){
 		//e.preventDefault();
 		if($(window).width() <= 1020)
 			$(this).next('.drop-list').slideToggle(200).parents('.drop.drop-second').toggleClass('drop-active');

@@ -9,6 +9,7 @@ class Category(models.Model):
     name_lower = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
     name_slug = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
     image = models.ImageField('Изображение (420 x 225)', upload_to='category/', blank=True, null=True)
+    header_image = models.ImageField('Изображение в шапку', upload_to='category/', blank=True, null=True)
     page_h1 = models.CharField('Тег H1 (если не указан, выводится название категории)',
                                max_length=255, blank=True, null=True)
     page_title = models.CharField('Название страницы SEO', max_length=255, blank=True, null=True)
@@ -30,7 +31,11 @@ class Category(models.Model):
 
     def __str__(self):
         return f'Категория : {self.name}'
-
+    def get_header_image(self):
+        if self.header_image:
+            return self.header_image.url
+        else:
+            return ''
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"

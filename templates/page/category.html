@@ -9,7 +9,7 @@
 {% endblock %}
 {% block content %}
     <!-- start pageName -->
-	<section class="pageName" style="background-image: url(img/pattern-football.svg);">
+	<section class="pageName" style="background-image: url({{ category.get_header_image }});">
 		<div class="wrapper">
 			<h1 class="page-title">{{ category.name }}</h1>
 			<div class="pageTop-search input-block">

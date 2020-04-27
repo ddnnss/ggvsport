@@ -103,6 +103,8 @@
                                     <input type="text" name="{{ newCategoryForm.name_az.name }}" required placeholder="Название категории" value="">
                                     <label>{% trans 'Изображение' %}</label>
                                     <input style="border: none;  box-shadow: none" required name="{{ newCategoryForm.image.name }}" type="file">
+                                     <label>{% trans 'Изображение в заголовке категории' %}</label>
+                                    <input style="border: none;  box-shadow: none" required name="{{ newCategoryForm.header_image.name }}" type="file">
                                     <label>{% trans 'Тег TITLE' %} [RU]</label>
                                     <input name="{{ newCategoryForm.page_title_ru.name }}" required type="text">
                                     <label>{% trans 'Тег TITLE' %} [EN]</label>
@@ -202,6 +204,10 @@
                                     <img id="cat_image" src="" alt="">
                                     <label>{% trans 'Изображение' %}</label>
                                     <input id="cat_image" style="border: none;  box-shadow: none"  name="image" type="file">
+                                     <label>{% trans 'Текущее изображение в заголовке категории' %}</label>
+                                    <img id="cat_header_image" src="" alt="">
+                                    <label>{% trans 'Изображение в заголовке категории' %}</label>
+                                    <input  style="border: none;  box-shadow: none"  name="header_image" type="file">
                                     <label>{% trans 'Тег TITLE' %} [RU]</label>
                                     <input id="cat_page_title_ru" name="page_title_ru" required="" type="text">
                                     <label>{% trans 'Тег TITLE' %} [EN]</label>
@@ -403,6 +409,7 @@
                 cat_page_description_en = document.getElementById('cat_page_description_en'),
                 cat_page_description_az = document.getElementById('cat_page_description_az'),
                 cat_image = document.getElementById('cat_image'),
+                cat_header_image = document.getElementById('cat_header_image'),
                 cat_seo_ru = document.getElementById('cat_seo_text_ru'),
                 cat_seo_en = document.getElementById('cat_seo_text_en'),
                 cat_seo_az = document.getElementById('cat_seo_text_az'),
@@ -428,6 +435,7 @@
                     cat_name_en.value = res['name_en']
                     cat_name_az.value = res['name_az']
                     cat_image.setAttribute('src',res['image'])
+                    cat_header_image.setAttribute('src',res['header_image'])
                     cat_page_title_ru.value = res['page_title_ru']
                     cat_page_title_en.value = res['page_title_en']
                     cat_page_title_az.value = res['page_title_az']

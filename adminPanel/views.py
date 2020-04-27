@@ -152,6 +152,7 @@ def get_cat_info(request):
         'name_en': cat.name_en,
         'name_az': cat.name_az,
         'image': cat.image.url,
+        'header_image': cat.get_header_image(),
         'page_title_ru': cat.page_title_ru,
         'page_title_en': cat.page_title_en,
         'page_title_az': cat.page_title_az,
