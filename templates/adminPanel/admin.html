@@ -313,7 +313,7 @@
                     {% for video in all_non_moderated_video.all %}
 <div class="post post-small">
                         <div class="post-img">
-                            <a href="{% url 'video_page' video.name_slug%}"><img src="{{ video.image.url }}" alt=""></a>
+                            <a href="{% url 'video_page' video.name_slug%}"><img src="{{ video.get_video.image }}" alt=""></a>
                         </div>
                         <div style="margin-bottom: 20px" class="post-info">
                             <div class="post-info__row">

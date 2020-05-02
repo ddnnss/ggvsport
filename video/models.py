@@ -17,7 +17,7 @@ class Video(models.Model):
     name_lower = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
     name_slug = models.CharField(max_length=255, blank=True, null=True, db_index=True, editable=False)
     image = models.ImageField('Изображение (550 x 300)', upload_to='video_thumb/', blank=False, null=True)
-    file = models.FileField('Видое', upload_to='videos/', blank=False, null=True)
+    file = models.FileField('Видое', upload_to='videos/', blank=True, null=True)
     description = models.TextField('Описание', blank=True, null=True)
     views = models.IntegerField('Просмотров', blank=True, default=0)
     likes = models.IntegerField('Лайков', default=0)
@@ -50,6 +50,12 @@ class Video(models.Model):
 
     def __str__(self):
         return f'Видео : {self.name}'
+
+    def get_video_image(self):
+        if self.image and self.image!='':
+            return self.image.url
+        else:
+            return '/static/img/video_img.jpg'
 
     class Meta:
         verbose_name = "Видео"
@@ -155,17 +161,21 @@ def video_post_save(sender, instance, created, **kwargs):
         duration = frame_count / fps
         print(duration)
         res, im_ar = vcap.read()
-        while im_ar.mean() < threshold and res:
-            res, im_ar = vcap.read()
-        im_ar = cv2.resize(im_ar, (770, 410), 0, 0, cv2.INTER_LINEAR)
-        cv2.imwrite(f'{instance.name_slug}.jpg', im_ar)
-        instance.image.save(
-            f'{instance.name_slug}.jpg',
-            File(open(f'{bd}/{instance.name_slug}.jpg', 'rb'))
-        )
-        instance.duration=round(duration)
-        instance.save()
-        os.remove(f'{bd}/{instance.name_slug}.jpg')
+        try:
+            while im_ar.mean() < threshold and res:
+                res, im_ar = vcap.read()
+            im_ar = cv2.resize(im_ar, (770, 410), 0, 0, cv2.INTER_LINEAR)
+            cv2.imwrite(f'{instance.name_slug}.jpg', im_ar)
+            instance.image.save(
+                f'{instance.name_slug}.jpg',
+                File(open(f'{bd}/{instance.name_slug}.jpg', 'rb'))
+            )
+            instance.duration=round(duration)
+            instance.save()
+            os.remove(f'{bd}/{instance.name_slug}.jpg')
+        except:
+            pass
+
 
 
 post_save.connect(video_post_save, sender=Video)

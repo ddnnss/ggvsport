@@ -9,6 +9,7 @@ urlpatterns = [
    path('profile/', views.profile, name='profile'),
    path('profile/edit', views.profile_edit, name='profile_edit'),
    path('profile/add', views.profile_add, name='profile_add'),
+   path('profile/video_edit/<video_id>', views.profile_video_edit, name='profile_video_edit'),
    path('profile/history', views.profile_history, name='profile_history'),
 
 ]

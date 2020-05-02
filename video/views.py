@@ -1,7 +1,7 @@
 import json
 
 from django.http import HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import *
 from .models import *
 def new_video(request):
@@ -20,7 +20,23 @@ def new_video(request):
         form = CreateVideo()
         return render(request, 'user/profile-add-video.html', locals())
 
-
+def update_video(request):
+    print(request.POST)
+    video = get_object_or_404(Video, id=request.POST.get('video_id'))
+    if video.user == request.user or request.user.is_superuser:
+        form = EditVideo(request.POST, request.FILES, instance=video)
+        print(form.errors)
+        if form.is_valid():
+            video = form.save(commit=False)
+            video.user = request.user
+            video.category_id = request.POST.get('category')
+            if request.POST.get('subcategory') != '0':
+                video.subcategory_id = request.POST.get('subcategory')
+            video.save()
+            return HttpResponseRedirect('/user/profile/#tab-1')
+        else:
+            form = EditVideo()
+            return render(request, 'user/profile-add-video.html', locals())
 def reaction_video(request):
     if request.user.is_authenticated:
         body_unicode = request.body.decode('utf-8')
@@ -158,6 +174,8 @@ def add_comment_video(request):
             is_disliked = 'active'
         comments.append({
             'id': c.id,
+            'admin':request.user.is_superuser,
+            'u_id':c.user.id,
             'avatar': c.user.get_avatar(),
             'nickname': c.user.get_nickname(),
             'likes': c.likes,
@@ -180,4 +198,48 @@ def get_subcat(request):
     for subcat in subcategories:
          return_dict['subcategories'].append({'id':subcat.id,
                                               'name': subcat.name})
+    return JsonResponse(return_dict)
+
+
+def video_delete(request,video_id):
+    video = get_object_or_404(Video, id=video_id)
+    if video.user == request.user or request.user.is_superuser:
+        video.delete()
+        return HttpResponseRedirect('/user/profile/#tab-1')
+    else:
+        return HttpResponseRedirect('/')
+
+
+def delete_comment(request):
+    return_dict = {}
+    comments = []
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    print(body)
+    comment = CommentVideo.objects.get(id=body['c_id'])
+    comment.delete()
+    for c in comment.video.commentvideo_set.all().order_by('-created_at'):
+        is_liked = ''
+        is_disliked = ''
+        all_likes = c.liked_by_users.split(',')
+        all_dislikes = c.disliked_by_users.split(',')
+        if str(request.user.id) in all_likes:
+            is_liked = 'active'
+        if str(request.user.id) in all_dislikes:
+            is_disliked = 'active'
+        comments.append({
+            'id': c.id,
+            'admin': request.user.is_superuser,
+            'u_id': c.user.id,
+            'avatar': c.user.get_avatar(),
+            'nickname': c.user.get_nickname(),
+            'likes': c.likes,
+            'dislikes': c.dislikes,
+            'comment': c.comment,
+            'liked': is_liked,
+            'disliked': is_disliked,
+            'dt': c.get_created_time()
+        })
+    return_dict['comments'] = comments
+    print(return_dict)
     return JsonResponse(return_dict)

@@ -11,12 +11,12 @@
     <!-- start personalArea -->
     <section class="personalArea">
         <div class="wrapper">
-            <form action="{% url 'new_video' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+            <form action="{% url 'update_video' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
                 <div class="personalArea-top">
-                    <h1 class="page-title">{% trans 'Новое видео'%}</h1>
+                    <h1 class="page-title">{% trans 'Редактирование'%}</h1>
                     <button id="submit_btn_d" type="submit" class="personalArea-btn ">
                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
-                        {% trans 'Опубликовать'%}
+                        {% trans 'Сохранить'%}
                     </button>
                 </div>
                 <div class="personalArea-download">
@@ -49,13 +49,13 @@
                             <div class="personalArea-bottom__col">
                                 <div class="input-block">
                                     <label for="k-1">{% trans 'Название для видео'%} *</label>
-                                    <input required id="k-1" type="text" name="{{form.name.name}}" placeholder="{% trans 'Название'%}">
+                                    <input required id="k-1" type="text" name="{{form.name.name}}" placeholder="{% trans 'Название'%}" value="{{ video.name }}">
                                 </div>
                                 <div class="input-block">
                                     <label for="k-2">{% trans 'Категория'%} *</label>
                                     <select id="category" required name="category">
                                         {% for cat in all_cats %}
-                                            <option value="{{cat.id}}">{{ cat.name }}</option>
+                                            <option {% if video.category_id == cat.id%}selected{% endif %} value="{{cat.id}}">{{ cat.name }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -64,8 +64,8 @@
                                     <label for="k-2">{% trans 'Подкатегория'%}</label>
                                     <select id="subcategory" name="subcategory">
                                         <option value="0">{% trans 'Выберите'%}...</option>
-                                        {% for subcat in all_cats.first.subcat.all %}
-                                            <option class="subcat-name" value="{{subcat.id}}">{{ subcat.name }}</option>
+                                        {% for subcat in video.category.subcat.all %}
+                                            <option {% if video.subcategory_id == subcat.id%}selected{% endif %} class="subcat-name" value="{{subcat.id}}">{{ subcat.name }}</option>
                                         {% endfor %}
 
 
@@ -79,7 +79,7 @@
                                         <label for="k-3">{% trans 'Описание'%} *</label>
                                         <span>0/500</span>
                                     </div>
-                                    <textarea required name="{{ form.description.name }}" placeholder="{% trans 'Описание видео'%}"></textarea>
+                                    <textarea required name="{{ form.description.name }}" placeholder="{% trans 'Описание видео'%}">{{ video.description }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -88,9 +88,10 @@
                 <div class="personalArea-mob">
                     <button id="submit_btn_m" type="submit"  class="personalArea-btn">
                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 9.47656L14.3281 0.648438L15.5 1.82031L5.5 11.8203L0.851562 7.17188L2.02344 6L5.5 9.47656Z" fill="white"/></svg>
-                        {% trans 'Опубликовать'%}
+                        {% trans 'Сохранить'%}
                     </button>
                 </div>
+                <input type="hidden" name="video_id" value="{{ video.id }}">
             </form>
         </div>
     </section>
@@ -152,51 +153,3 @@
         {% endif %}
     </script>
 {% endblock %}
-
-<!-- >
- <script>
-        let download_info=document.getElementById('download_info'),
-            download_ico=document.getElementById('download_ico'),
-            download_text=document.getElementById('download_text'),
-            download_text1=document.getElementById('download_text1'),
-            holder = document.getElementById('file'),
-            ext = '',
-            is_good = false
-
-        function readfiles(files) {
-            for (var i = 0; i < files.length; i++) {
-                document.getElementById('fileDragName').innerText = files[i].name
-                ext = files[i].name.split('.')[1]
-                console.log(ext)
-                if(ext === 'mp4' || ext === 'avi' || ext === '3gp' || ext === 'wmv' || ext === 'mov'){
-                    console.log('file good')
-                    is_good = true
-                    holder.classList.remove('file-bad')
-                    holder.classList.add('file-good')
-                }
-                else{
-                    holder.classList.remove('file-good')
-                    holder.classList.add('file-bad')
-                }
-                document.getElementById('fileDragSize').innerText = (parseInt(files[i].size) * 0.0000010).toFixed(2)
-
-                reader = new FileReader();
-                reader.readAsDataURL(files[i]);
-            }
-        }
-
-        holder.ondragover = function () { this.classList.add('hover'); return false; };
-        holder.ondragend = function () { this.classList.remove('hover'); return false; };
-        holder.onchange = function (e) {
-            this.classList.remove('hover')
-
-
-            download_info.classList.remove('not-visible')
-            download_ico.classList.add('not-visible')
-            download_text.innerText = "Файл:"
-            download_text1.classList.add('download-text-gray')
-            e.preventDefault();
-            readfiles(e.dataTransfer.files);
-        }
-    </script>
-<-->

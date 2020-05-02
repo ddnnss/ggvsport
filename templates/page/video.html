@@ -14,11 +14,23 @@
             <div class="article-row">
                 <div class="article-content">
                     <div class="input-block">
-                   {% include 'page/_search_form.html' %}
+                        {% include 'page/_search_form.html' %}
                     </div>
+                {% if video.user == request.user or request.user.is_superuser %}
+                    <ul class="article-settings">
+                        <li><a href="{% url 'profile_video_edit' video.id %}" class="link-editing">
+                            <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.8203 6.82031H6.82031V11.8203H5.17969V6.82031H0.179688V5.17969H5.17969V0.179688H6.82031V5.17969H11.8203V6.82031Z" fill="#0088CC"></path></svg></span>
+                            Редактировать
+                        </a></li>
+                        <li><a href="{%  url 'video_delete_by_user' video.id %}">
+                            <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1797 12.0078L10.1719 9L13.1797 5.99219L12.0078 4.82031L9 7.82812L5.99219 4.82031L4.82031 5.99219L7.82812 9L4.82031 12.0078L5.99219 13.1797L9 10.1719L12.0078 13.1797L13.1797 12.0078ZM3.10156 3.14062C4.74219 1.5 6.70833 0.679688 9 0.679688C11.2917 0.679688 13.2448 1.5 14.8594 3.14062C16.5 4.75521 17.3203 6.70833 17.3203 9C17.3203 11.2917 16.5 13.2578 14.8594 14.8984C13.2448 16.513 11.2917 17.3203 9 17.3203C6.70833 17.3203 4.74219 16.513 3.10156 14.8984C1.48698 13.2578 0.679688 11.2917 0.679688 9C0.679688 6.70833 1.48698 4.75521 3.10156 3.14062Z" fill="#808080"></path></svg></span>
+                            Удалить
+                        </a></li>
+                    </ul>
+                {% endif %}
                     <div class="article-video">
                         <div class="article-video__wrap">
-                            <video width="100%" autoplay  controls  poster="{{ video.image.url }}" >
+                            <video width="100%" autoplay  controls  poster="{{ video.get_video_image }}" >
                                 <source  src="{{ video.file.url }}">
 
 
@@ -87,6 +99,9 @@
                                             <div class="testimonials-top">
                                                 <span class="testimonials-name">{{ comment.user.get_nickname }}</span>
                                                 <span class="testimonials-date">{{ comment.get_created_time}}</span>
+                                                {% if comment.user == request.user or request.user.is_superuser %}
+                                                <span style="margin-left: 20px;cursor:pointer" onclick="delComment({{ comment.id }})">&#10006;</span>
+                                                {% endif %}
                                             </div>
                                             <p>{{ comment.comment }}</p>
                                             <ul class="testimonials-list">
@@ -111,7 +126,6 @@
 
                         {% if not own_video and request.user.is_authenticated %}
                             <div class="testimonials-form">
-
                                 <h3 class="testimonials-title">{% trans 'Оставьте комментарий'%}</h3>
                                 <div class="testimonials-form__row">
                                     <div class="testimonials-form__img">
@@ -121,9 +135,9 @@
                                         <textarea id="comment" placeholder="Ваше сообщение"></textarea>
                                         <div class="testimonials-form__bottom">
                                             <div class="checkbox">
-{#                                                <input type="checkbox">#}
-{#                                                <span class="checkbox-ico"></span>#}
-{#                                                <p>Не уведомлять об ответах</p>#}
+                                                {#                                                <input type="checkbox">#}
+                                                {#                                                <span class="checkbox-ico"></span>#}
+                                                {#                                                <p>Не уведомлять об ответах</p>#}
                                             </div>
                                             <span onclick="newComment()" class="main-btn">
 												<svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.679688 15.5V9.67969L13.1797 8L0.679688 6.32031V0.5L18.1797 8L0.679688 15.5Z" fill="white"/></svg>
@@ -142,11 +156,11 @@
                     <div class="article-sidebar__row">
                         {% for video in watch_now_videos %}
                             <div class="article-post">
-                            <div class="article-img">
-                                <a href="{{ video.get_absolute_url }}"><img src="{{ video.image.url }}" alt=""></a>
+                                <div class="article-img">
+                                    <a href="{{ video.get_absolute_url }}"><img src="{{ video.image.url }}" alt=""></a>
+                                </div>
+                                <h3 class="article-name"><a href="{{ video.get_absolute_url }}">{{ video.name }}</a></h3>
                             </div>
-                            <h3 class="article-name"><a href="{{ video.get_absolute_url }}">{{ video.name }}</a></h3>
-                        </div>
                         {% endfor %}
 
                     </div>
@@ -185,6 +199,11 @@
                     console.log(res)
                     comments.innerHTML = ''
                     for (x of res['comments']){
+                        let del_str=''
+                        if (x['u_id'] === {{ request.user.id }} || x['admin']){
+                            del_str=` <span style="margin-left: 20px;cursor:pointer" onclick="delComment(${x['id']})">&#10006;</span>`
+                        }
+
                         comments.innerHTML =  comments.innerHTML + `
                         <div class="testimonials-row">
                                         <div class="testimonials-img">
@@ -194,6 +213,59 @@
                                             <div class="testimonials-top">
                                                 <span class="testimonials-name">${x['nickname']}</span>
                                                 <span class="testimonials-date">${x['dt']}</span>
+                                                      ${del_str}
+                                            </div>
+                                            <p>${x['comment']}</p>
+                                             <ul class="testimonials-list">
+                                                <li>
+                                                    <span class='${x['liked']}'  onclick="reactionComment('like',${x['id']})" >
+                                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.1797 8.32031L19.1406 8.39844H19.1797V10C19.1797 10.2083 19.1406 10.4167 19.0625 10.625L16.5234 16.4844C16.263 17.1615 15.7552 17.5 15 17.5H7.5C7.05729 17.5 6.66667 17.3307 6.32812 16.9922C5.98958 16.6536 5.82031 16.263 5.82031 15.8203V7.5C5.82031 7.05729 5.98958 6.66667 6.32812 6.32812L11.7969 0.820312L12.6953 1.71875C12.9297 1.95312 13.0469 2.23958 13.0469 2.57812V2.85156L12.2266 6.67969H17.5C17.9427 6.67969 18.3333 6.84896 18.6719 7.1875C19.0104 7.5 19.1797 7.8776 19.1797 8.32031ZM0.820312 17.5V7.5H4.17969V17.5H0.820312Z" fill="#808080"/></svg>
+                                                        <span id="comment_like_${x['id']}">${x['likes']}</span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class='${x['disliked']}' onclick="reactionComment('dislike',${x['id']})">
+                                                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8203 0.5H19.1797V10.5H15.8203V0.5ZM12.5 0.5C12.9427 0.5 13.3333 0.669271 13.6719 1.00781C14.0104 1.34635 14.1797 1.73698 14.1797 2.17969V10.5C14.1797 10.9427 14.0104 11.3333 13.6719 11.6719L8.20312 17.1797L7.30469 16.2812C7.07031 16.0469 6.95312 15.7604 6.95312 15.4219V15.1484L7.77344 11.3203H2.5C2.05729 11.3203 1.66667 11.1641 1.32812 10.8516C0.989583 10.513 0.820312 10.1224 0.820312 9.67969L0.859375 9.60156H0.820312V8C0.820312 7.79167 0.859375 7.58333 0.9375 7.375L3.47656 1.51562C3.73698 0.838542 4.24479 0.5 5 0.5H12.5Z" fill="#808080"/></svg>
+                                                        <span id="comment_dislike_${x['id']}">${x['dislikes']}</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                        `
+                    }
+                    comment.value=''
+                })
+        }
+          function delComment(id) {
+
+            let body = {
+                c_id: id
+            }
+            fetch('/video/delete_comment/', {
+                method: 'post',
+                body: JSON.stringify(body),
+                headers: { "X-CSRFToken": '{{ csrf_token }}' },
+                credentials: 'same-origin'
+            }).then(res=>res.json())
+                .then(res => {
+                    console.log(res)
+                    comments.innerHTML = ''
+                    for (x of res['comments']){
+                         let del_str=''
+                        if (x['u_id'] === {{ request.user.id }}  || x['admin']){
+                            del_str=` <span style="margin-left: 20px;cursor:pointer" onclick="delComment(${x['id']})">&#10006;</span>`
+                        }
+                        comments.innerHTML =  comments.innerHTML + `
+                        <div class="testimonials-row">
+                                        <div class="testimonials-img">
+                                            <img src="${x['avatar']}" alt="">
+                                        </div>
+                                        <div class="testimonials-info">
+                                            <div class="testimonials-top">
+                                                <span class="testimonials-name">${x['nickname']}</span>
+                                                <span class="testimonials-date">${x['dt']}</span>
+                                                      ${del_str}
                                             </div>
                                             <p>${x['comment']}</p>
                                              <ul class="testimonials-list">
@@ -225,23 +297,23 @@
 
             if(type === 'like' && like_btn.classList.contains('active')){
                 console.log('reset like')
-                 like_btn.classList.remove('active')
+                like_btn.classList.remove('active')
             }else  if (type==='like' ){
-                 console.log('set like')
-                 like_btn.classList.remove('active')
-               dislike_btn.classList.remove('active')
+                console.log('set like')
+                like_btn.classList.remove('active')
+                dislike_btn.classList.remove('active')
                 like_btn.classList.add('active')
             }
-             if(type === 'dislike' && dislike_btn.classList.contains('active')){
+            if(type === 'dislike' && dislike_btn.classList.contains('active')){
                 console.log('reset dislike')
-                 dislike_btn.classList.remove('active')
+                dislike_btn.classList.remove('active')
             }else  if (type==='dislike' ){
-                 console.log('set dislike')
-                 like_btn.classList.remove('active')
-               dislike_btn.classList.remove('active')
+                console.log('set dislike')
+                like_btn.classList.remove('active')
+                dislike_btn.classList.remove('active')
                 dislike_btn.classList.add('active')
             }
-             let body = {
+            let body = {
                 v_id: {{ video.id }},
                 r_from: {{ request.user.id }},
                 r_type: type
@@ -260,7 +332,7 @@
         }
 
         function reactionComment(type,id) {
-             let body = {
+            let body = {
                 c_id: id,
                 r_from: {{ request.user.id }},
                 r_type: type

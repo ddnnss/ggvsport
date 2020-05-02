@@ -196,7 +196,7 @@ def get_subcat_info(request):
 
 def delete_video(request,id):
     Video.objects.get(id=id).delete()
-    return HttpResponseRedirect(f'/cp/#t{request.GET.get("tab")}')
+    return HttpResponseRedirect(f'/cp/#{request.GET.get("tab")}')
 
 
 def moderate_video(request,id):

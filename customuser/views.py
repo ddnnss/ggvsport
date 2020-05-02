@@ -129,6 +129,16 @@ def profile_add(request):
     else:
         return HttpResponseRedirect('/')
 
+
+def profile_video_edit(request,video_id):
+    video = get_object_or_404(Video, id=video_id)
+    if video.user == request.user or request.user.is_superuser:
+        form = EditVideo()
+        return render(request, 'user/profile-edit-video.html', locals())
+    else:
+        return HttpResponseRedirect('/')
+
+
 def profile_history(request):
     if request.user.is_authenticated:
         try:
