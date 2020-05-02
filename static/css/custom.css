@@ -196,9 +196,36 @@
     top:20px !important;
     cursor: pointer;
 }
+
+.article-btns{
+    position: relative;
+}
+.share42init{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    background: #ffffff;
+    top: -40px;
+    transition: all .2s linear;
+}
+.share42init-active{
+     opacity: 1;
+    pointer-events: all;
+    top: -50px;
+}
+.article-share{
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 1020px){
     .lang-select-label{
         margin-bottom: 0;
         margin-right: 10px;
     }
+    .share42init-active{
+     opacity: 1;
+    pointer-events: all;
+    top: -40px;
+}
 }
