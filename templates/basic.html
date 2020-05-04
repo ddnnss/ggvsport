@@ -109,11 +109,11 @@
         function reg(e){
             e.preventDefault()
             reg_form_error.classList.add('not-visible')
-            if (password1_reg.value !== password2_reg.value ){
-                error_text.innerText = 'Пароли не совпадают'
-                reg_form_error.classList.remove('not-visible')
-                return
-            }
+            //if (password1_reg.value !== password2_reg.value ){
+            //    error_text.innerText = 'Пароли не совпадают'
+            //    reg_form_error.classList.remove('not-visible')
+            //    return
+            //}
             let body = {
                 'email':email_reg.value,
                 'password1':password1_reg.value,

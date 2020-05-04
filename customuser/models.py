@@ -45,7 +45,7 @@ class User(AbstractUser):
     username = None
     avatar = models.ImageField('Фото', upload_to='user',blank=True,null=True)
     photo = models.CharField('VK аватар', max_length=255, blank=True, null=True)
-    first_name = models.CharField('Имя', max_length=50, blank=True, null=True, default='Mr.Anonim')
+    first_name = models.CharField('Имя', max_length=50, blank=True, null=True, default='User')
     last_name = models.CharField('Фамилия', max_length=50, blank=True, null=True)
     genre = models.BooleanField('Пол мужской?',blank=True, null=True)
     nickname = models.CharField('Ник', max_length=50, blank=True, null=True)
@@ -100,7 +100,7 @@ class User(AbstractUser):
         elif self.photo:
             return self.photo
         else:
-            return '/static/img/user.jpg'
+            return '/static/img/no-avatar.png'
 
 
 

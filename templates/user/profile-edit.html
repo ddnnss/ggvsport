@@ -44,16 +44,16 @@
                             <div class="input-row">
                                 <div class="input-block">
                                     <label for="j-1">{% trans 'Имя'%}</label>
-                                    <input id="j-1" type="text" name="{{ updateForm.first_name.name }}" placeholder="Ваше имя" value="{% if request.user.first_name%}{{ request.user.first_name }}{% endif %}">
+                                    <input id="j-1" type="text" name="{{ updateForm.first_name.name }}" placeholder="{% trans 'Ваше имя'%}" value="{% if request.user.first_name%}{{ request.user.first_name }}{% endif %}">
                                 </div>
                                 <div class="input-block">
                                     <label for="j-2">{% trans 'Фамилия'%}</label>
-                                    <input id="j-2" type="text" name="{{ updateForm.last_name.name }}" placeholder="Ваша фамилия" value="{% if request.user.last_name%}{{ request.user.last_name }}{% endif %}">
+                                    <input id="j-2" type="text" name="{{ updateForm.last_name.name }}" placeholder="{% trans 'Ваша фамилия'%}" value="{% if request.user.last_name%}{{ request.user.last_name }}{% endif %}">
                                 </div>
                             </div>
                             <div class="input-block">
                                 <label for="j-3">{% trans 'Имя пользователя'%}</label>
-                                <input id="j-3" type="text" name="{{ updateForm.nickname.name }}" placeholder="Имя пользователя" value="{% if request.user.nickname%}{{ request.user.nickname }}{% endif %}">
+                                <input id="j-3" type="text" name="{{ updateForm.nickname.name }}" placeholder="{% trans 'Имя пользователя'%}" value="{% if request.user.nickname%}{{ request.user.nickname }}{% endif %}">
                             </div>
                             <div class="personalArea-block">
                                 <label for="">{% trans 'Пол'%}</label>
@@ -148,7 +148,7 @@
                             <span class="personalArea-subtitle">{% trans 'Данные аккаунта'%}</span>
                             <div class="input-block">
                                 <label for="g-1">{% trans 'Электронная почта'%}</label>
-                                <input id="g-1" type="text" name="{{ updateForm.email.name }}" placeholder="{% trans '}Электронная почта'%" value="{{ request.user.email }}">
+                                <input id="g-1" type="text" name="{{ updateForm.email.name }}" placeholder="{% trans 'Электронная почта'%}" value="{{ request.user.email }}">
                             </div>
                             <div class="personalArea-col__bottom">
                                 <span class="personalArea-col__subtitle">{% trans 'Изменение пароля'%}</span>

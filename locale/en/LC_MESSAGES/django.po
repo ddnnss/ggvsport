@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-26 13:32+0300\n"
+"POT-Creation-Date: 2020-05-04 22:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Control panel"
 msgid "Пользователи"
 msgstr "Users"
 
-#: .\templates\adminPanel\admin.html:29 .\templates\header.html:33
+#: .\templates\adminPanel\admin.html:29 .\templates\header.html:34
 #: .\templates\page\index.html:24
 msgid "Категории"
 msgstr "Category"
@@ -42,7 +42,8 @@ msgstr "Not published"
 
 #: .\templates\adminPanel\admin.html:45
 #: .\templates\adminPanel\user-info.html:60
-#: .\templates\user\profile-edit.html:55
+#: .\templates\adminPanel\user-info.html:61
+#: .\templates\user\profile-edit.html:55 .\templates\user\profile-edit.html:56
 msgid "Имя пользователя"
 msgstr "Username"
 
@@ -63,88 +64,97 @@ msgid "Новая подкатегория"
 msgstr "New subcategory"
 
 #: .\templates\adminPanel\admin.html:98 .\templates\adminPanel\admin.html:100
-#: .\templates\adminPanel\admin.html:102 .\templates\adminPanel\admin.html:147
-#: .\templates\adminPanel\admin.html:149 .\templates\adminPanel\admin.html:151
-#: .\templates\adminPanel\admin.html:195 .\templates\adminPanel\admin.html:197
-#: .\templates\adminPanel\admin.html:199 .\templates\adminPanel\admin.html:245
-#: .\templates\adminPanel\admin.html:247 .\templates\adminPanel\admin.html:249
+#: .\templates\adminPanel\admin.html:102 .\templates\adminPanel\admin.html:149
+#: .\templates\adminPanel\admin.html:151 .\templates\adminPanel\admin.html:153
+#: .\templates\adminPanel\admin.html:197 .\templates\adminPanel\admin.html:199
+#: .\templates\adminPanel\admin.html:201 .\templates\adminPanel\admin.html:251
+#: .\templates\adminPanel\admin.html:253 .\templates\adminPanel\admin.html:255
 #: .\templates\user\profile-add-video.html:52
+#: .\templates\user\profile-edit-video.html:52
 msgid "Название"
 msgstr "Title"
 
-#: .\templates\adminPanel\admin.html:104 .\templates\adminPanel\admin.html:153
-#: .\templates\adminPanel\admin.html:203 .\templates\adminPanel\admin.html:253
+#: .\templates\adminPanel\admin.html:104 .\templates\adminPanel\admin.html:155
+#: .\templates\adminPanel\admin.html:205 .\templates\adminPanel\admin.html:259
 msgid "Изображение"
 msgstr "Image"
 
-#: .\templates\adminPanel\admin.html:106 .\templates\adminPanel\admin.html:108
-#: .\templates\adminPanel\admin.html:110 .\templates\adminPanel\admin.html:155
-#: .\templates\adminPanel\admin.html:157 .\templates\adminPanel\admin.html:159
-#: .\templates\adminPanel\admin.html:205 .\templates\adminPanel\admin.html:207
-#: .\templates\adminPanel\admin.html:209 .\templates\adminPanel\admin.html:255
-#: .\templates\adminPanel\admin.html:257 .\templates\adminPanel\admin.html:259
-msgid "Тег TITLE"
-msgstr "Tag TITLE"
+#: .\templates\adminPanel\admin.html:106 .\templates\adminPanel\admin.html:209
+msgid "Изображение в заголовке категории"
+msgstr "Current category image"
 
-#: .\templates\adminPanel\admin.html:112 .\templates\adminPanel\admin.html:114
-#: .\templates\adminPanel\admin.html:116 .\templates\adminPanel\admin.html:161
-#: .\templates\adminPanel\admin.html:163 .\templates\adminPanel\admin.html:165
+#: .\templates\adminPanel\admin.html:108 .\templates\adminPanel\admin.html:110
+#: .\templates\adminPanel\admin.html:112 .\templates\adminPanel\admin.html:157
+#: .\templates\adminPanel\admin.html:159 .\templates\adminPanel\admin.html:161
 #: .\templates\adminPanel\admin.html:211 .\templates\adminPanel\admin.html:213
 #: .\templates\adminPanel\admin.html:215 .\templates\adminPanel\admin.html:261
 #: .\templates\adminPanel\admin.html:263 .\templates\adminPanel\admin.html:265
-msgid "Тег KEYWORDS (через запятую)"
-msgstr "Tag KEYWORDS (comma separated)"
+msgid "Тег TITLE"
+msgstr "Tag TITLE"
 
-#: .\templates\adminPanel\admin.html:118 .\templates\adminPanel\admin.html:120
-#: .\templates\adminPanel\admin.html:122 .\templates\adminPanel\admin.html:167
-#: .\templates\adminPanel\admin.html:169 .\templates\adminPanel\admin.html:171
+#: .\templates\adminPanel\admin.html:114 .\templates\adminPanel\admin.html:116
+#: .\templates\adminPanel\admin.html:118 .\templates\adminPanel\admin.html:163
+#: .\templates\adminPanel\admin.html:165 .\templates\adminPanel\admin.html:167
 #: .\templates\adminPanel\admin.html:217 .\templates\adminPanel\admin.html:219
 #: .\templates\adminPanel\admin.html:221 .\templates\adminPanel\admin.html:267
 #: .\templates\adminPanel\admin.html:269 .\templates\adminPanel\admin.html:271
-msgid "Тег DESCRIPTION"
-msgstr "Тag DESCRIPTION"
+msgid "Тег KEYWORDS (через запятую)"
+msgstr "Tag KEYWORDS (comma separated)"
 
-#: .\templates\adminPanel\admin.html:124 .\templates\adminPanel\admin.html:126
-#: .\templates\adminPanel\admin.html:128 .\templates\adminPanel\admin.html:173
-#: .\templates\adminPanel\admin.html:175 .\templates\adminPanel\admin.html:177
+#: .\templates\adminPanel\admin.html:120 .\templates\adminPanel\admin.html:122
+#: .\templates\adminPanel\admin.html:124 .\templates\adminPanel\admin.html:169
+#: .\templates\adminPanel\admin.html:171 .\templates\adminPanel\admin.html:173
 #: .\templates\adminPanel\admin.html:223 .\templates\adminPanel\admin.html:225
 #: .\templates\adminPanel\admin.html:227 .\templates\adminPanel\admin.html:273
 #: .\templates\adminPanel\admin.html:275 .\templates\adminPanel\admin.html:277
+msgid "Тег DESCRIPTION"
+msgstr "Тag DESCRIPTION"
+
+#: .\templates\adminPanel\admin.html:126 .\templates\adminPanel\admin.html:128
+#: .\templates\adminPanel\admin.html:130 .\templates\adminPanel\admin.html:175
+#: .\templates\adminPanel\admin.html:177 .\templates\adminPanel\admin.html:179
+#: .\templates\adminPanel\admin.html:229 .\templates\adminPanel\admin.html:231
+#: .\templates\adminPanel\admin.html:233 .\templates\adminPanel\admin.html:279
+#: .\templates\adminPanel\admin.html:281 .\templates\adminPanel\admin.html:283
 msgid "SEO текст"
 msgstr "SEO text"
 
-#: .\templates\adminPanel\admin.html:134
+#: .\templates\adminPanel\admin.html:136
 msgid "Создать категорию"
 msgstr "New category"
 
-#: .\templates\adminPanel\admin.html:183
+#: .\templates\adminPanel\admin.html:185
 msgid "Создать подкатегорию"
 msgstr "New subcategory"
 
-#: .\templates\adminPanel\admin.html:193
+#: .\templates\adminPanel\admin.html:195
 msgid "Редактирование категории"
 msgstr "Edit category"
 
-#: .\templates\adminPanel\admin.html:201 .\templates\adminPanel\admin.html:251
-
+#: .\templates\adminPanel\admin.html:203 .\templates\adminPanel\admin.html:257
 msgid "Текущее изображение категории"
 msgstr "Current category image"
 
-#: .\templates\adminPanel\admin.html:233 .\templates\adminPanel\admin.html:284
+#: .\templates\adminPanel\admin.html:207
+msgid "Текущее изображение в заголовке категории"
+msgstr "Current category image"
+
+#: .\templates\adminPanel\admin.html:239 .\templates\adminPanel\admin.html:290
 msgid "Сохранить изменения"
 msgstr "Save"
 
-#: .\templates\adminPanel\admin.html:243
+#: .\templates\adminPanel\admin.html:249
 msgid "Редактирование подкатегории"
 msgstr "Edit subcategory"
 
-#: .\templates\adminPanel\admin.html:339
+#: .\templates\adminPanel\admin.html:345
 msgid "Проверено"
 msgstr "Moderated"
 
-#: .\templates\adminPanel\admin.html:340
-#: .\templates\adminPanel\user-info.html:44
+#: .\templates\adminPanel\admin.html:346
+#: .\templates\adminPanel\user-info.html:44 .\templates\page\video.html:27
 #: .\templates\user\profile-add-video.html:37
+#: .\templates\user\profile-edit-video.html:37
 #: .\templates\user\profile-edit.html:39
 msgid "Удалить"
 msgstr "Delete"
@@ -159,7 +169,9 @@ msgstr "Back"
 
 #: .\templates\adminPanel\user-info.html:21
 #: .\templates\adminPanel\user-info.html:180
-#: .\templates\user\profile-edit.html:18 .\templates\user\profile-edit.html:169
+#: .\templates\user\profile-edit-video.html:19
+#: .\templates\user\profile-edit-video.html:91
+#: .\templates\user\profile-edit.html:18 .\templates\user\profile-edit.html:171
 msgid "Сохранить"
 msgstr "Save"
 
@@ -183,9 +195,19 @@ msgstr "Edit"
 msgid "Имя"
 msgstr "Name"
 
+#: .\templates\adminPanel\user-info.html:52
+#: .\templates\user\profile-edit.html:47
+msgid "Ваше имя"
+msgstr "Name"
+
 #: .\templates\adminPanel\user-info.html:55
 #: .\templates\user\profile-edit.html:50
 msgid "Фамилия"
+msgstr "Surname"
+
+#: .\templates\adminPanel\user-info.html:56
+#: .\templates\user\profile-edit.html:51
+msgid "Ваша фамилия"
 msgstr "Surname"
 
 #: .\templates\adminPanel\user-info.html:69
@@ -204,12 +226,12 @@ msgid "Дата рождения"
 msgstr "Date of birth"
 
 #: .\templates\adminPanel\user-info.html:109
-#: .\templates\user\profile-edit.html:104
+#: .\templates\user\profile-edit.html:106
 msgid "Какими видами спорта увлекаетесь? (максимум 4)"
 msgstr "What sports do you like? (maximum 4)"
 
 #: .\templates\adminPanel\user-info.html:110
-#: .\templates\user\profile-edit.html:105
+#: .\templates\user\profile-edit.html:107
 msgid "Мы будем показывать вам видео из этой категории"
 msgstr "We will show you videos from this category."
 
@@ -221,28 +243,30 @@ msgid "Выберите..."
 msgstr "Choose..."
 
 #: .\templates\adminPanel\user-info.html:151
-#: .\templates\user\profile-edit.html:146
+#: .\templates\user\profile-edit.html:148
 msgid "Данные аккаунта"
 msgstr "Account data"
 
 #: .\templates\adminPanel\user-info.html:153
-#: .\templates\user\profile-edit.html:148
+#: .\templates\adminPanel\user-info.html:154
+#: .\templates\user\profile-edit.html:150
+#: .\templates\user\profile-edit.html:151
 msgid "Электронная почта"
 msgstr "Email"
 
 #: .\templates\adminPanel\user-info.html:157
-#: .\templates\user\profile-edit.html:152
+#: .\templates\user\profile-edit.html:154
 msgid "Изменение пароля"
 msgstr "Change Password"
 
 #: .\templates\adminPanel\user-info.html:160
-#: .\templates\user\profile-edit.html:158
-#: .\templates\user\profile-edit.html:159
+#: .\templates\user\profile-edit.html:160
+#: .\templates\user\profile-edit.html:161
 msgid "Новый пароль"
 msgstr "New Password"
 
 #: .\templates\adminPanel\user-info.html:161 .\templates\footer.html:56
-#: .\templates\user\profile-edit.html:160
+#: .\templates\user\profile-edit.html:162
 msgid "Повторите пароль"
 msgstr "Repeat password"
 
@@ -256,7 +280,7 @@ msgstr "Delete user?"
 
 #: .\templates\footer.html:7
 msgid "© Lorem Company, 2020. Все права защищены."
-msgstr "© Lorem Company, 2020. Все права защищены."
+msgstr "© Lorem Company, 2020. All rights reserved."
 
 #: .\templates\footer.html:8
 msgid "Политика конфиденциальности"
@@ -339,7 +363,7 @@ msgstr "Register"
 msgid "Забыл пароль?"
 msgstr "Forgot password?"
 
-#: .\templates\footer.html:106 .\templates\page\video.html:130
+#: .\templates\footer.html:106 .\templates\page\video.html:149
 msgid "Отправить"
 msgstr "Send"
 
@@ -355,71 +379,80 @@ msgstr "Home"
 msgid "Сейчас смотрят"
 msgstr "Watching now"
 
-#: .\templates\header.html:31
+#: .\templates\header.html:31 .\templates\page\trends.html:13
 msgid "Тренды"
 msgstr "Trends"
 
-#: .\templates\header.html:71 .\templates\page\index.html:78
+#: .\templates\header.html:72 .\templates\page\index.html:79
 msgid "РЕГИСТРАЦИЯ"
 msgstr "Sign up"
 
-#: .\templates\header.html:72
+#: .\templates\header.html:73
 msgid "ВОЙТИ"
 msgstr "Log in"
 
-#: .\templates\header.html:85
+#: .\templates\header.html:86
 msgid "Аккаунт"
 msgstr "Account"
 
-#: .\templates\header.html:91
+#: .\templates\header.html:92
 msgid "АДМИНКА"
 msgstr "ADMIN"
 
-#: .\templates\header.html:94 .\templates\user\profile.html:31
+#: .\templates\header.html:95 .\templates\user\profile.html:31
 msgid "Добавить видео"
 msgstr "Add a video"
 
-#: .\templates\header.html:95 .\templates\user\profile.html:38
+#: .\templates\header.html:96 .\templates\user\profile.html:38
 msgid "Мои видео"
 msgstr "My videos"
 
-#: .\templates\header.html:96 .\templates\user\profile.html:42
+#: .\templates\header.html:97 .\templates\user\profile.html:42
 msgid "Мне нравится"
 msgstr "I like"
 
-#: .\templates\header.html:97
+#: .\templates\header.html:98
 msgid "История"
 msgstr "History"
 
-#: .\templates\header.html:100 .\templates\user\profile-edit.html:15
+#: .\templates\header.html:101 .\templates\user\profile-edit.html:15
 #: .\templates\user\profile.html:27
 msgid "Настройки профиля"
 msgstr "Profile settings"
 
-#: .\templates\header.html:101
+#: .\templates\header.html:102
 msgid "Выход"
 msgstr "Sign out"
 
-#: .\templates\header.html:112 .\templates\page\_search_form.html:3
+#: .\templates\header.html:113 .\templates\page\_search_form.html:3
 msgid "Поиск видео"
 msgstr "Video search"
+
+#: .\templates\page\_video-card.html:34
+msgid "удалить"
+msgstr "Delete"
+
+#: .\templates\page\all_podcasts.html:13 .\templates\page\index.html:118
+msgid "Подкасты"
+msgstr "Podcasts"
+
+#: .\templates\page\all_podcasts.html:23 .\templates\page\category.html:45
+#: .\templates\page\now-watch.html:23 .\templates\page\subcategory.html:23
+#: .\templates\page\trends.html:23
+msgid "Топ в этой категории"
+msgstr "Top in this category"
+
+#: .\templates\page\all_recomended.html:13 .\templates\page\index.html:90
+msgid "Рекомендации"
+msgstr "Recommended"
 
 #: .\templates\page\category.html:25
 msgid "Подкатегории"
 msgstr "Subcategories"
 
-#: .\templates\page\category.html:45 .\templates\page\now-watch.html:23
-#: .\templates\page\subcategory.html:23
-msgid "Топ в этой категории"
-msgstr "Top in this category"
-
 #: .\templates\page\index.html:14
 msgid "Крупнейший видеопортал про спорт"
 msgstr "The biggest sports video portal"
-
-#: .\templates\page\index.html:35
-msgid "Все категории"
-msgstr "Sports"
 
 #: .\templates\page\index.html:76
 msgid "Присоединяйся к нам!"
@@ -437,35 +470,36 @@ msgstr ""
 "winners of annual contests will receive valuable gifts and cash prizes from "
 "our website."
 
-#: .\templates\page\index.html:88
-msgid "Рекомендации"
-msgstr "Recommended"
-
-#: .\templates\page\index.html:89 .\templates\page\index.html:114
+#: .\templates\page\index.html:91 .\templates\page\index.html:119
 msgid "Смотреть все"
 msgstr "See all"
-
-#: .\templates\page\index.html:113
-msgid "Подкасты"
-msgstr "Podcasts"
 
 #: .\templates\page\search.html:13
 msgid "Результат поиска по запросу"
 msgstr "Search results"
 
-#: .\templates\page\video.html:30 .\templates\user\profile-add-video.html:55
+#: .\templates\page\video.html:23
+msgid "Редактировать"
+msgstr "Edit"
+
+#: .\templates\page\video.html:42 .\templates\user\profile-add-video.html:55
+#: .\templates\user\profile-edit-video.html:55
 msgid "Категория"
 msgstr "Category"
 
-#: .\templates\page\video.html:49
+#: .\templates\page\video.html:66
 msgid "Поделиться"
 msgstr "Share"
 
-#: .\templates\page\video.html:115
+#: .\templates\page\video.html:134
 msgid "Оставьте комментарий"
-msgstr "Add a commen"
+msgstr "Add a comment"
 
-#: .\templates\page\video.html:141
+#: .\templates\page\video.html:140
+msgid "Ваше сообщение"
+msgstr "Comment"
+
+#: .\templates\page\video.html:160
 msgid "Что смотрят другие"
 msgstr "Others are watching"
 
@@ -474,60 +508,78 @@ msgid "Новое видео"
 msgstr "New video"
 
 #: .\templates\user\profile-add-video.html:19
-#: .\templates\user\profile-add-video.html:89
+#: .\templates\user\profile-add-video.html:91
 msgid "Опубликовать"
 msgstr "Share"
 
 #: .\templates\user\profile-add-video.html:23
+#: .\templates\user\profile-edit-video.html:23
 msgid "Загрузите видео сюда"
 msgstr "Upload the video"
 
 #: .\templates\user\profile-add-video.html:27
-msgid "Для загрузки видео нажмите на "
-msgstr "Сlick button"
+msgid "Для загрузки видео нажмите на +"
+msgstr "Сlick + button"
 
 #: .\templates\user\profile-add-video.html:33
+#: .\templates\user\profile-edit-video.html:33
 msgid "Загрузить заново"
 msgstr "Upload again"
 
 #: .\templates\user\profile-add-video.html:44
+#: .\templates\user\profile-edit-video.html:44
 msgid "Поддерживаемые форматы"
 msgstr "Supported formats"
 
+#: .\templates\user\profile-add-video.html:44
+msgid "Максимальный размер"
+msgstr "Max size"
+
 #: .\templates\user\profile-add-video.html:47
+#: .\templates\user\profile-edit-video.html:47
 msgid "Опишите видео"
 msgstr "Describe the video"
 
 #: .\templates\user\profile-add-video.html:51
+#: .\templates\user\profile-edit-video.html:51
 msgid "Название для видео"
 msgstr "Title for the video"
 
-#: .\templates\user\profile-add-video.html:63
+#: .\templates\user\profile-add-video.html:64
+#: .\templates\user\profile-edit-video.html:64
 msgid "Подкатегория"
 msgstr "Subcategory"
 
-#: .\templates\user\profile-add-video.html:65
-#: .\templates\user\profile-edit.html:110
-#: .\templates\user\profile-edit.html:118
-#: .\templates\user\profile-edit.html:126
-#: .\templates\user\profile-edit.html:134
+#: .\templates\user\profile-add-video.html:66
+#: .\templates\user\profile-edit-video.html:66
+#: .\templates\user\profile-edit.html:112
+#: .\templates\user\profile-edit.html:120
+#: .\templates\user\profile-edit.html:128
+#: .\templates\user\profile-edit.html:136
 msgid "Выберите"
 msgstr "Choose"
 
-#: .\templates\user\profile-add-video.html:77
+#: .\templates\user\profile-add-video.html:79
+#: .\templates\user\profile-edit-video.html:79
 msgid "Описание"
 msgstr "Description"
 
-#: .\templates\user\profile-add-video.html:80
+#: .\templates\user\profile-add-video.html:82
+#: .\templates\user\profile-edit-video.html:82
 msgid "Описание видео"
 msgstr "Video description"
+
+#: .\templates\user\profile-edit-video.html:16
+msgid "Редактирование"
+msgstr "Edit"
+
 
 #: .\templates\user\profile-edit.html:59
 msgid "Пол"
 msgstr "Sex"
 
-#: .\templates\user\profile-edit.html:154
-#: .\templates\user\profile-edit.html:155
+#: .\templates\user\profile-edit.html:156
+#: .\templates\user\profile-edit.html:157
 msgid "Текущий пароль"
 msgstr "Current Password"
 
@@ -629,3 +681,6 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:409
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Все категории"
+#~ msgstr "Sports"

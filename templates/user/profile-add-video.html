@@ -24,7 +24,7 @@
                     <div id="holder" class="input-download">
                         <input id="file" type="file" name="{{ form.file.name }}" accept=".mp4, .3gp, .mov, .avi, .wmv">
 
-                        <p id="download_text" class="download-text">{% trans 'Для загрузки видео нажмите на '%}“+”</p>
+                        <p id="download_text" class="download-text">{% trans 'Для загрузки видео нажмите на +'%}</p>
                         <div id="download_info" class="download-info not-visible">
                             <span class="download-name"><b id="fileDragName"></b> (<span id="fileDragSize"></span> MB)</span>
                             <ul class="article-settings">
@@ -41,7 +41,7 @@
                         <div id="download_ico" class="download-ico">
                             <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="45" cy="45" r="45" fill="#0088CC"/><path d="M59.5508 47.0508H47.0508V59.5508H42.9492V47.0508H30.4492V42.9492H42.9492V30.4492H47.0508V42.9492H59.5508V47.0508Z" fill="white"/></svg>
                         </div>
-                        <p id="download_text1" class="download-text"><b>{% trans 'Поддерживаемые форматы'%}:</b> MP4, 3GP, MOV, AVI, WMV. <b>Максимальный размер:</b> 500MB.</p>
+                        <p id="download_text1" class="download-text"><b>{% trans 'Поддерживаемые форматы'%}:</b> MP4, 3GP, MOV, AVI, WMV. <b>{% trans 'Максимальный размер'%}:</b> 500MB.</p>
                     </div>
                     <div class="personalArea-bottom">
                         <span class="personalArea-subtitle">{% trans 'Опишите видео'%}</span>

@@ -49,16 +49,16 @@
 						<div class="input-row">
 							<div class="input-block">
 								<label for="j-1">{% trans 'Имя' %}</label>
-								<input id="j-1" type="text" name="{{ updateForm.first_name.name }}" placeholder="Ваше имя" value="{{ user.first_name }}">
+								<input id="j-1" type="text" name="{{ updateForm.first_name.name }}" placeholder="{% trans 'Ваше имя'%}" value="{{ user.first_name }}">
 							</div>
 							<div class="input-block">
 								<label for="j-2">{% trans 'Фамилия' %}</label>
-								<input id="j-2" type="text" name="{{ updateForm.last_name.name }}" placeholder="Ваша фамилия" value="{{ user.last_name }}">
+								<input id="j-2" type="text" name="{{ updateForm.last_name.name }}" placeholder="{% trans 'Ваша фамилия'%}" value="{{ user.last_name }}">
 							</div>
 						</div>
 						<div class="input-block">
 							<label for="j-3">{% trans 'Имя пользователя' %}</label>
-							<input id="j-3" type="text" name="{{ updateForm.nickname.name }}" placeholder="Имя пользователя" value="{{ user.nickname }}">
+							<input id="j-3" type="text" name="{{ updateForm.nickname.name }}" placeholder="{% trans 'Имя пользователя'%}" value="{{ user.nickname }}">
 						</div>
 						<div class="personalArea-block">
 							<label for="">Пол</label>
@@ -151,7 +151,7 @@
 						<span class="personalArea-subtitle">{% trans 'Данные аккаунта' %}</span>
 						<div class="input-block">
 							<label for="g-1">{% trans 'Электронная почта' %}</label>
-							<input id="g-1" type="text" name="{{ updateForm.email.name }}" placeholder="Электронная почта" value="{{ user.email }}">
+							<input id="g-1" type="text" name="{{ updateForm.email.name }}" placeholder="{% trans 'Электронная почта'%}" value="{{ user.email }}">
 						</div>
 						<div class="personalArea-col__bottom">
 							<span class="personalArea-col__subtitle">{% trans 'Изменение пароля' %}</span>

@@ -204,15 +204,16 @@
     position: absolute;
     opacity: 0;
     pointer-events: none;
-    z-index: 100;
+
     background: #ffffff;
     top: -40px;
     transition: all .2s linear;
+    z-index: 100;
 }
 .share42init-active{
      opacity: 1;
     pointer-events: all;
-    top: -50px;
+    top: -30px;
 }
 .article-share{
     cursor: pointer;
@@ -226,6 +227,7 @@
     .share42init-active{
      opacity: 1;
     pointer-events: all;
-    top: -40px;
+    top: 0px;
+        z-index: 3;
 }
 }

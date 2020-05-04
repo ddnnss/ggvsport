@@ -20,11 +20,11 @@
                     <ul class="article-settings">
                         <li><a href="{% url 'profile_video_edit' video.id %}" class="link-editing">
                             <span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.8203 6.82031H6.82031V11.8203H5.17969V6.82031H0.179688V5.17969H5.17969V0.179688H6.82031V5.17969H11.8203V6.82031Z" fill="#0088CC"></path></svg></span>
-                            Редактировать
+                            {% trans 'Редактировать' %}
                         </a></li>
                         <li><a href="{%  url 'video_delete_by_user' video.id %}">
                             <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1797 12.0078L10.1719 9L13.1797 5.99219L12.0078 4.82031L9 7.82812L5.99219 4.82031L4.82031 5.99219L7.82812 9L4.82031 12.0078L5.99219 13.1797L9 10.1719L12.0078 13.1797L13.1797 12.0078ZM3.10156 3.14062C4.74219 1.5 6.70833 0.679688 9 0.679688C11.2917 0.679688 13.2448 1.5 14.8594 3.14062C16.5 4.75521 17.3203 6.70833 17.3203 9C17.3203 11.2917 16.5 13.2578 14.8594 14.8984C13.2448 16.513 11.2917 17.3203 9 17.3203C6.70833 17.3203 4.74219 16.513 3.10156 14.8984C1.48698 13.2578 0.679688 11.2917 0.679688 9C0.679688 6.70833 1.48698 4.75521 3.10156 3.14062Z" fill="#808080"></path></svg></span>
-                            Удалить
+                            {% trans 'Удалить' %}
                         </a></li>
                     </ul>
                 {% endif %}
@@ -52,11 +52,15 @@
                                 </li>
                                 <li>
                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.42969 4.82031V9.19531L13.1797 11.4219L12.5547 12.4766L8.17969 9.82031V4.82031H9.42969ZM4.27344 13.7266C5.60156 15.0286 7.17708 15.6797 9 15.6797C10.8229 15.6797 12.3854 15.0286 13.6875 13.7266C15.0156 12.3984 15.6797 10.8229 15.6797 9C15.6797 7.17708 15.0156 5.61458 13.6875 4.3125C12.3854 2.98438 10.8229 2.32031 9 2.32031C7.17708 2.32031 5.60156 2.98438 4.27344 4.3125C2.97135 5.61458 2.32031 7.17708 2.32031 9C2.32031 10.8229 2.97135 12.3984 4.27344 13.7266ZM3.10156 3.14062C4.74219 1.5 6.70833 0.679688 9 0.679688C11.2917 0.679688 13.2448 1.5 14.8594 3.14062C16.5 4.75521 17.3203 6.70833 17.3203 9C17.3203 11.2917 16.5 13.2578 14.8594 14.8984C13.2448 16.513 11.2917 17.3203 9 17.3203C6.70833 17.3203 4.74219 16.513 3.10156 14.8984C1.48698 13.2578 0.679688 11.2917 0.679688 9C0.679688 6.70833 1.48698 4.75521 3.10156 3.14062Z" fill="#808080"/></svg>
-                                    <span>{{ video.created_at |date }}, {{ video.created_at |time }}</span>
+                                    <span>{{ video.created_at |date:'d.m.Y, H:i' }}</span>
                                 </li>
                             </ul>
                             <div class="article-btns">
-                          <div id="share42init" class="share42init"></div>
+{#                          <div id="share42init" class="share42init"></div>#}
+                           <div id="share42init" class="ya-share2 share42init" data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,viber,whatsapp,telegram">
+                                  <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+<script src="https://yastatic.net/share2/share.js"></script>
+                           </div>
                                 <span class="article-share" onclick="document.getElementById('share42init').classList.toggle('share42init-active')">
                                     <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 12.3984C13.6771 12.3984 14.25 12.6458 14.7188 13.1406C15.1875 13.6094 15.4219 14.1693 15.4219 14.8203C15.4219 15.4974 15.1745 16.0833 14.6797 16.5781C14.2109 17.0469 13.651 17.2812 13 17.2812C12.349 17.2812 11.776 17.0469 11.2812 16.5781C10.8125 16.0833 10.5781 15.4974 10.5781 14.8203C10.5781 14.5599 10.5911 14.3776 10.6172 14.2734L4.71875 10.8359C4.22396 11.2786 3.65104 11.5 3 11.5C2.32292 11.5 1.73698 11.2526 1.24219 10.7578C0.747396 10.263 0.5 9.67708 0.5 9C0.5 8.32292 0.747396 7.73698 1.24219 7.24219C1.73698 6.7474 2.32292 6.5 3 6.5C3.65104 6.5 4.22396 6.72135 4.71875 7.16406L10.5781 3.76562C10.526 3.50521 10.5 3.3099 10.5 3.17969C10.5 2.5026 10.7474 1.91667 11.2422 1.42188C11.737 0.927083 12.3229 0.679688 13 0.679688C13.6771 0.679688 14.263 0.927083 14.7578 1.42188C15.2526 1.91667 15.5 2.5026 15.5 3.17969C15.5 3.85677 15.2526 4.44271 14.7578 4.9375C14.263 5.43229 13.6771 5.67969 13 5.67969C12.375 5.67969 11.8021 5.44531 11.2812 4.97656L5.42188 8.41406C5.47396 8.67448 5.5 8.86979 5.5 9C5.5 9.13021 5.47396 9.32552 5.42188 9.58594L11.3594 13.0234C11.8281 12.6068 12.375 12.3984 13 12.3984Z" fill="#808080"/></svg>
                                     {% trans 'Поделиться'%}
@@ -133,7 +137,7 @@
                                         <img style="width: 50px;height: 50px;object-fit: cover; box-sizing: border-box" src="{{ request.user.get_avatar }}" alt="">
                                     </div>
                                     <div class="testimonials-form__info input-block">
-                                        <textarea id="comment" placeholder="Ваше сообщение"></textarea>
+                                        <textarea id="comment" placeholder="{% trans 'Ваше сообщение'%}"></textarea>
                                         <div class="testimonials-form__bottom">
                                             <div class="checkbox">
                                                 {#                                                <input type="checkbox">#}
@@ -173,7 +177,8 @@
 {% endblock %}
 {% block js %}
     {{ block.super }}
-    <script src="{% static 'js/share42.js' %}"></script>
+{#    <script src="{% static 'js/share42.js' %}"></script>#}
+
     <script>
         let comments = document.getElementById('comments'),
             likes_count = document.getElementById('likes_count'),

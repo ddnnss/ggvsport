@@ -1,3 +1,4 @@
+{% load i18n %}
 	<div class="post-img">
 						<a {% if video.is_moderated %}href="{% url 'video_page' video.name_slug%}"{% endif %} ><img src="{{ video.get_video_image }}" alt=""></a>
 					</div>
@@ -30,5 +31,5 @@
 					</div>
 {% if request.user.is_superuser %}
     <div style="margin-bottom: 20px"></div>
-<a class="main-btn" href="{% url 'delete_video' video.id%}">удалить</a>
+<a class="main-btn" href="{% url 'delete_video' video.id%}">{% trans 'удалить' %}</a>
 {% endif %}

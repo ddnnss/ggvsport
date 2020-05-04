@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-26 13:40+0300\n"
+"POT-Creation-Date: 2020-05-04 22:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "İdarəetmə paneli"
 msgid "Пользователи"
 msgstr "İstifadəçilər"
 
-#: .\templates\adminPanel\admin.html:29 .\templates\header.html:33
+#: .\templates\adminPanel\admin.html:29 .\templates\header.html:34
 #: .\templates\page\index.html:24
 msgid "Категории"
 msgstr "Növlər"
@@ -42,7 +42,8 @@ msgstr "Paylaşılmamış videolar"
 
 #: .\templates\adminPanel\admin.html:45
 #: .\templates\adminPanel\user-info.html:60
-#: .\templates\user\profile-edit.html:55
+#: .\templates\adminPanel\user-info.html:61
+#: .\templates\user\profile-edit.html:55 .\templates\user\profile-edit.html:56
 msgid "Имя пользователя"
 msgstr "İstifadəçi adı"
 
@@ -59,99 +60,106 @@ msgid "Новая категория"
 msgstr "Yeni növ"
 
 #: .\templates\adminPanel\admin.html:81
-
 msgid "Новая подкатегория"
 msgstr "Yeni alt kateqoriya"
 
 #: .\templates\adminPanel\admin.html:98 .\templates\adminPanel\admin.html:100
-#: .\templates\adminPanel\admin.html:102 .\templates\adminPanel\admin.html:147
-#: .\templates\adminPanel\admin.html:149 .\templates\adminPanel\admin.html:151
-#: .\templates\adminPanel\admin.html:195 .\templates\adminPanel\admin.html:197
-#: .\templates\adminPanel\admin.html:199 .\templates\adminPanel\admin.html:245
-#: .\templates\adminPanel\admin.html:247 .\templates\adminPanel\admin.html:249
+#: .\templates\adminPanel\admin.html:102 .\templates\adminPanel\admin.html:149
+#: .\templates\adminPanel\admin.html:151 .\templates\adminPanel\admin.html:153
+#: .\templates\adminPanel\admin.html:197 .\templates\adminPanel\admin.html:199
+#: .\templates\adminPanel\admin.html:201 .\templates\adminPanel\admin.html:251
+#: .\templates\adminPanel\admin.html:253 .\templates\adminPanel\admin.html:255
 #: .\templates\user\profile-add-video.html:52
+#: .\templates\user\profile-edit-video.html:52
 msgid "Название"
 msgstr "Başlıq"
 
-#: .\templates\adminPanel\admin.html:104 .\templates\adminPanel\admin.html:153
-#: .\templates\adminPanel\admin.html:203 .\templates\adminPanel\admin.html:253
+#: .\templates\adminPanel\admin.html:104 .\templates\adminPanel\admin.html:155
+#: .\templates\adminPanel\admin.html:205 .\templates\adminPanel\admin.html:259
 msgid "Изображение"
 msgstr "Şəkil"
 
-#: .\templates\adminPanel\admin.html:106 .\templates\adminPanel\admin.html:108
-#: .\templates\adminPanel\admin.html:110 .\templates\adminPanel\admin.html:155
-#: .\templates\adminPanel\admin.html:157 .\templates\adminPanel\admin.html:159
-#: .\templates\adminPanel\admin.html:205 .\templates\adminPanel\admin.html:207
-#: .\templates\adminPanel\admin.html:209 .\templates\adminPanel\admin.html:255
-#: .\templates\adminPanel\admin.html:257 .\templates\adminPanel\admin.html:259
-msgid "Тег TITLE"
-msgstr "BAŞLIQ teqi"
+#: .\templates\adminPanel\admin.html:106 .\templates\adminPanel\admin.html:209
+msgid "Изображение в заголовке категории"
+msgstr "Kateqoriya başlığı şəkli"
 
-#: .\templates\adminPanel\admin.html:112 .\templates\adminPanel\admin.html:114
-#: .\templates\adminPanel\admin.html:116 .\templates\adminPanel\admin.html:161
-#: .\templates\adminPanel\admin.html:163 .\templates\adminPanel\admin.html:165
+#: .\templates\adminPanel\admin.html:108 .\templates\adminPanel\admin.html:110
+#: .\templates\adminPanel\admin.html:112 .\templates\adminPanel\admin.html:157
+#: .\templates\adminPanel\admin.html:159 .\templates\adminPanel\admin.html:161
 #: .\templates\adminPanel\admin.html:211 .\templates\adminPanel\admin.html:213
 #: .\templates\adminPanel\admin.html:215 .\templates\adminPanel\admin.html:261
 #: .\templates\adminPanel\admin.html:263 .\templates\adminPanel\admin.html:265
-msgid "Тег KEYWORDS (через запятую)"
-msgstr "AÇAR SÖZLƏR teqi (vergül ilə)"
+msgid "Тег TITLE"
+msgstr "BAŞLIQ teqi"
 
-#: .\templates\adminPanel\admin.html:118 .\templates\adminPanel\admin.html:120
-#: .\templates\adminPanel\admin.html:122 .\templates\adminPanel\admin.html:167
-#: .\templates\adminPanel\admin.html:169 .\templates\adminPanel\admin.html:171
+#: .\templates\adminPanel\admin.html:114 .\templates\adminPanel\admin.html:116
+#: .\templates\adminPanel\admin.html:118 .\templates\adminPanel\admin.html:163
+#: .\templates\adminPanel\admin.html:165 .\templates\adminPanel\admin.html:167
 #: .\templates\adminPanel\admin.html:217 .\templates\adminPanel\admin.html:219
 #: .\templates\adminPanel\admin.html:221 .\templates\adminPanel\admin.html:267
 #: .\templates\adminPanel\admin.html:269 .\templates\adminPanel\admin.html:271
-msgid "Тег DESCRIPTION"
-msgstr "TƏSVİR teqi"
+msgid "Тег KEYWORDS (через запятую)"
+msgstr "AÇAR SÖZLƏR teqi (vergül ilə)"
 
-#: .\templates\adminPanel\admin.html:124 .\templates\adminPanel\admin.html:126
-#: .\templates\adminPanel\admin.html:128 .\templates\adminPanel\admin.html:173
-#: .\templates\adminPanel\admin.html:175 .\templates\adminPanel\admin.html:177
+#: .\templates\adminPanel\admin.html:120 .\templates\adminPanel\admin.html:122
+#: .\templates\adminPanel\admin.html:124 .\templates\adminPanel\admin.html:169
+#: .\templates\adminPanel\admin.html:171 .\templates\adminPanel\admin.html:173
 #: .\templates\adminPanel\admin.html:223 .\templates\adminPanel\admin.html:225
 #: .\templates\adminPanel\admin.html:227 .\templates\adminPanel\admin.html:273
 #: .\templates\adminPanel\admin.html:275 .\templates\adminPanel\admin.html:277
+msgid "Тег DESCRIPTION"
+msgstr "TƏSVİR teqi"
+
+#: .\templates\adminPanel\admin.html:126 .\templates\adminPanel\admin.html:128
+#: .\templates\adminPanel\admin.html:130 .\templates\adminPanel\admin.html:175
+#: .\templates\adminPanel\admin.html:177 .\templates\adminPanel\admin.html:179
+#: .\templates\adminPanel\admin.html:229 .\templates\adminPanel\admin.html:231
+#: .\templates\adminPanel\admin.html:233 .\templates\adminPanel\admin.html:279
+#: .\templates\adminPanel\admin.html:281 .\templates\adminPanel\admin.html:283
 msgid "SEO текст"
 msgstr "SEO mətn"
 
-#: .\templates\adminPanel\admin.html:134
+#: .\templates\adminPanel\admin.html:136
 msgid "Создать категорию"
 msgstr "Yeni növ yaratmaq"
 
-#: .\templates\adminPanel\admin.html:183
+#: .\templates\adminPanel\admin.html:185
 msgid "Создать подкатегорию"
 msgstr "Alt kateqoriya yaratmaq"
 
-#: .\templates\adminPanel\admin.html:193
-
+#: .\templates\adminPanel\admin.html:195
 msgid "Редактирование категории"
 msgstr "Növü redaktə etmək"
 
-#: .\templates\adminPanel\admin.html:201 .\templates\adminPanel\admin.html:251
+#: .\templates\adminPanel\admin.html:203 .\templates\adminPanel\admin.html:257
 msgid "Текущее изображение категории"
-msgstr "Növün mövcud şəkili"
+msgstr "Cari kateqoriyalı şəkil"
 
-#: .\templates\adminPanel\admin.html:233 .\templates\adminPanel\admin.html:284
+#: .\templates\adminPanel\admin.html:207
+msgid "Текущее изображение в заголовке категории"
+msgstr "Kateqoriyanın başındakı cari şəkil"
+
+#: .\templates\adminPanel\admin.html:239 .\templates\adminPanel\admin.html:290
 msgid "Сохранить изменения"
 msgstr "Dəyişiklikləri yadda saxla"
 
-#: .\templates\adminPanel\admin.html:243
+#: .\templates\adminPanel\admin.html:249
 msgid "Редактирование подкатегории"
 msgstr "Alt kateqoriyanı redaktə etmək"
 
-#: .\templates\adminPanel\admin.html:339
+#: .\templates\adminPanel\admin.html:345
 msgid "Проверено"
 msgstr "Yoxlanıldı"
 
-#: .\templates\adminPanel\admin.html:340
-#: .\templates\adminPanel\user-info.html:44
+#: .\templates\adminPanel\admin.html:346
+#: .\templates\adminPanel\user-info.html:44 .\templates\page\video.html:27
 #: .\templates\user\profile-add-video.html:37
+#: .\templates\user\profile-edit-video.html:37
 #: .\templates\user\profile-edit.html:39
 msgid "Удалить"
 msgstr "Silmək"
 
 #: .\templates\adminPanel\user-info.html:15
-
 msgid "Настройки профиля пользователя"
 msgstr "İstifadəçi profilinin ayarları"
 
@@ -161,7 +169,9 @@ msgstr "Geri"
 
 #: .\templates\adminPanel\user-info.html:21
 #: .\templates\adminPanel\user-info.html:180
-#: .\templates\user\profile-edit.html:18 .\templates\user\profile-edit.html:169
+#: .\templates\user\profile-edit-video.html:19
+#: .\templates\user\profile-edit-video.html:91
+#: .\templates\user\profile-edit.html:18 .\templates\user\profile-edit.html:171
 msgid "Сохранить"
 msgstr "Yadda saxla"
 
@@ -185,10 +195,20 @@ msgstr "Yeniləmək"
 msgid "Имя"
 msgstr "Ad"
 
+#: .\templates\adminPanel\user-info.html:52
+#: .\templates\user\profile-edit.html:47
+msgid "Ваше имя"
+msgstr "Adın"
+
 #: .\templates\adminPanel\user-info.html:55
 #: .\templates\user\profile-edit.html:50
 msgid "Фамилия"
 msgstr "Soyad"
+
+#: .\templates\adminPanel\user-info.html:56
+#: .\templates\user\profile-edit.html:51
+msgid "Ваша фамилия"
+msgstr "Soyadınız"
 
 #: .\templates\adminPanel\user-info.html:69
 #: .\templates\user\profile-edit.html:64
@@ -206,12 +226,12 @@ msgid "Дата рождения"
 msgstr "Doğum tarixi"
 
 #: .\templates\adminPanel\user-info.html:109
-#: .\templates\user\profile-edit.html:104
+#: .\templates\user\profile-edit.html:106
 msgid "Какими видами спорта увлекаетесь? (максимум 4)"
 msgstr "Hansı idman növləri ilə maraqlanırsınız? (maksimum 4)"
 
 #: .\templates\adminPanel\user-info.html:110
-#: .\templates\user\profile-edit.html:105
+#: .\templates\user\profile-edit.html:107
 msgid "Мы будем показывать вам видео из этой категории"
 msgstr "Bu kateqoriyadan olan videoları sizə göstərəcəyik"
 
@@ -223,28 +243,30 @@ msgid "Выберите..."
 msgstr "Seçin..."
 
 #: .\templates\adminPanel\user-info.html:151
-#: .\templates\user\profile-edit.html:146
+#: .\templates\user\profile-edit.html:148
 msgid "Данные аккаунта"
 msgstr "Hesab məlumatları"
 
 #: .\templates\adminPanel\user-info.html:153
-#: .\templates\user\profile-edit.html:148
+#: .\templates\adminPanel\user-info.html:154
+#: .\templates\user\profile-edit.html:150
+#: .\templates\user\profile-edit.html:151
 msgid "Электронная почта"
 msgstr "Elektron poçt"
 
 #: .\templates\adminPanel\user-info.html:157
-#: .\templates\user\profile-edit.html:152
+#: .\templates\user\profile-edit.html:154
 msgid "Изменение пароля"
 msgstr "Şifrənin dəyişdirilməsi"
 
 #: .\templates\adminPanel\user-info.html:160
-#: .\templates\user\profile-edit.html:158
-#: .\templates\user\profile-edit.html:159
+#: .\templates\user\profile-edit.html:160
+#: .\templates\user\profile-edit.html:161
 msgid "Новый пароль"
 msgstr "Yeni şifrə"
 
 #: .\templates\adminPanel\user-info.html:161 .\templates\footer.html:56
-#: .\templates\user\profile-edit.html:160
+#: .\templates\user\profile-edit.html:162
 msgid "Повторите пароль"
 msgstr "Şifrəni təkrar edin"
 
@@ -294,10 +316,8 @@ msgid "Через почту"
 msgstr "Elektron poçt vasitəsilə"
 
 #: .\templates\footer.html:52 .\templates\footer.html:85
-#, fuzzy
-#| msgid "Забыл пароль"
 msgid "Пароль"
-msgstr "Şifrəni unutmuşam"
+msgstr "Şifrə"
 
 #: .\templates\footer.html:53
 msgid "Пароль должен содержать хотя бы 8 символов"
@@ -305,7 +325,7 @@ msgstr "Şifrə ən azı 8 simvoldan ibarət olmalıdır"
 
 #: .\templates\footer.html:59
 msgid "Нажимая “Готово”, Вы соглашаетесь с "
-msgstr "Hazırdır düyməsinə basaraq, Siz ... razılaşırsınız"
+msgstr "Hazırdır düyməsinə basaraq, Siz "
 
 #: .\templates\footer.html:59
 msgid "Условиями использования"
@@ -317,7 +337,7 @@ msgstr "və"
 
 #: .\templates\footer.html:59
 msgid "Политикой конфиденциальности"
-msgstr "Məxfilik siyasəti ilə"
+msgstr "Məxfilik siyasəti ilə razılaşırsınız."
 
 #: .\templates\footer.html:68
 msgid "Авторизуйтесь"
@@ -343,7 +363,7 @@ msgstr "Qeydiyyatdan keçin"
 msgid "Забыл пароль?"
 msgstr "Şifrəni unutmusan?"
 
-#: .\templates\footer.html:106 .\templates\page\video.html:130
+#: .\templates\footer.html:106 .\templates\page\video.html:149
 msgid "Отправить"
 msgstr "Göndərmək"
 
@@ -359,71 +379,80 @@ msgstr "Ana səhifə"
 msgid "Сейчас смотрят"
 msgstr "İndi izləyirlər"
 
-#: .\templates\header.html:31
+#: .\templates\header.html:31 .\templates\page\trends.html:13
 msgid "Тренды"
 msgstr "Trendlər"
 
-#: .\templates\header.html:71 .\templates\page\index.html:78
+#: .\templates\header.html:72 .\templates\page\index.html:79
 msgid "РЕГИСТРАЦИЯ"
 msgstr "QEYDİYYAT"
 
-#: .\templates\header.html:72
+#: .\templates\header.html:73
 msgid "ВОЙТИ"
 msgstr "DAXİL OL"
 
-#: .\templates\header.html:85
+#: .\templates\header.html:86
 msgid "Аккаунт"
 msgstr "Hesab"
 
-#: .\templates\header.html:91
+#: .\templates\header.html:92
 msgid "АДМИНКА"
 msgstr "ADMIN PANEL"
 
-#: .\templates\header.html:94 .\templates\user\profile.html:31
+#: .\templates\header.html:95 .\templates\user\profile.html:31
 msgid "Добавить видео"
 msgstr "Video əlavə etmək"
 
-#: .\templates\header.html:95 .\templates\user\profile.html:38
+#: .\templates\header.html:96 .\templates\user\profile.html:38
 msgid "Мои видео"
 msgstr "Mənim videolarım"
 
-#: .\templates\header.html:96 .\templates\user\profile.html:42
+#: .\templates\header.html:97 .\templates\user\profile.html:42
 msgid "Мне нравится"
 msgstr "Mən bəyənirəm"
 
-#: .\templates\header.html:97
+#: .\templates\header.html:98
 msgid "История"
 msgstr "Tarixcə"
 
-#: .\templates\header.html:100 .\templates\user\profile-edit.html:15
+#: .\templates\header.html:101 .\templates\user\profile-edit.html:15
 #: .\templates\user\profile.html:27
 msgid "Настройки профиля"
 msgstr "Profil ayarları"
 
-#: .\templates\header.html:101
+#: .\templates\header.html:102
 msgid "Выход"
 msgstr "Çıxış"
 
-#: .\templates\header.html:112 .\templates\page\_search_form.html:3
+#: .\templates\header.html:113 .\templates\page\_search_form.html:3
 msgid "Поиск видео"
 msgstr "Video axtarışı"
+
+#: .\templates\page\_video-card.html:34
+msgid "удалить"
+msgstr "Silmək"
+
+#: .\templates\page\all_podcasts.html:13 .\templates\page\index.html:118
+msgid "Подкасты"
+msgstr "Podkastlar"
+
+#: .\templates\page\all_podcasts.html:23 .\templates\page\category.html:45
+#: .\templates\page\now-watch.html:23 .\templates\page\subcategory.html:23
+#: .\templates\page\trends.html:23
+msgid "Топ в этой категории"
+msgstr "Bu kateqoriyada ən populyar"
+
+#: .\templates\page\all_recomended.html:13 .\templates\page\index.html:90
+msgid "Рекомендации"
+msgstr "Tövsiyə olunur"
 
 #: .\templates\page\category.html:25
 msgid "Подкатегории"
 msgstr "Alt kateqoriyalar"
 
-#: .\templates\page\category.html:45 .\templates\page\now-watch.html:23
-#: .\templates\page\subcategory.html:23
-msgid "Топ в этой категории"
-msgstr "Bu kateqoriyada ən populyar"
-
 #: .\templates\page\index.html:14
 msgid "Крупнейший видеопортал про спорт"
 msgstr "İdman haqqında ən böyük video portal "
-
-#: .\templates\page\index.html:35
-msgid "Все категории"
-msgstr "Bütün növlər"
 
 #: .\templates\page\index.html:76
 msgid "Присоединяйся к нам!"
@@ -442,35 +471,36 @@ msgstr ""
 "yerlərin sahiblərinə saytımız tərəfindən dəyərli hədiyyələr və pul "
 "mükafatları veriləcəkdir."
 
-#: .\templates\page\index.html:88
-msgid "Рекомендации"
-msgstr "Tövsiyə olunur"
-
-#: .\templates\page\index.html:89 .\templates\page\index.html:114
+#: .\templates\page\index.html:91 .\templates\page\index.html:119
 msgid "Смотреть все"
 msgstr "Daha çox göstər"
-
-#: .\templates\page\index.html:113
-msgid "Подкасты"
-msgstr "Podkastlar"
 
 #: .\templates\page\search.html:13
 msgid "Результат поиска по запросу"
 msgstr "Axtarışın nəticələri"
 
-#: .\templates\page\video.html:30 .\templates\user\profile-add-video.html:55
+#: .\templates\page\video.html:23
+msgid "Редактировать"
+msgstr "Redaktə edin"
+
+#: .\templates\page\video.html:42 .\templates\user\profile-add-video.html:55
+#: .\templates\user\profile-edit-video.html:55
 msgid "Категория"
 msgstr "Növ"
 
-#: .\templates\page\video.html:49
+#: .\templates\page\video.html:66
 msgid "Поделиться"
 msgstr "Paylaşmaq"
 
-#: .\templates\page\video.html:115
+#: .\templates\page\video.html:134
 msgid "Оставьте комментарий"
 msgstr "Rəy bildirmək"
 
-#: .\templates\page\video.html:141
+#: .\templates\page\video.html:140
+msgid "Ваше сообщение"
+msgstr "Mesajın"
+
+#: .\templates\page\video.html:160
 msgid "Что смотрят другие"
 msgstr "Digərləri izləyir"
 
@@ -479,60 +509,79 @@ msgid "Новое видео"
 msgstr "Yeni video"
 
 #: .\templates\user\profile-add-video.html:19
-#: .\templates\user\profile-add-video.html:89
+#: .\templates\user\profile-add-video.html:91
 msgid "Опубликовать"
 msgstr "Paylaşmaq"
 
 #: .\templates\user\profile-add-video.html:23
+#: .\templates\user\profile-edit-video.html:23
 msgid "Загрузите видео сюда"
 msgstr "Videonu bura yükləyin"
 
 #: .\templates\user\profile-add-video.html:27
-msgid "Для загрузки видео нажмите на "
-msgstr "Videonu yükləmək üçün ... tıklayın"
+msgid "Для загрузки видео нажмите на +"
+msgstr "Videonu yükləmək üçün + tıklayın"
 
 #: .\templates\user\profile-add-video.html:33
+#: .\templates\user\profile-edit-video.html:33
 msgid "Загрузить заново"
 msgstr "Yenidən yükləmək"
 
 #: .\templates\user\profile-add-video.html:44
+#: .\templates\user\profile-edit-video.html:44
 msgid "Поддерживаемые форматы"
 msgstr "Dəstəklənən formatlar"
 
+#: .\templates\user\profile-add-video.html:44
+msgid "Максимальный размер"
+msgstr "Maksimum ölçüsü"
+
 #: .\templates\user\profile-add-video.html:47
+#: .\templates\user\profile-edit-video.html:47
 msgid "Опишите видео"
 msgstr "Videonu təsvir edin"
 
 #: .\templates\user\profile-add-video.html:51
+#: .\templates\user\profile-edit-video.html:51
 msgid "Название для видео"
 msgstr "Video üçün başlıq"
 
-#: .\templates\user\profile-add-video.html:63
+#: .\templates\user\profile-add-video.html:64
+#: .\templates\user\profile-edit-video.html:64
 msgid "Подкатегория"
 msgstr "Alt kateqoriya"
 
-#: .\templates\user\profile-add-video.html:65
-#: .\templates\user\profile-edit.html:110
-#: .\templates\user\profile-edit.html:118
-#: .\templates\user\profile-edit.html:126
-#: .\templates\user\profile-edit.html:134
+#: .\templates\user\profile-add-video.html:66
+#: .\templates\user\profile-edit-video.html:66
+#: .\templates\user\profile-edit.html:112
+#: .\templates\user\profile-edit.html:120
+#: .\templates\user\profile-edit.html:128
+#: .\templates\user\profile-edit.html:136
 msgid "Выберите"
 msgstr "Seçin"
 
-#: .\templates\user\profile-add-video.html:77
+#: .\templates\user\profile-add-video.html:79
+#: .\templates\user\profile-edit-video.html:79
 msgid "Описание"
 msgstr "Təsvir"
 
-#: .\templates\user\profile-add-video.html:80
+#: .\templates\user\profile-add-video.html:82
+#: .\templates\user\profile-edit-video.html:82
 msgid "Описание видео"
 msgstr "Videonun təsviri"
+
+#: .\templates\user\profile-edit-video.html:16
+
+msgid "Редактирование"
+msgstr "Redaktə"
+
 
 #: .\templates\user\profile-edit.html:59
 msgid "Пол"
 msgstr "Cins"
 
-#: .\templates\user\profile-edit.html:154
-#: .\templates\user\profile-edit.html:155
+#: .\templates\user\profile-edit.html:156
+#: .\templates\user\profile-edit.html:157
 msgid "Текущий пароль"
 msgstr "Cari şifrə"
 
@@ -634,3 +683,6 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:409
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Все категории"
+#~ msgstr "Bütün növlər"
