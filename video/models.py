@@ -9,7 +9,7 @@ from io import BytesIO
 from django.core.files import File
 import os
 class Video(models.Model):
-    user = models.ForeignKey(User, blank=False, null=True, on_delete=models.CASCADE,
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE,
                               verbose_name='Загрузил')
     category = models.ForeignKey(Category,blank=True,null=True,on_delete=models.CASCADE,verbose_name='Категория')
     subcategory = models.ForeignKey(SubCategory,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Подкатегория')

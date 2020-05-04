@@ -92,8 +92,9 @@
                                 </div>
                             </div>
                         </div>
-                        {% if video.comments > 0 %}
+                      
                             <div id="comments">
+
                                 {% for comment in all_comments %}
 
                                     <div  class="testimonials-row">
@@ -127,9 +128,9 @@
                                     </div>
                                 {% endfor %}
                             </div>
-                        {% endif %}
 
-                        {% if not own_video and request.user.is_authenticated %}
+
+                        {% if not own_video and request.user.is_authenticated or request.user.is_superuser %}
                             <div class="testimonials-form">
                                 <h3 class="testimonials-title">{% trans 'Оставьте комментарий'%}</h3>
                                 <div class="testimonials-form__row">

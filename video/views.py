@@ -28,12 +28,11 @@ def update_video(request):
         print(form.errors)
         if form.is_valid():
             video = form.save(commit=False)
-            video.user = request.user
             video.category_id = request.POST.get('category')
             if request.POST.get('subcategory') != '0':
                 video.subcategory_id = request.POST.get('subcategory')
             video.save()
-            return HttpResponseRedirect('/user/profile/#tab-1')
+            return HttpResponseRedirect(f'/{request.LANGUAGE_CODE}/video/{video.name_slug}')
         else:
             form = EditVideo()
             return render(request, 'user/profile-add-video.html', locals())
