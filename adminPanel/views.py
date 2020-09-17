@@ -14,8 +14,8 @@ def admin_index(request):
     if request.user.is_superuser:
         all_users = User.objects.filter(is_superuser=False)
         all_cats = Category.objects.all()
-        all_moderated_video = Video.objects.filter(is_moderated=True)
-        all_non_moderated_video = Video.objects.filter(is_moderated=False)
+        all_moderated_video = Video.objects.filter(is_moderated=True).order_by('-created_at')
+        all_non_moderated_video = Video.objects.filter(is_moderated=False).order_by('-created_at')
         newCategoryForm = NewCategory()
         newSubCategoryForm = NewSubCategory()
         return render(request, 'adminPanel/admin.html', locals())

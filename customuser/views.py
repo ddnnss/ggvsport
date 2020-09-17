@@ -50,8 +50,8 @@ def logout_page(request):
 
 def profile(request):
     if request.user.is_authenticated:
-        own_videos_moderated = Video.objects.filter(user=request.user,is_moderated=True)
-        own_videos_non_moderated = Video.objects.filter(user=request.user, is_moderated=False)
+        own_videos_moderated = Video.objects.filter(user=request.user,is_moderated=True).order_by('-created_at')
+        own_videos_non_moderated = Video.objects.filter(user=request.user, is_moderated=False).order_by('-created_at')
         try:
             fav_videos = FavoriteVideo.objects.get(user=request.user)
         except:

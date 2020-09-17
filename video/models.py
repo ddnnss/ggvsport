@@ -160,21 +160,33 @@ def video_post_save(sender, instance, created, **kwargs):
         frame_count = int(vcap.get(cv2.CAP_PROP_FRAME_COUNT))
         duration = frame_count / fps
         print(duration)
-        res, im_ar = vcap.read()
-        try:
-            while im_ar.mean() < threshold and res:
-                res, im_ar = vcap.read()
-            im_ar = cv2.resize(im_ar, (770, 410), 0, 0, cv2.INTER_LINEAR)
-            cv2.imwrite(f'{instance.name_slug}.jpg', im_ar)
-            instance.image.save(
+        success, image = vcap.read()
+        cv2.imwrite(f'{instance.name_slug}.jpg', image)  # save frame as JPEG file
+        instance.image.save(
                 f'{instance.name_slug}.jpg',
                 File(open(f'{bd}/{instance.name_slug}.jpg', 'rb'))
             )
-            instance.duration=round(duration)
-            instance.save()
-            os.remove(f'{bd}/{instance.name_slug}.jpg')
-        except:
-            pass
+        instance.duration=round(duration)
+        instance.save()
+        os.remove(f'{bd}/{instance.name_slug}.jpg')
+
+
+        # res, im_ar = vcap.read()
+
+        # try:
+        #     while im_ar.mean() < threshold and res:
+        #         res, im_ar = vcap.read()
+        #     im_ar = cv2.resize(im_ar, (770, 410), 0, 0, cv2.INTER_LINEAR)
+        #     cv2.imwrite(f'{instance.name_slug}.jpg', im_ar)
+        #     instance.image.save(
+        #         f'{instance.name_slug}.jpg',
+        #         File(open(f'{bd}/{instance.name_slug}.jpg', 'rb'))
+        #     )
+        #     instance.duration=round(duration)
+        #     instance.save()
+        #     os.remove(f'{bd}/{instance.name_slug}.jpg')
+        # except:
+        #     pass
 
 
 
